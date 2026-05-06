@@ -24,3 +24,10 @@ export const snapshotStatus = pgEnum("snapshot_status", [
   "error",
   "missing",
 ]);
+export const terminalStatus = pgEnum("terminal_status", [
+  "active",
+  "idle",
+  "blocked",
+  "done",
+  "offline",
+]);

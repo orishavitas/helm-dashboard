@@ -14,6 +14,7 @@ const envSchema = z.object({
   GITHUB_APP_SLUG: z.string().min(1),
   VERCEL_API_BASE_URL: z.string().url().default("https://api.vercel.com"),
   ENCRYPTION_KEY: z.string().min(32),
+  OVERLORD_PUSH_SECRET: z.string().min(16),
 });
 
 export function parseEnv() {
