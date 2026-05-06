@@ -1,6 +1,8 @@
 # Task State — Helm Dashboard
 
+**Repo:** https://github.com/orishavitas/helm-dashboard
 **Sprint:** docs/sprints/2026-05-06-helm-dashboard-sprint-01-overlord-monitor.md
+**Sprint (GitHub):** https://github.com/orishavitas/helm-dashboard/blob/master/DOCS/sprints/2026-05-06-helm-dashboard-sprint-01-overlord-monitor.md
 **Current task:** helm-overlord-01 (start here)
 **Written by:** Legion
 **Written at:** 2026-05-06
