@@ -2,6 +2,7 @@ import { Plus } from "lucide-react";
 
 import { ProjectForm } from "@/components/forms/project-form";
 import { TodoForm } from "@/components/forms/todo-form";
+import { OverlordPanel } from "@/components/overlord-panel";
 import { ProjectCard } from "@/components/project-card";
 import { TodoList } from "@/components/todo-list";
 import { getProjectSummaries } from "@/lib/data/projects";
@@ -17,6 +18,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="grid gap-6 p-4 md:p-6">
+      <OverlordPanel />
       <header className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold text-zinc-50">Attention</h1>
