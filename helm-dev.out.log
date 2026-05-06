@@ -1,0 +1,17 @@
+
+> helm-dashboard@0.1.0 dev C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard
+> next dev "--hostname" "127.0.0.1" "--port" "3000"
+
+   ▲ Next.js 15.5.15
+   - Local:        http://127.0.0.1:3000
+   - Network:      http://127.0.0.1:3000
+   - Experiments (use with caution):
+     · serverActions
+
+ ✓ Starting...
+ ✓ Ready in 1713ms
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 1394ms (463 modules)
+ ○ Compiling /login ...
+ ✓ Compiled /login in 3.9s (1022 modules)
+ GET /login 200 in 5048ms
