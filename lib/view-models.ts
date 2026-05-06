@@ -45,3 +45,24 @@ export type TodoItem = {
   title: string;
   done: boolean;
 };
+
+export type TerminalSnapshot = {
+  id: string;
+  terminalId: string;
+  label: string;
+  status: "active" | "idle" | "blocked" | "done" | "offline";
+  currentTask: string | null;
+  repo: string | null;
+  agentRole: string | null;
+  contextPct: number | null;
+  meta: Record<string, unknown>;
+  pushedAt: Date;
+};
+
+export type OverlordState = {
+  terminals: Array<{
+    current: TerminalSnapshot;
+    history: TerminalSnapshot[];
+  }>;
+  fetchedAt: Date;
+};
