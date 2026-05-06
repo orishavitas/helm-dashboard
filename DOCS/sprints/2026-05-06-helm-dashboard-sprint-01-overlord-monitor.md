@@ -1,12 +1,14 @@
-# Sprint 01 — Overlord Monitor
+﻿# Sprint 01 â€” Overlord Monitor
 **Repo:** helm-dashboard
 **Sprint goal:** Build a self-contained Overlord Monitor widget: DB-backed terminal heartbeat store, push/state API endpoints, React Query polling panel, embeddable in any dashboard page, deployed to Vercel.
 **Started:** 2026-05-06
-**Closed:** —
+**Closed:** BLOCKED on Neon env apply
+
+**Codex execution status (2026-05-06T21:25:54+03:00):** Tasks 1 and 3-11 are implemented locally. Task 2 migration SQL exists, but `corepack pnpm db:migrate` is blocked because this shell has no `DATABASE_URL_UNPOOLED` or `DATABASE_URL`. Live heartbeat push testing is blocked until DB env, `OVERLORD_BASE_URL`, and `OVERLORD_PUSH_SECRET` are available.
 
 ---
 
-## Task 1 — DB schema: `terminal_snapshots` table + enum
+## Task 1 â€” DB schema: `terminal_snapshots` table + enum
 
 **task_id:** helm-overlord-01
 **Type:** code_implementation
@@ -25,11 +27,11 @@
 - `lib/env.ts` envSchema includes `OVERLORD_PUSH_SECRET: z.string().min(16)`
 - `corepack pnpm typecheck` passes with no errors
 
-**Status:** pending
+**Status:** done
 
 ---
 
-## Task 2 — Drizzle migration
+## Task 2 â€” Drizzle migration
 
 **task_id:** helm-overlord-02
 **Type:** code_implementation
@@ -44,13 +46,13 @@
 - A new migration file exists under `drizzle/` containing `CREATE TYPE terminal_status` and `CREATE TABLE terminal_snapshots`
 - `corepack pnpm db:migrate` exits 0
 
-**Stop condition:** If db:migrate fails due to Neon connection error, write BLOCKED — do not retry more than once.
+**Stop condition:** If db:migrate fails due to Neon connection error, write BLOCKED â€” do not retry more than once.
 
-**Status:** pending
+**Status:** blocked - migration SQL generated; `db:migrate` failed because DB URL env vars are empty
 
 ---
 
-## Task 3 — View models
+## Task 3 â€” View models
 
 **task_id:** helm-overlord-03
 **Type:** code_implementation
@@ -65,11 +67,11 @@
 - `lib/view-models.ts` exports `OverlordState` with fields: terminals (array of `{ current: TerminalSnapshot; history: TerminalSnapshot[] }`), fetchedAt
 - `corepack pnpm typecheck` passes
 
-**Status:** pending
+**Status:** done
 
 ---
 
-## Task 4 — Data layer: `lib/data/overlord.ts`
+## Task 4 â€” Data layer: `lib/data/overlord.ts`
 
 **task_id:** helm-overlord-04
 **Type:** code_implementation
@@ -85,13 +87,13 @@
 - Returns empty `terminals: []` if table is empty (no crash)
 - `corepack pnpm typecheck` passes
 
-**Implementation note:** Use `DISTINCT ON (terminal_id)` subquery pattern (Postgres/Neon). `toSnapshot()` helper converts DB row → `TerminalSnapshot`.
+**Implementation note:** Use `DISTINCT ON (terminal_id)` subquery pattern (Postgres/Neon). `toSnapshot()` helper converts DB row â†’ `TerminalSnapshot`.
 
-**Status:** pending
+**Status:** done
 
 ---
 
-## Task 5 — Push API: `POST /api/overlord/push`
+## Task 5 â€” Push API: `POST /api/overlord/push`
 
 **task_id:** helm-overlord-05
 **Type:** code_implementation
@@ -112,11 +114,11 @@
 
 **Body schema:** `{ terminalId, label, status, currentTask?, repo?, agentRole?, contextPct?, meta? }`
 
-**Status:** pending
+**Status:** done
 
 ---
 
-## Task 6 — State API: `GET /api/overlord/state`
+## Task 6 â€” State API: `GET /api/overlord/state`
 
 **task_id:** helm-overlord-06
 **Type:** code_implementation
@@ -125,7 +127,7 @@
 
 **Scope:**
 - Create `app/api/overlord/state/route.ts`
-- Auth gate: call `requireUser()` — unauthenticated requests get redirected/401
+- Auth gate: call `requireUser()` â€” unauthenticated requests get redirected/401
 - Call `getOverlordState()` and return as JSON
 - Mark `dynamic = "force-dynamic"` and `revalidate = 0`
 
@@ -134,11 +136,11 @@
 - Unauthenticated request does not return data (redirected to login or 401)
 - `corepack pnpm typecheck` passes
 
-**Status:** pending
+**Status:** done
 
 ---
 
-## Task 7 — Terminal card component
+## Task 7 â€” Terminal card component
 
 **task_id:** helm-overlord-07
 **Type:** code_implementation
@@ -148,7 +150,7 @@
 **Scope:**
 - Create `components/overlord-terminal-card.tsx`
 - Props: `{ current: TerminalSnapshot; history: TerminalSnapshot[] }`
-- Show: label, terminalId, status badge (colored), currentTask, repo, agentRole, contextPct (amber at ≥80%), pushedAt (relative time), history list (last N status + task + relative time)
+- Show: label, terminalId, status badge (colored), currentTask, repo, agentRole, contextPct (amber at â‰¥80%), pushedAt (relative time), history list (last N status + task + relative time)
 
 **Acceptance criteria:**
 - Component renders without error in RSC or client context
@@ -159,11 +161,11 @@
 
 **Implementation note:** Use existing `Badge` from `components/ui/badge.tsx` and `formatRelativeTime` from `lib/utils.ts`. Icons from `lucide-react`.
 
-**Status:** pending
+**Status:** done
 
 ---
 
-## Task 8 — Overlord panel widget
+## Task 8 â€” Overlord panel widget
 
 **task_id:** helm-overlord-08
 **Type:** code_implementation
@@ -178,17 +180,17 @@
 - Shows last poll time and poll interval note
 
 **Acceptance criteria:**
-- Component is fully self-contained — single import `<OverlordPanel />` drops into any page
+- Component is fully self-contained â€” single import `<OverlordPanel />` drops into any page
 - Poll interval is `2 * 60 * 1000` ms (2 minutes)
 - `staleTime` matches `refetchInterval`
 - `corepack pnpm typecheck` passes
-- No prop drilling — fetches its own data
+- No prop drilling â€” fetches its own data
 
-**Status:** pending
+**Status:** done
 
 ---
 
-## Task 9 — Wire into dashboard page
+## Task 9 â€” Wire into dashboard page
 
 **task_id:** helm-overlord-09
 **Type:** code_implementation
@@ -205,11 +207,11 @@
 - `corepack pnpm lint` passes (--max-warnings=0)
 - `corepack pnpm build` completes successfully
 
-**Status:** pending
+**Status:** done
 
 ---
 
-## Task 10 — PowerShell push script
+## Task 10 â€” PowerShell push script
 
 **task_id:** helm-overlord-10
 **Type:** code_implementation
@@ -228,11 +230,11 @@
 - Script can be invoked as: `.\scripts\overlord-push.ps1 -TerminalId "test-1" -Label "Test" -Status active`
 - No hard-coded secrets
 
-**Status:** pending
+**Status:** done
 
 ---
 
-## Task 11 — KB update
+## Task 11 â€” KB update
 
 **task_id:** helm-overlord-11
 **Type:** documentation
@@ -241,9 +243,9 @@
 
 **Scope:**
 - Update `legion-swarm/agents/kb/helm-dashboard.md`:
-  - Add `overlord-schema.ts` to Repo Layout → `lib/db/`
+  - Add `overlord-schema.ts` to Repo Layout â†’ `lib/db/`
   - Add `lib/data/overlord.ts` to Key Files table
-  - Add `app/api/overlord/` routes to Repo Layout → `app/api/`
+  - Add `app/api/overlord/` routes to Repo Layout â†’ `app/api/`
   - Add `components/overlord-panel.tsx` and `overlord-terminal-card.tsx` to `components/`
   - Add `OVERLORD_PUSH_SECRET` and `OVERLORD_BASE_URL` to Known Issues / env vars section
   - Remove "No tests exist yet" gotcha if tests were added; otherwise keep
@@ -252,4 +254,4 @@
 - KB accurately reflects all new files created in this sprint
 - No stale references
 
-**Status:** pending
+**Status:** done
