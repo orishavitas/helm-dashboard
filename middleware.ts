@@ -8,6 +8,7 @@ export default auth((request) => {
     pathname.startsWith("/login") ||
     pathname.startsWith("/api/auth") ||
     pathname.startsWith("/api/overlord/push") ||
+    pathname === "/api/operations/import" ||
     pathname.startsWith("/_next") ||
     pathname === "/favicon.ico";
 
