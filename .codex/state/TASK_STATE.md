@@ -2,9 +2,9 @@
 
 **Repo:** https://github.com/orishavitas/helm-dashboard
 **Sprint:** DOCS/sprints/2026-05-06-helm-dashboard-sprint-01-overlord-monitor.md
-**Current task:** Helm operability smoke passed; production Google OAuth callback adapter fix deployed, interactive browser login awaits verification
+**Current task:** Helm State Aggregator implemented locally; merge/push and Vercel production verification pending
 **Written by:** Legion (Claude) + Codex update 2026-05-19
-**Updated:** 2026-05-19T15:13:27+03:00
+**Updated:** 2026-05-19T21:45:00+03:00
 
 ## Objective
 
@@ -19,6 +19,8 @@ Local implementation is complete and verified by static/build checks. Runtime en
 Production OAuth config was triaged on 2026-05-19. Google Auth Platform is `External`/`Testing` with the expected test users, and the production Google callback URI is set. A later Vercel runtime log for `/api/auth/callback/google` showed Google discovery/token calls succeeded and Neon SQL returned 400. Codex traced the root cause to Auth.js `DrizzleAdapter(getDb())` defaulting to `user`/`account`/`session` tables while Helm's schema uses `users`/`accounts`/`sessions`/`verification_tokens`; `lib/auth.ts` now maps those tables explicitly.
 
 Codex pushed the Auth.js adapter fix to GitHub on 2026-05-19. Vercel production deployment `dpl_FNKyewXuws7jbKL65buWCQnrr1tF` reached `Ready` and owns `https://helm-dashboard-ten.vercel.app`.
+
+Codex implemented the State Aggregator on 2026-05-19 in the `state-aggregator` worktree. The branch adds task ownership/source fields, operations state aggregation/API, operations dashboard widgets, enriched heartbeat metadata, local sync config/script, secure import endpoint, import indexes, and Graphify refreshes. Static checks and build passed, `corepack pnpm db:migrate` applied the new migrations to Neon, and invalid import auth returned `401`.
 
 Codex added `concept-preview.html` on 2026-05-14 as a standalone browser-openable preview of the intended Helm dashboard experience. It does not change the Next.js runtime.
 
@@ -58,6 +60,14 @@ Codex converted the live dashboard on 2026-05-18 to a widget registry/layout arc
 | `lib/product-progress.ts` | Added TypeScript-only progress and maturity model |
 | `lib/data/projects.ts` | Computes sprint task-state counts and product progress |
 | `lib/auth.ts` | Maps Auth.js Drizzle adapter to Helm's actual auth tables |
+| `lib/data/operations.ts` | Aggregates project, terminal, task queue, blocker, and responsibility state |
+| `app/api/operations/state/route.ts` | Authenticated global operations state API |
+| `app/api/operations/import/route.ts` | Bearer-auth local sync import API |
+| `components/operations/` | Operations dashboard widgets for projects, queues, terminals, and responsibility |
+| `scripts/helm-sync-local.ps1` | Local repo/sprint scanner and import payload sender |
+| `config/helm-projects.example.json` | Example local sync project config |
+| `drizzle/0002_state_aggregator.sql` | Task ownership/source migration |
+| `drizzle/0003_operations_import_indexes.sql` | Non-destructive import upsert indexes |
 | `app/globals.css` | Added Helm token variables adapted from concept preview |
 | `drizzle/0001_overlord.sql` | Added scoped Overlord migration |
 | `scripts/overlord-push.ps1` | Added heartbeat push script |
@@ -97,7 +107,11 @@ Codex converted the live dashboard on 2026-05-18 to a widget registry/layout arc
 - Post-fix `corepack pnpm build` timed out twice before compilation output; no compiler error was emitted.
 - Graphify was refreshed after code change: 157 nodes, 180 edges, 56 communities. Known `.codex/hooks.json` permission warning remains on the helper's follow-on hook install.
 - Deploy verification passed: `git push origin master` updated GitHub through `61aec2f`; `vercel inspect helm-dashboard-ten.vercel.app` showed deployment `dpl_FNKyewXuws7jbKL65buWCQnrr1tF` as `Ready`; Node fetch returned 200 for `/login` and `/api/auth/providers`.
+- State Aggregator verification passed: `corepack pnpm typecheck`, `corepack pnpm lint`, `git diff --check`, and `corepack pnpm build`.
+- `corepack pnpm db:migrate` applied the state aggregator/import migrations to Neon.
+- `POST /api/operations/import` invalid bearer auth returned `401 {"error":"Unauthorized"}` in local dev.
+- Production heartbeat push through Node fetch returned `200 {"ok":true}` for `codex-helm-state-aggregator`.
 
 ## Next Safe Step
 
-Complete the interactive authenticated browser path: Google OAuth login from `/login` → dashboard → Overlord panel shows the latest terminal card → polling refreshes after the configured interval. Then mark the sprint done.
+Merge `state-aggregator` into `master`, push to GitHub, confirm Vercel production deployment is `Ready`, then complete the interactive authenticated browser path: Google OAuth login from `/login` -> dashboard -> operations widgets and Overlord panel render. Then mark the sprint done.

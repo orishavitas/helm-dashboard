@@ -1,9 +1,22 @@
 # Last Run - helm-dashboard
 
 **Written by:** Codex
-**Updated:** 2026-05-19T14:54:55+03:00
-**Task:** diagnose failed production Google OAuth callback
-**Result:** root cause found and patched locally. Vercel runtime log showed Google token exchange succeeded, then Neon returned 400. Auth.js was using default Drizzle adapter table names instead of Helm's auth schema tables.
+**Updated:** 2026-05-19T21:45:00+03:00
+**Task:** implement Helm State Aggregator
+**Result:** local implementation complete and verified; Neon migrations applied; production deployment pending Git push/Vercel verification.
+
+## State Aggregator - 2026-05-19
+
+- Added task ownership/source fields and migrations, including import uniqueness indexes.
+- Added `getOperationsState()` plus `GET /api/operations/state`.
+- Added compact operations widgets for project state, task queues, responsibility, and terminal presence.
+- Extended `scripts/overlord-push.ps1` with optional metadata while preserving previous positional argument order.
+- Added `scripts/helm-sync-local.ps1` and `config/helm-projects.example.json`; local real config remains ignored.
+- Added `POST /api/operations/import` with exact bearer auth, strict payload validation, non-destructive project/task upserts, and exact middleware bypass for that endpoint only.
+- Verification passed: `corepack pnpm typecheck`, `corepack pnpm lint`, `git diff --check`, `corepack pnpm build`, `corepack pnpm db:migrate`, and invalid import auth returning `401`.
+- Production heartbeat push via Node fetch returned `200 {"ok":true}` for `codex-helm-state-aggregator`; PowerShell/curl hit Windows TLS client errors before reaching Vercel.
+- Graphify was refreshed after each implementation slice and committed.
+- Next safe step: merge `state-aggregator` into `master`, push to GitHub, wait for Vercel production deployment, then verify `https://helm-dashboard-ten.vercel.app`.
 
 ## Google OAuth Callback Fix - 2026-05-19
 

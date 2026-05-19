@@ -2,6 +2,14 @@
 
 ## 2026-05-19
 
+### Added
+- Implemented the Helm State Aggregator: task ownership/source fields, global operations state aggregation, auth-gated operations state API, compact operations dashboard widgets, enriched terminal heartbeat metadata, local repo/sprint sync script, and secure bearer-auth import endpoint.
+- Added non-destructive import indexes for live project `owner_id + name` and task `source + source_ref` upserts.
+
+### Changed
+- The dashboard now reuses the operations aggregate for the existing project summary section and renders project state, task queues, terminal presence, blockers, and responsibility below it.
+- `scripts/overlord-push.ps1` now accepts optional assignee/source/branch/command/cwd metadata without breaking the previous positional argument order.
+
 ### Planned
 - Added `DOCS/superpowers/plans/2026-05-19-helm-state-aggregator.md`, a phased implementation plan for populating Helm with all project states, live terminals, working/finished/pending/blocked tasks, and responsibility.
 
@@ -10,6 +18,10 @@
 - Updated `lib/auth.ts` to pass Helm's Drizzle auth tables explicitly into `DrizzleAdapter`.
 
 ### Verified
+- State Aggregator branch checks passed: `corepack pnpm typecheck`, `corepack pnpm lint`, `git diff --check`, and `corepack pnpm build`.
+- `corepack pnpm db:migrate` applied the state aggregator/import migrations successfully against Neon from the Codex worktree.
+- `POST /api/operations/import` invalid bearer auth returned `401 {"error":"Unauthorized"}` in local dev verification.
+- Production heartbeat push returned `200 {"ok":true}` through Node fetch for terminal `codex-helm-state-aggregator`; PowerShell/curl attempts hit Windows TLS client errors before reaching Vercel.
 - Operability smoke passed from Codex: `corepack pnpm typecheck`, `corepack pnpm lint`, and `corepack pnpm build`.
 - Local dev-server probes passed: `/login` returned 200; `/` and `/api/overlord/state` returned expected auth redirects.
 - Neon read-only checks passed: `select 1` returned `ok: 1`, and `terminal_snapshots` exists.

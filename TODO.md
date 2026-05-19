@@ -2,11 +2,13 @@
 
 ## State Aggregator
 
-- [ ] Review `DOCS/superpowers/plans/2026-05-19-helm-state-aggregator.md`
-- [ ] Implement ownership/source fields for tasks
-- [ ] Implement global operations state query and API
-- [ ] Add operations widgets for projects, terminals, tasks, blockers, and responsibility
-- [ ] Add local sync/import path for configured repos and sprint files
+- [x] Review `DOCS/superpowers/plans/2026-05-19-helm-state-aggregator.md`
+- [x] Implement ownership/source fields for tasks
+- [x] Implement global operations state query and API
+- [x] Add operations widgets for projects, terminals, tasks, blockers, and responsibility
+- [x] Add local sync/import path for configured repos and sprint files
+- [x] Add secure `POST /api/operations/import` endpoint with bearer auth and non-destructive upserts
+- [ ] Production browser verification: authenticated dashboard renders operations widgets after Vercel deployment
 
 ## Sprint 01: Overlord Monitor
 
@@ -29,7 +31,7 @@
   OVERLORD_PUSH_SECRET=<16+ char secret>
   OVERLORD_BASE_URL=http://localhost:3000
   ```
-- [ ] Run `corepack pnpm db:migrate` (not run in the 2026-05-19 smoke test; DB catalog already shows `terminal_snapshots`)
+- [x] Run `corepack pnpm db:migrate` - Codex applied state aggregator/import migrations on 2026-05-19
 - [x] Run `scripts/overlord-push.ps1` with real env — 2026-05-19 Codex smoke push returned `{"ok":true}` and inserted `codex-smoke-20260519`
 - [x] Confirm `terminal_snapshots` table exists in Neon
 
@@ -44,7 +46,7 @@
 ### Code quality (non-blocking)
 
 - [x] Run `corepack pnpm typecheck` + `corepack pnpm lint` after Auth.js adapter fix — passed 2026-05-19
-- [ ] Re-run `corepack pnpm build`; local build runner timed out twice before compilation output on 2026-05-19, while typecheck/lint passed
+- [x] Re-run `corepack pnpm build` - passed from Codex state-aggregator worktree on 2026-05-19
 - [ ] Resolve Windows path casing warning (Documents vs documents) — low priority
 
 ## Done ✅
@@ -69,3 +71,4 @@
 - [x] 2026-05-19 operability smoke: `/login` 200, protected routes 307, DB `select 1`, Overlord table present, invalid push 401, valid push 200
 - [x] 2026-05-19 OAuth deployment config triage: Google app is External/Testing with test users; Vercel env had whitespace and was missing `AUTH_TRUST_HOST=true`
 - [x] 2026-05-19 Google callback root cause: Auth.js `DrizzleAdapter` was defaulting to `user`/`account`/`session` tables; fixed `lib/auth.ts` to map Helm's `users`/`accounts`/`sessions`/`verification_tokens` tables explicitly
+- [x] 2026-05-19 State Aggregator implementation: ownership/source task fields, operations state API, dashboard widgets, terminal metadata, local sync script, secure import endpoint, import indexes, Graphify refreshes, and Neon migration
