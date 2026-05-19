@@ -2,7 +2,7 @@
 
 **Repo:** https://github.com/orishavitas/helm-dashboard
 **Sprint:** DOCS/sprints/2026-05-06-helm-dashboard-sprint-01-overlord-monitor.md
-**Current task:** Helm State Aggregator implemented locally; merge/push and Vercel production verification pending
+**Current task:** Helm State Aggregator pushed to production; import endpoint waiting on Vercel `OPERATIONS_IMPORT_SECRET`
 **Written by:** Legion (Claude) + Codex update 2026-05-19
 **Updated:** 2026-05-19T21:45:00+03:00
 
@@ -114,4 +114,4 @@ Codex converted the live dashboard on 2026-05-18 to a widget registry/layout arc
 
 ## Next Safe Step
 
-Merge `state-aggregator` into `master`, push to GitHub, confirm Vercel production deployment is `Ready`, then complete the interactive authenticated browser path: Google OAuth login from `/login` -> dashboard -> operations widgets and Overlord panel render. Then mark the sprint done.
+Add `OPERATIONS_IMPORT_SECRET` to Vercel Production env, redeploy if needed, then verify `POST /api/operations/import` with a wrong bearer returns `401`. After that, complete the interactive authenticated browser path: Google OAuth login from `/login` -> dashboard -> operations widgets and Overlord panel render. Then mark the sprint done.

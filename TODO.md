@@ -8,6 +8,7 @@
 - [x] Add operations widgets for projects, terminals, tasks, blockers, and responsibility
 - [x] Add local sync/import path for configured repos and sprint files
 - [x] Add secure `POST /api/operations/import` endpoint with bearer auth and non-destructive upserts
+- [ ] Add `OPERATIONS_IMPORT_SECRET` to Vercel Production env, then redeploy or promote the latest commit
 - [ ] Production browser verification: authenticated dashboard renders operations widgets after Vercel deployment
 
 ## Sprint 01: Overlord Monitor

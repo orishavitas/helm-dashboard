@@ -18,6 +18,9 @@
 - Updated `lib/auth.ts` to pass Helm's Drizzle auth tables explicitly into `DrizzleAdapter`.
 
 ### Verified
+- Pushed `master` to GitHub through commit `fdb8b8c`; production alias `https://helm-dashboard-ten.vercel.app` serves the updated app.
+- Post-push production HTTP smoke passed for `/login` (200), `/api/auth/providers` (200), and protected `/api/operations/state` redirecting to `/login` (307).
+- Production `POST /api/operations/import` currently returns 500 because Vercel Production is missing `OPERATIONS_IMPORT_SECRET`; Vercel CLI auth is invalid in this shell, so the env var could not be added from Codex.
 - State Aggregator branch checks passed: `corepack pnpm typecheck`, `corepack pnpm lint`, `git diff --check`, and `corepack pnpm build`.
 - `corepack pnpm db:migrate` applied the state aggregator/import migrations successfully against Neon from the Codex worktree.
 - `POST /api/operations/import` invalid bearer auth returned `401 {"error":"Unauthorized"}` in local dev verification.

@@ -16,7 +16,10 @@
 - Verification passed: `corepack pnpm typecheck`, `corepack pnpm lint`, `git diff --check`, `corepack pnpm build`, `corepack pnpm db:migrate`, and invalid import auth returning `401`.
 - Production heartbeat push via Node fetch returned `200 {"ok":true}` for `codex-helm-state-aggregator`; PowerShell/curl hit Windows TLS client errors before reaching Vercel.
 - Graphify was refreshed after each implementation slice and committed.
-- Next safe step: merge `state-aggregator` into `master`, push to GitHub, wait for Vercel production deployment, then verify `https://helm-dashboard-ten.vercel.app`.
+- GitHub push completed: `master` now points to `fdb8b8c`.
+- Production alias smoke passed for `/login` (200), `/api/auth/providers` (200), and protected `/api/operations/state` redirecting to `/login` (307).
+- Production `POST /api/operations/import` returns 500 because `OPERATIONS_IMPORT_SECRET` is not configured in Vercel Production. Vercel CLI auth is invalid in this shell, so Codex could not add it.
+- Next safe step: add `OPERATIONS_IMPORT_SECRET` to Vercel Production env, trigger redeploy if needed, then verify import invalid auth returns `401`.
 
 ## Google OAuth Callback Fix - 2026-05-19
 
