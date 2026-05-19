@@ -1,11 +1,11 @@
-# Graph Report - C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard  (2026-05-19)
+# Graph Report - C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator  (2026-05-19)
 
 ## Corpus Check
-- 72 files · ~40,202 words
+- 72 files · ~42,892 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 157 nodes · 180 edges · 56 communities detected
+- 156 nodes · 179 edges · 56 communities detected
 - Extraction: 58% EXTRACTED · 42% INFERRED · 0% AMBIGUOUS · INFERRED: 76 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -81,33 +81,33 @@
 
 ## Surprising Connections (you probably didn't know these)
 - `ProtectedLayout()` --calls--> `requireUser()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\(app)\layout.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\session.ts
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\layout.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
+- `GET()` --calls--> `listVercelProjects()`  [INFERRED]
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\api\vercel\projects\route.ts → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\integrations\vercel.ts
 - `DashboardPage()` --calls--> `requireUser()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\(app)\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\session.ts
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
 - `SettingsPage()` --calls--> `requireUser()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\(app)\settings\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\session.ts
-- `SettingsPage()` --calls--> `getProjectSummaries()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\(app)\settings\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\data\projects.ts
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\settings\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
 - `GET()` --calls--> `requireUser()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\api\vercel\projects\route.ts → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\session.ts
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\api\vercel\projects\route.ts → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
 
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.19
-Nodes (20): getDb(), connectVercelToken(), linkProjectRepo(), linkVercelProject(), refreshGithub(), refreshProjectSnapshots(), refreshVercel(), assertProjectOwner() (+12 more)
+Cohesion: 0.22
+Nodes (16): getDb(), linkProjectRepo(), linkVercelProject(), assertProjectOwner(), createProject(), softDeleteProject(), updateProject(), requireUser() (+8 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.15
-Nodes (6): getOverlordState(), GET(), apiBase(), latestVercelDeployment(), listVercelProjects(), vercelFetch()
+Cohesion: 0.16
+Nodes (8): getOpenPullRequests(), githubForInstallation(), githubInstallUrl(), listInstallationRepos(), privateKey(), getOverlordState(), safeGithubUrl(), GET()
 
 ### Community 2 - "Community 2"
-Cohesion: 0.28
-Nodes (6): DashboardPage(), deploymentField(), getProjectDetail(), getProjectSummaries(), toSummary(), getGlobalTodos()
+Cohesion: 0.22
+Nodes (7): DashboardPage(), SettingsPage(), deploymentField(), getProjectDetail(), getProjectSummaries(), toSummary(), getGlobalTodos()
 
 ### Community 3 - "Community 3"
-Cohesion: 0.31
-Nodes (7): getOpenPullRequests(), githubForInstallation(), githubInstallUrl(), listInstallationRepos(), privateKey(), safeGithubUrl(), SettingsPage()
+Cohesion: 0.36
+Nodes (7): decryptSecret(), encryptSecret(), keyFromEnv(), connectVercelToken(), refreshGithub(), refreshProjectSnapshots(), refreshVercel()
 
 ### Community 4 - "Community 4"
 Cohesion: 0.4
@@ -118,8 +118,8 @@ Cohesion: 0.6
 Nodes (5): computeProductProgress(), maturityFromSignals(), providerLabel(), scoreProvider(), stageFromPercent()
 
 ### Community 6 - "Community 6"
-Cohesion: 0.83
-Nodes (3): decryptSecret(), encryptSecret(), keyFromEnv()
+Cohesion: 0.5
+Nodes (4): apiBase(), latestVercelDeployment(), listVercelProjects(), vercelFetch()
 
 ### Community 7 - "Community 7"
 Cohesion: 0.5
@@ -155,7 +155,7 @@ Nodes (0):
 
 ### Community 15 - "Community 15"
 Cohesion: 1.0
-Nodes (0):
+Nodes (1): ProtectedLayout()
 
 ### Community 16 - "Community 16"
 Cohesion: 1.0
@@ -219,7 +219,7 @@ Nodes (0):
 
 ### Community 31 - "Community 31"
 Cohesion: 1.0
-Nodes (1): ProtectedLayout()
+Nodes (0):
 
 ### Community 32 - "Community 32"
 Cohesion: 1.0
@@ -320,11 +320,11 @@ Nodes (0):
 ## Knowledge Gaps
 - **Thin community `Community 14`** (2 nodes): `layout.tsx`, `RootLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 15`** (2 nodes): `page.tsx`, `LoginPage()`
+- **Thin community `Community 15`** (2 nodes): `layout.tsx`, `ProtectedLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 16`** (2 nodes): `AppShell()`, `app-shell.tsx`
+- **Thin community `Community 16`** (2 nodes): `page.tsx`, `LoginPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 17`** (2 nodes): `product-progress.tsx`, `cn()`
+- **Thin community `Community 17`** (2 nodes): `AppShell()`, `app-shell.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 18`** (2 nodes): `query-provider.tsx`, `QueryProvider()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -352,25 +352,25 @@ Nodes (0):
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 30`** (2 nodes): `index.ts`, `hasDatabaseUrl()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 31`** (2 nodes): `layout.tsx`, `ProtectedLayout()`
+- **Thin community `Community 31`** (1 nodes): `drizzle.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 32`** (1 nodes): `drizzle.config.ts`
+- **Thin community `Community 32`** (1 nodes): `eslint.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 33`** (1 nodes): `eslint.config.mjs`
+- **Thin community `Community 33`** (1 nodes): `middleware.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 34`** (1 nodes): `middleware.ts`
+- **Thin community `Community 34`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 35`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 35`** (1 nodes): `next.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 36`** (1 nodes): `next.config.ts`
+- **Thin community `Community 36`** (1 nodes): `postcss.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 37`** (1 nodes): `postcss.config.mjs`
+- **Thin community `Community 37`** (1 nodes): `tailwind.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 38`** (1 nodes): `tailwind.config.ts`
+- **Thin community `Community 38`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 39`** (1 nodes): `page.tsx`
+- **Thin community `Community 39`** (1 nodes): `route.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 40`** (1 nodes): `route.ts`
+- **Thin community `Community 40`** (1 nodes): `product-progress.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 41`** (1 nodes): `todo-list.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
@@ -406,12 +406,12 @@ Nodes (0):
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `getDb()` connect `Community 0` to `Community 1`, `Community 2`, `Community 4`, `Community 30`?**
-  _High betweenness centrality (0.127) - this node is a cross-community bridge._
+- **Why does `getDb()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 30`?**
+  _High betweenness centrality (0.128) - this node is a cross-community bridge._
 - **Why does `GET()` connect `Community 1` to `Community 0`, `Community 3`, `Community 4`, `Community 6`?**
-  _High betweenness centrality (0.089) - this node is a cross-community bridge._
-- **Why does `requireUser()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 31`?**
-  _High betweenness centrality (0.049) - this node is a cross-community bridge._
+  _High betweenness centrality (0.091) - this node is a cross-community bridge._
+- **Why does `requireUser()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 15`?**
+  _High betweenness centrality (0.050) - this node is a cross-community bridge._
 - **Are the 25 inferred relationships involving `getDb()` (e.g. with `GET()` and `POST()`) actually correct?**
   _`getDb()` has 25 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 19 inferred relationships involving `requireUser()` (e.g. with `ProtectedLayout()` and `DashboardPage()`) actually correct?**
