@@ -14,7 +14,12 @@ param(
   [string]$AgentRole = "",
   [int]$ContextPct = -1,
   [string]$BaseUrl = $env:OVERLORD_BASE_URL,
-  [string]$Secret = $env:OVERLORD_PUSH_SECRET
+  [string]$Secret = $env:OVERLORD_PUSH_SECRET,
+  [string]$Assignee = "",
+  [string]$SourceRef = "",
+  [string]$Branch = "",
+  [string]$LastCommand = "",
+  [string]$Cwd = (Get-Location).Path
 )
 
 if (-not $BaseUrl) {
@@ -35,7 +40,13 @@ $payload = @{
   repo = if ($Repo) { $Repo } else { $null }
   agentRole = if ($AgentRole) { $AgentRole } else { $null }
   contextPct = if ($ContextPct -ge 0) { $ContextPct } else { $null }
-  meta = @{}
+  meta = @{
+    assignee = if ($Assignee) { $Assignee } else { $null }
+    sourceRef = if ($SourceRef) { $SourceRef } else { $null }
+    branch = if ($Branch) { $Branch } else { $null }
+    lastCommand = if ($LastCommand) { $LastCommand } else { $null }
+    cwd = if ($Cwd) { $Cwd } else { $null }
+  }
 }
 
 $base = $BaseUrl.TrimEnd("/")
