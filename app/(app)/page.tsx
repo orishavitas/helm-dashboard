@@ -1,13 +1,14 @@
 import { DashboardWidgetGrid } from "@/components/dashboard/dashboard-layout";
-import { getProjectSummaries } from "@/lib/data/projects";
+import { OperationsDashboard } from "@/components/operations/operations-dashboard";
+import { getOperationsState } from "@/lib/data/operations";
 import { getGlobalTodos } from "@/lib/data/todos";
 import { requireUser } from "@/lib/session";
 
 export default async function DashboardPage() {
   const user = await requireUser();
-  const [projects, todos] = await Promise.all([
-    getProjectSummaries(user.id),
+  const [todos, operationsState] = await Promise.all([
     getGlobalTodos(user.id),
+    getOperationsState(user.id),
   ]);
 
   return (
@@ -19,7 +20,8 @@ export default async function DashboardPage() {
           <p className="mt-1 text-sm text-zinc-500">Active projects, terminal state, product maturity, and missing launch signals.</p>
         </div>
       </header>
-      <DashboardWidgetGrid projects={projects} todos={todos} />
+      <DashboardWidgetGrid projects={operationsState.projects} todos={todos} />
+      <OperationsDashboard state={operationsState} />
     </div>
   );
 }
