@@ -79,3 +79,41 @@ export type OverlordState = {
   }>;
   fetchedAt: Date;
 };
+
+export type OperationsTask = TaskItem & {
+  projectId: string;
+  projectName: string;
+  sprintName: string | null;
+  updatedAt: Date;
+};
+
+export type ResponsibilityBucket = {
+  assignee: string;
+  activeTerminals: number;
+  workingTasks: number;
+  pendingTasks: number;
+  blockedTasks: number;
+  finishedTasks: number;
+};
+
+export type OperationsProjectState = ProjectSummary & {
+  derivedState: "blocked" | "working" | "pending" | "idle";
+  activeTerminalCount: number;
+  blockedTaskCount: number;
+  pendingTaskCount: number;
+  workingTaskCount: number;
+  finishedTaskCount: number;
+};
+
+export type OperationsState = {
+  fetchedAt: Date;
+  projects: OperationsProjectState[];
+  terminals: OverlordState["terminals"];
+  tasks: {
+    working: OperationsTask[];
+    pending: OperationsTask[];
+    blocked: OperationsTask[];
+    finished: OperationsTask[];
+  };
+  responsibility: ResponsibilityBucket[];
+};
