@@ -90,7 +90,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\layout.tsx",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_app_layout_tsx",
-      "community": 34,
+      "community": 0,
       "norm_label": "layout.tsx"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\layout.tsx",
       "source_location": "L4",
       "id": "layout_protectedlayout",
-      "community": 34,
+      "community": 0,
       "norm_label": "protectedlayout()"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\page.tsx",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_app_page_tsx",
-      "community": 1,
+      "community": 3,
       "norm_label": "page.tsx"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\page.tsx",
       "source_location": "L7",
       "id": "page_dashboardpage",
-      "community": 1,
+      "community": 3,
       "norm_label": "dashboardpage()"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\settings\\page.tsx",
       "source_location": "L10",
       "id": "page_settingspage",
-      "community": 1,
+      "community": 3,
       "norm_label": "settingspage()"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\github\\callback\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_github_callback_route_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\vercel\\projects\\route.ts",
       "source_location": "L10",
       "id": "route_get",
-      "community": 2,
+      "community": 1,
       "norm_label": "get()"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\github\\install\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_github_install_route_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -216,8 +216,80 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\github\\repos\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_github_repos_route_ts",
+      "community": 1,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L1",
+      "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
       "community": 2,
       "norm_label": "route.ts"
+    },
+    {
+      "label": "emptyToNull()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L53",
+      "id": "route_emptytonull",
+      "community": 2,
+      "norm_label": "emptytonull()"
+    },
+    {
+      "label": "splitRepo()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L58",
+      "id": "route_splitrepo",
+      "community": 2,
+      "norm_label": "splitrepo()"
+    },
+    {
+      "label": "resolveOwner()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L68",
+      "id": "route_resolveowner",
+      "community": 2,
+      "norm_label": "resolveowner()"
+    },
+    {
+      "label": "upsertProject()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L89",
+      "id": "route_upsertproject",
+      "community": 2,
+      "norm_label": "upsertproject()"
+    },
+    {
+      "label": "upsertSprint()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L141",
+      "id": "route_upsertsprint",
+      "community": 2,
+      "norm_label": "upsertsprint()"
+    },
+    {
+      "label": "upsertTask()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L165",
+      "id": "route_upserttask",
+      "community": 2,
+      "norm_label": "upserttask()"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\overlord\\push\\route.ts",
+      "source_location": "L19",
+      "id": "route_post",
+      "community": 2,
+      "norm_label": "post()"
     },
     {
       "label": "route.ts",
@@ -225,7 +297,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\state\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_state_route_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -234,17 +306,8 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\overlord\\push\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_overlord_push_route_ts",
-      "community": 6,
+      "community": 2,
       "norm_label": "route.ts"
-    },
-    {
-      "label": "POST()",
-      "file_type": "code",
-      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\overlord\\push\\route.ts",
-      "source_location": "L19",
-      "id": "route_post",
-      "community": 6,
-      "norm_label": "post()"
     },
     {
       "label": "route.ts",
@@ -252,7 +315,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\overlord\\state\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_overlord_state_route_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -261,7 +324,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\vercel\\projects\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_vercel_projects_route_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "route.ts"
     },
     {
@@ -792,34 +855,43 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_env_ts",
-      "community": 6,
+      "community": 2,
       "norm_label": "env.ts"
     },
     {
       "label": "parseEnv()",
       "file_type": "code",
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
-      "source_location": "L25",
+      "source_location": "L30",
       "id": "env_parseenv",
-      "community": 6,
+      "community": 2,
       "norm_label": "parseenv()"
     },
     {
       "label": "parseOverlordPushEnv()",
       "file_type": "code",
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
-      "source_location": "L29",
+      "source_location": "L34",
       "id": "env_parseoverlordpushenv",
-      "community": 6,
+      "community": 2,
       "norm_label": "parseoverlordpushenv()"
+    },
+    {
+      "label": "parseOperationsImportEnv()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
+      "source_location": "L38",
+      "id": "env_parseoperationsimportenv",
+      "community": 2,
+      "norm_label": "parseoperationsimportenv()"
     },
     {
       "label": "optionalEnv()",
       "file_type": "code",
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
-      "source_location": "L33",
+      "source_location": "L42",
       "id": "env_optionalenv",
-      "community": 6,
+      "community": 2,
       "norm_label": "optionalenv()"
     },
     {
@@ -846,7 +918,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_product_progress_ts",
-      "community": 3,
+      "community": 6,
       "norm_label": "product-progress.ts"
     },
     {
@@ -855,7 +927,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L60",
       "id": "product_progress_providerlabel",
-      "community": 3,
+      "community": 6,
       "norm_label": "providerlabel()"
     },
     {
@@ -864,7 +936,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L69",
       "id": "product_progress_scoreprovider",
-      "community": 3,
+      "community": 6,
       "norm_label": "scoreprovider()"
     },
     {
@@ -873,7 +945,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L82",
       "id": "product_progress_stagefrompercent",
-      "community": 3,
+      "community": 6,
       "norm_label": "stagefrompercent()"
     },
     {
@@ -882,7 +954,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L101",
       "id": "product_progress_maturityfromsignals",
-      "community": 3,
+      "community": 6,
       "norm_label": "maturityfromsignals()"
     },
     {
@@ -891,7 +963,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L121",
       "id": "product_progress_computeproductprogress",
-      "community": 3,
+      "community": 6,
       "norm_label": "computeproductprogress()"
     },
     {
@@ -1224,7 +1296,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\overlord.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_data_overlord_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "overlord.ts"
     },
     {
@@ -1233,7 +1305,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\overlord.ts",
       "source_location": "L9",
       "id": "overlord_tosnapshot",
-      "community": 2,
+      "community": 1,
       "norm_label": "tosnapshot()"
     },
     {
@@ -1242,7 +1314,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\overlord.ts",
       "source_location": "L24",
       "id": "overlord_getoverlordstate",
-      "community": 2,
+      "community": 1,
       "norm_label": "getoverlordstate()"
     },
     {
@@ -1278,7 +1350,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\projects.ts",
       "source_location": "L79",
       "id": "projects_getprojectsummaries",
-      "community": 1,
+      "community": 3,
       "norm_label": "getprojectsummaries()"
     },
     {
@@ -1296,7 +1368,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\todos.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_data_todos_ts",
-      "community": 1,
+      "community": 3,
       "norm_label": "todos.ts"
     },
     {
@@ -1305,7 +1377,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\todos.ts",
       "source_location": "L7",
       "id": "todos_getglobaltodos",
-      "community": 1,
+      "community": 3,
       "norm_label": "getglobaltodos()"
     },
     {
@@ -1332,7 +1404,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\db\\index.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_db_index_ts",
-      "community": 0,
+      "community": 34,
       "norm_label": "index.ts"
     },
     {
@@ -1350,7 +1422,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\db\\index.ts",
       "source_location": "L22",
       "id": "index_hasdatabaseurl",
-      "community": 0,
+      "community": 34,
       "norm_label": "hasdatabaseurl()"
     },
     {
@@ -1494,7 +1566,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\security\\encryption.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_security_encryption_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "encryption.ts"
     },
     {
@@ -1503,7 +1575,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\security\\encryption.ts",
       "source_location": "L5",
       "id": "encryption_keyfromenv",
-      "community": 2,
+      "community": 1,
       "norm_label": "keyfromenv()"
     },
     {
@@ -1512,7 +1584,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\security\\encryption.ts",
       "source_location": "L23",
       "id": "encryption_encryptsecret",
-      "community": 2,
+      "community": 1,
       "norm_label": "encryptsecret()"
     },
     {
@@ -1521,7 +1593,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\security\\encryption.ts",
       "source_location": "L31",
       "id": "encryption_decryptsecret",
-      "community": 2,
+      "community": 1,
       "norm_label": "decryptsecret()"
     },
     {
@@ -1935,18 +2007,6 @@
       "relation": "calls",
       "confidence": "INFERRED",
       "confidence_score": 0.8,
-      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\operations.ts",
-      "source_location": "L140",
-      "weight": 1.0,
-      "_src": "route_get",
-      "_tgt": "operations_getoperationsstate",
-      "source": "route_get",
-      "target": "operations_getoperationsstate"
-    },
-    {
-      "relation": "calls",
-      "confidence": "INFERRED",
-      "confidence_score": 0.8,
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\app\\api\\overlord\\push\\route.ts",
       "source_location": "L21",
       "weight": 1.0,
@@ -1954,6 +2014,18 @@
       "_tgt": "route_post",
       "source": "route_get",
       "target": "route_post"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\operations.ts",
+      "source_location": "L140",
+      "weight": 1.0,
+      "_src": "route_get",
+      "_tgt": "operations_getoperationsstate",
+      "source": "route_get",
+      "target": "operations_getoperationsstate"
     },
     {
       "relation": "calls",
@@ -2054,14 +2126,266 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "_tgt": "route_emptytonull",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "target": "route_emptytonull",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "_tgt": "route_splitrepo",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "target": "route_splitrepo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "_tgt": "route_resolveowner",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "target": "route_resolveowner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L89",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "_tgt": "route_upsertproject",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "target": "route_upsertproject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L141",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "_tgt": "route_upsertsprint",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "target": "route_upsertsprint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L165",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "_tgt": "route_upserttask",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "target": "route_upserttask",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L199",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "_tgt": "route_post",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_import_route_ts",
+      "target": "route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_src": "route_splitrepo",
+      "_tgt": "route_emptytonull",
+      "source": "route_emptytonull",
+      "target": "route_splitrepo",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L103",
+      "weight": 1.0,
+      "_src": "route_upsertproject",
+      "_tgt": "route_emptytonull",
+      "source": "route_emptytonull",
+      "target": "route_upsertproject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L154",
+      "weight": 1.0,
+      "_src": "route_upsertsprint",
+      "_tgt": "route_emptytonull",
+      "source": "route_emptytonull",
+      "target": "route_upsertsprint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L180",
+      "weight": 1.0,
+      "_src": "route_upserttask",
+      "_tgt": "route_emptytonull",
+      "source": "route_emptytonull",
+      "target": "route_upserttask",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L92",
+      "weight": 1.0,
+      "_src": "route_upsertproject",
+      "_tgt": "route_splitrepo",
+      "source": "route_splitrepo",
+      "target": "route_upsertproject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L91",
+      "weight": 1.0,
+      "_src": "route_upsertproject",
+      "_tgt": "route_resolveowner",
+      "source": "route_resolveowner",
+      "target": "route_upsertproject",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_src": "route_resolveowner",
+      "_tgt": "index_getdb",
+      "source": "route_resolveowner",
+      "target": "index_getdb"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L218",
+      "weight": 1.0,
+      "_src": "route_post",
+      "_tgt": "route_upsertproject",
+      "source": "route_upsertproject",
+      "target": "route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L89",
+      "weight": 1.0,
+      "_src": "route_upsertproject",
+      "_tgt": "index_getdb",
+      "source": "route_upsertproject",
+      "target": "index_getdb"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L219",
+      "weight": 1.0,
+      "_src": "route_post",
+      "_tgt": "route_upsertsprint",
+      "source": "route_upsertsprint",
+      "target": "route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L133",
+      "weight": 1.0,
+      "_src": "route_upsertsprint",
+      "_tgt": "index_getdb",
+      "source": "route_upsertsprint",
+      "target": "index_getdb"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L223",
+      "weight": 1.0,
+      "_src": "route_post",
+      "_tgt": "route_upserttask",
+      "source": "route_upserttask",
+      "target": "route_post",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L153",
+      "weight": 1.0,
+      "_src": "route_upserttask",
+      "_tgt": "index_getdb",
+      "source": "route_upserttask",
+      "target": "index_getdb"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\overlord\\push\\route.ts",
       "source_location": "L19",
       "weight": 1.0,
       "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_overlord_push_route_ts",
       "_tgt": "route_post",
-      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_overlord_push_route_ts",
-      "target": "route_post",
+      "source": "route_post",
+      "target": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_overlord_push_route_ts",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\import\\route.ts",
+      "source_location": "L186",
+      "weight": 1.0,
+      "_src": "route_post",
+      "_tgt": "env_parseoperationsimportenv",
+      "source": "route_post",
+      "target": "env_parseoperationsimportenv"
     },
     {
       "relation": "calls",
@@ -2475,7 +2799,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
-      "source_location": "L25",
+      "source_location": "L30",
       "weight": 1.0,
       "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_env_ts",
       "_tgt": "env_parseenv",
@@ -2487,7 +2811,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
-      "source_location": "L29",
+      "source_location": "L34",
       "weight": 1.0,
       "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_env_ts",
       "_tgt": "env_parseoverlordpushenv",
@@ -2499,7 +2823,19 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
-      "source_location": "L33",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_env_ts",
+      "_tgt": "env_parseoperationsimportenv",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_env_ts",
+      "target": "env_parseoperationsimportenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
+      "source_location": "L42",
       "weight": 1.0,
       "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_env_ts",
       "_tgt": "env_optionalenv",
