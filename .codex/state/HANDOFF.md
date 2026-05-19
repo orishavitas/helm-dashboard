@@ -61,11 +61,12 @@ Production OAuth update after screenshots:
 - `corepack pnpm typecheck` and `corepack pnpm lint` passed.
 - `corepack pnpm build` timed out twice before compilation output; no compiler error was emitted.
 - Graphify refresh passed: 157 nodes, 180 edges, 56 communities; known `.codex/hooks.json` permission warning remains.
+- Codex pushed `master` through commit `61aec2f`; Vercel production deployment `dpl_FNKyewXuws7jbKL65buWCQnrr1tF` became `Ready` and owns `https://helm-dashboard-ten.vercel.app`.
+- Post-deploy smoke via Node fetch returned 200 for `/login` and 200 for `/api/auth/providers`, including the Google callback URL on the production alias.
 
-1. **Deploy the `lib/auth.ts` fix to Vercel production** so Auth.js uses Helm's actual auth tables.
-2. **Run authenticated browser verification**: start at `https://helm-dashboard-ten.vercel.app/login`, complete Google OAuth, then confirm the dashboard and Overlord panel show `codex-smoke-20260519` or a newer terminal card.
-3. **Verify polling behavior** in `components/overlord-panel.tsx` from a signed-in browser session.
-4. **Mark sprint done** once the authenticated dashboard path passes: update `DOCS/sprints/2026-05-06-helm-dashboard-sprint-01-overlord-monitor.md`.
+1. **Run authenticated browser verification**: start at `https://helm-dashboard-ten.vercel.app/login`, complete Google OAuth, then confirm the dashboard and Overlord panel show `codex-smoke-20260519` or a newer terminal card.
+2. **Verify polling behavior** in `components/overlord-panel.tsx` from a signed-in browser session.
+3. **Mark sprint done** once the authenticated dashboard path passes: update `DOCS/sprints/2026-05-06-helm-dashboard-sprint-01-overlord-monitor.md`.
 
 ---
 

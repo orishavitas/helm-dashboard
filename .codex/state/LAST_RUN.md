@@ -16,7 +16,9 @@
 - Verification: `corepack pnpm typecheck` passed; `corepack pnpm lint` passed.
 - Build status: `corepack pnpm build` timed out twice before compilation output at 180s and 360s; no build error was emitted.
 - Graphify: helper refresh rebuilt 157 nodes, 180 edges, and 56 communities. Follow-on hook install still hit the known `.codex/hooks.json` permission warning.
-- Next safe step: deploy the `lib/auth.ts` fix to Vercel production, then retest Google OAuth from `/login`.
+- Deployment: pushed `master` to GitHub through commit `61aec2f`. Vercel production deployment `dpl_FNKyewXuws7jbKL65buWCQnrr1tF` became `Ready` and owns alias `https://helm-dashboard-ten.vercel.app`.
+- Post-deploy smoke: Node fetch returned 200 for `/login` and 200 for `/api/auth/providers`; the providers response exposes Google with callback URL `https://helm-dashboard-ten.vercel.app/api/auth/callback/google`.
+- Next safe step: complete interactive Google OAuth login in a browser and confirm the dashboard/Overlord panel render after callback.
 
 ## Operability Smoke - 2026-05-19
 

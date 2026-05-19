@@ -27,7 +27,7 @@
 
 ### Ready to do (env unblocked)
 
-- [ ] Deploy the `lib/auth.ts` Auth.js Drizzle adapter table-mapping fix to Vercel production
+- [x] Deploy the `lib/auth.ts` Auth.js Drizzle adapter table-mapping fix to Vercel production — commit `61aec2f`, deployment `dpl_FNKyewXuws7jbKL65buWCQnrr1tF`
 - [ ] Test full browser login flow (Google OAuth → dashboard)
 - [ ] Verify `GET /api/overlord/state` returns data after push from an authenticated browser session
 - [ ] Verify polling interval works (2-minute auto-refresh in `overlord-panel.tsx`)

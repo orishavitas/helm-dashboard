@@ -13,10 +13,13 @@
 - Overlord push endpoint rejected invalid bearer auth with 401 and accepted `scripts/overlord-push.ps1` with valid env, inserting `codex-smoke-20260519`.
 - Post-fix checks passed: `corepack pnpm typecheck` and `corepack pnpm lint`.
 - Graphify AST graph refresh passed after the code change: 157 nodes, 180 edges, 56 communities.
+- Pushed `master` to GitHub through commit `61aec2f`, and Vercel created production deployment `dpl_FNKyewXuws7jbKL65buWCQnrr1tF`.
+- Production alias `https://helm-dashboard-ten.vercel.app` now points at `https://helm-dashboard-jqaqvshxe-orishavitas-projects.vercel.app`.
+- Post-deploy HTTP smoke via Node fetch passed: `/login` returned 200 and `/api/auth/providers` returned the Google provider with callback URL `https://helm-dashboard-ten.vercel.app/api/auth/callback/google`.
 
 ### Remaining
 - Authenticated browser flow still needs manual/interactive Google OAuth verification before the sprint can be marked fully done.
-- Vercel production needs a deployment containing the `lib/auth.ts` adapter fix before retesting `/login`.
+- Interactive browser Google OAuth completion still needs a signed-in browser test after the production deploy.
 - Local `corepack pnpm build` timed out twice before compilation output in the 2026-05-19 follow-up session; typecheck and lint passed.
 
 ## 2026-05-18

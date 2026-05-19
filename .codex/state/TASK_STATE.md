@@ -2,9 +2,9 @@
 
 **Repo:** https://github.com/orishavitas/helm-dashboard
 **Sprint:** DOCS/sprints/2026-05-06-helm-dashboard-sprint-01-overlord-monitor.md
-**Current task:** Helm operability smoke passed; production Google OAuth callback adapter fix awaits deployment
+**Current task:** Helm operability smoke passed; production Google OAuth callback adapter fix deployed, interactive browser login awaits verification
 **Written by:** Legion (Claude) + Codex update 2026-05-19
-**Updated:** 2026-05-19T14:54:55+03:00
+**Updated:** 2026-05-19T15:13:27+03:00
 
 ## Objective
 
@@ -17,6 +17,8 @@ Add a rearrangeable widget architecture and TypeScript-only product progress mod
 Local implementation is complete and verified by static/build checks. Runtime env now exists in `.env.local`; Codex verified DB connectivity, `terminal_snapshots` presence, invalid push rejection, and a valid live heartbeat push on 2026-05-19.
 
 Production OAuth config was triaged on 2026-05-19. Google Auth Platform is `External`/`Testing` with the expected test users, and the production Google callback URI is set. A later Vercel runtime log for `/api/auth/callback/google` showed Google discovery/token calls succeeded and Neon SQL returned 400. Codex traced the root cause to Auth.js `DrizzleAdapter(getDb())` defaulting to `user`/`account`/`session` tables while Helm's schema uses `users`/`accounts`/`sessions`/`verification_tokens`; `lib/auth.ts` now maps those tables explicitly.
+
+Codex pushed the Auth.js adapter fix to GitHub on 2026-05-19. Vercel production deployment `dpl_FNKyewXuws7jbKL65buWCQnrr1tF` reached `Ready` and owns `https://helm-dashboard-ten.vercel.app`.
 
 Codex added `concept-preview.html` on 2026-05-14 as a standalone browser-openable preview of the intended Helm dashboard experience. It does not change the Next.js runtime.
 
@@ -94,7 +96,8 @@ Codex converted the live dashboard on 2026-05-18 to a widget registry/layout arc
 - Post-fix `corepack pnpm lint` passed.
 - Post-fix `corepack pnpm build` timed out twice before compilation output; no compiler error was emitted.
 - Graphify was refreshed after code change: 157 nodes, 180 edges, 56 communities. Known `.codex/hooks.json` permission warning remains on the helper's follow-on hook install.
+- Deploy verification passed: `git push origin master` updated GitHub through `61aec2f`; `vercel inspect helm-dashboard-ten.vercel.app` showed deployment `dpl_FNKyewXuws7jbKL65buWCQnrr1tF` as `Ready`; Node fetch returned 200 for `/login` and `/api/auth/providers`.
 
 ## Next Safe Step
 
-Deploy the `lib/auth.ts` Auth.js adapter mapping fix to Vercel production. Then complete the interactive authenticated browser path: Google OAuth login from `/login` → dashboard → Overlord panel shows the latest terminal card → polling refreshes after the configured interval. Then mark the sprint done.
+Complete the interactive authenticated browser path: Google OAuth login from `/login` → dashboard → Overlord panel shows the latest terminal card → polling refreshes after the configured interval. Then mark the sprint done.
