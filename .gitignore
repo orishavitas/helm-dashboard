@@ -29,3 +29,4 @@ dist/
 .vercel
 .worktrees/
 .pnpm-store/
+config/helm-projects.local.json

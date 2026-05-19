@@ -1,0 +1,11 @@
+{
+  "projects": [
+    {
+      "name": "Helm-Dashboard",
+      "path": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard",
+      "repo": "orishavitas/helm-dashboard",
+      "vercelProject": "helm-dashboard",
+      "owner": "Ori"
+    }
+  ]
+}
