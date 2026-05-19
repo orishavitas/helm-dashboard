@@ -108,7 +108,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\page.tsx",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_app_page_tsx",
-      "community": 2,
+      "community": 1,
       "norm_label": "page.tsx"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\page.tsx",
       "source_location": "L7",
       "id": "page_dashboardpage",
-      "community": 2,
+      "community": 1,
       "norm_label": "dashboardpage()"
     },
     {
@@ -135,7 +135,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\settings\\page.tsx",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_app_settings_page_tsx",
-      "community": 3,
+      "community": 4,
       "norm_label": "page.tsx"
     },
     {
@@ -144,7 +144,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\settings\\page.tsx",
       "source_location": "L10",
       "id": "page_settingspage",
-      "community": 2,
+      "community": 1,
       "norm_label": "settingspage()"
     },
     {
@@ -153,7 +153,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\(app)\\settings\\page.tsx",
       "source_location": "L49",
       "id": "page_safegithuburl",
-      "community": 3,
+      "community": 4,
       "norm_label": "safegithuburl()"
     },
     {
@@ -189,7 +189,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\github\\callback\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_github_callback_route_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "route.ts"
     },
     {
@@ -198,7 +198,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\vercel\\projects\\route.ts",
       "source_location": "L10",
       "id": "route_get",
-      "community": 1,
+      "community": 2,
       "norm_label": "get()"
     },
     {
@@ -207,7 +207,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\github\\install\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_github_install_route_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "route.ts"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\github\\repos\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_github_repos_route_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "route.ts"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\operations\\state\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_operations_state_route_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "route.ts"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\overlord\\push\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_overlord_push_route_ts",
-      "community": 5,
+      "community": 6,
       "norm_label": "route.ts"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\overlord\\push\\route.ts",
       "source_location": "L19",
       "id": "route_post",
-      "community": 5,
+      "community": 6,
       "norm_label": "post()"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\overlord\\state\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_overlord_state_route_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "route.ts"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\app\\api\\vercel\\projects\\route.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_app_api_vercel_projects_route_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "route.ts"
     },
     {
@@ -432,7 +432,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\components\\dashboard\\dashboard-layout.tsx",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_components_dashboard_dashboard_layout_tsx",
-      "community": 7,
+      "community": 8,
       "norm_label": "dashboard-layout.tsx"
     },
     {
@@ -441,7 +441,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\components\\dashboard\\dashboard-layout.tsx",
       "source_location": "L49",
       "id": "dashboard_layout_averageprogress",
-      "community": 7,
+      "community": 8,
       "norm_label": "averageprogress()"
     },
     {
@@ -450,7 +450,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\components\\dashboard\\dashboard-layout.tsx",
       "source_location": "L56",
       "id": "dashboard_layout_integrationstatus",
-      "community": 7,
+      "community": 8,
       "norm_label": "integrationstatus()"
     },
     {
@@ -459,7 +459,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\components\\dashboard\\dashboard-layout.tsx",
       "source_location": "L68",
       "id": "dashboard_layout_deploylabel",
-      "community": 7,
+      "community": 8,
       "norm_label": "deploylabel()"
     },
     {
@@ -792,7 +792,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_env_ts",
-      "community": 5,
+      "community": 6,
       "norm_label": "env.ts"
     },
     {
@@ -801,7 +801,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
       "source_location": "L25",
       "id": "env_parseenv",
-      "community": 5,
+      "community": 6,
       "norm_label": "parseenv()"
     },
     {
@@ -810,7 +810,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
       "source_location": "L29",
       "id": "env_parseoverlordpushenv",
-      "community": 5,
+      "community": 6,
       "norm_label": "parseoverlordpushenv()"
     },
     {
@@ -819,7 +819,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\env.ts",
       "source_location": "L33",
       "id": "env_optionalenv",
-      "community": 5,
+      "community": 6,
       "norm_label": "optionalenv()"
     },
     {
@@ -846,7 +846,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_product_progress_ts",
-      "community": 4,
+      "community": 3,
       "norm_label": "product-progress.ts"
     },
     {
@@ -855,7 +855,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L60",
       "id": "product_progress_providerlabel",
-      "community": 4,
+      "community": 3,
       "norm_label": "providerlabel()"
     },
     {
@@ -864,7 +864,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L69",
       "id": "product_progress_scoreprovider",
-      "community": 4,
+      "community": 3,
       "norm_label": "scoreprovider()"
     },
     {
@@ -873,7 +873,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L82",
       "id": "product_progress_stagefrompercent",
-      "community": 4,
+      "community": 3,
       "norm_label": "stagefrompercent()"
     },
     {
@@ -882,7 +882,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L101",
       "id": "product_progress_maturityfromsignals",
-      "community": 4,
+      "community": 3,
       "norm_label": "maturityfromsignals()"
     },
     {
@@ -891,7 +891,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\product-progress.ts",
       "source_location": "L121",
       "id": "product_progress_computeproductprogress",
-      "community": 4,
+      "community": 3,
       "norm_label": "computeproductprogress()"
     },
     {
@@ -1224,7 +1224,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\overlord.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_data_overlord_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "overlord.ts"
     },
     {
@@ -1233,7 +1233,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\overlord.ts",
       "source_location": "L9",
       "id": "overlord_tosnapshot",
-      "community": 1,
+      "community": 2,
       "norm_label": "tosnapshot()"
     },
     {
@@ -1242,7 +1242,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\overlord.ts",
       "source_location": "L24",
       "id": "overlord_getoverlordstate",
-      "community": 1,
+      "community": 2,
       "norm_label": "getoverlordstate()"
     },
     {
@@ -1251,7 +1251,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\projects.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_data_projects_ts",
-      "community": 2,
+      "community": 3,
       "norm_label": "projects.ts"
     },
     {
@@ -1260,7 +1260,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\projects.ts",
       "source_location": "L17",
       "id": "projects_deploymentfield",
-      "community": 2,
+      "community": 3,
       "norm_label": "deploymentfield()"
     },
     {
@@ -1269,7 +1269,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\projects.ts",
       "source_location": "L22",
       "id": "projects_tosummary",
-      "community": 2,
+      "community": 3,
       "norm_label": "tosummary()"
     },
     {
@@ -1278,7 +1278,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\projects.ts",
       "source_location": "L79",
       "id": "projects_getprojectsummaries",
-      "community": 2,
+      "community": 1,
       "norm_label": "getprojectsummaries()"
     },
     {
@@ -1287,7 +1287,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\projects.ts",
       "source_location": "L95",
       "id": "projects_getprojectdetail",
-      "community": 2,
+      "community": 3,
       "norm_label": "getprojectdetail()"
     },
     {
@@ -1296,7 +1296,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\todos.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_data_todos_ts",
-      "community": 2,
+      "community": 1,
       "norm_label": "todos.ts"
     },
     {
@@ -1305,7 +1305,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\data\\todos.ts",
       "source_location": "L7",
       "id": "todos_getglobaltodos",
-      "community": 2,
+      "community": 1,
       "norm_label": "getglobaltodos()"
     },
     {
@@ -1395,7 +1395,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\github.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_integrations_github_ts",
-      "community": 3,
+      "community": 4,
       "norm_label": "github.ts"
     },
     {
@@ -1404,7 +1404,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\github.ts",
       "source_location": "L6",
       "id": "github_githubinstallurl",
-      "community": 3,
+      "community": 4,
       "norm_label": "githubinstallurl()"
     },
     {
@@ -1413,7 +1413,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\github.ts",
       "source_location": "L14",
       "id": "github_privatekey",
-      "community": 3,
+      "community": 4,
       "norm_label": "privatekey()"
     },
     {
@@ -1422,7 +1422,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\github.ts",
       "source_location": "L22",
       "id": "github_githubforinstallation",
-      "community": 3,
+      "community": 4,
       "norm_label": "githubforinstallation()"
     },
     {
@@ -1431,7 +1431,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\github.ts",
       "source_location": "L32",
       "id": "github_listinstallationrepos",
-      "community": 3,
+      "community": 4,
       "norm_label": "listinstallationrepos()"
     },
     {
@@ -1440,7 +1440,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\github.ts",
       "source_location": "L44",
       "id": "github_getopenpullrequests",
-      "community": 3,
+      "community": 4,
       "norm_label": "getopenpullrequests()"
     },
     {
@@ -1449,7 +1449,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\vercel.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_integrations_vercel_ts",
-      "community": 6,
+      "community": 7,
       "norm_label": "vercel.ts"
     },
     {
@@ -1458,7 +1458,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\vercel.ts",
       "source_location": "L3",
       "id": "vercel_apibase",
-      "community": 6,
+      "community": 7,
       "norm_label": "apibase()"
     },
     {
@@ -1467,7 +1467,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\vercel.ts",
       "source_location": "L5",
       "id": "vercel_vercelfetch",
-      "community": 6,
+      "community": 7,
       "norm_label": "vercelfetch()"
     },
     {
@@ -1476,7 +1476,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\vercel.ts",
       "source_location": "L20",
       "id": "vercel_listvercelprojects",
-      "community": 6,
+      "community": 7,
       "norm_label": "listvercelprojects()"
     },
     {
@@ -1485,7 +1485,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\integrations\\vercel.ts",
       "source_location": "L25",
       "id": "vercel_latestverceldeployment",
-      "community": 6,
+      "community": 7,
       "norm_label": "latestverceldeployment()"
     },
     {
@@ -1494,7 +1494,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\security\\encryption.ts",
       "source_location": "L1",
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_lib_security_encryption_ts",
-      "community": 8,
+      "community": 2,
       "norm_label": "encryption.ts"
     },
     {
@@ -1503,7 +1503,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\security\\encryption.ts",
       "source_location": "L5",
       "id": "encryption_keyfromenv",
-      "community": 8,
+      "community": 2,
       "norm_label": "keyfromenv()"
     },
     {
@@ -1512,7 +1512,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\security\\encryption.ts",
       "source_location": "L23",
       "id": "encryption_encryptsecret",
-      "community": 8,
+      "community": 2,
       "norm_label": "encryptsecret()"
     },
     {
@@ -1521,7 +1521,7 @@
       "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\lib\\security\\encryption.ts",
       "source_location": "L31",
       "id": "encryption_decryptsecret",
-      "community": 8,
+      "community": 2,
       "norm_label": "decryptsecret()"
     },
     {
@@ -1550,6 +1550,78 @@
       "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_codex_watchdog_check_ps1",
       "community": 58,
       "norm_label": "codex-watchdog-check.ps1"
+    },
+    {
+      "label": "helm-sync-local.ps1",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L1",
+      "id": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "community": 5,
+      "norm_label": "helm-sync-local.ps1"
+    },
+    {
+      "label": "Get-TaskStatus()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L10",
+      "id": "helm_sync_local_get_taskstatus",
+      "community": 5,
+      "norm_label": "get-taskstatus()"
+    },
+    {
+      "label": "Get-TaskTitle()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L28",
+      "id": "helm_sync_local_get_tasktitle",
+      "community": 5,
+      "norm_label": "get-tasktitle()"
+    },
+    {
+      "label": "Get-BlockedReason()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L34",
+      "id": "helm_sync_local_get_blockedreason",
+      "community": 5,
+      "norm_label": "get-blockedreason()"
+    },
+    {
+      "label": "Get-LatestSprintFile()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L48",
+      "id": "helm_sync_local_get_latestsprintfile",
+      "community": 5,
+      "norm_label": "get-latestsprintfile()"
+    },
+    {
+      "label": "Get-StableTaskRef()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L61",
+      "id": "helm_sync_local_get_stabletaskref",
+      "community": 5,
+      "norm_label": "get-stabletaskref()"
+    },
+    {
+      "label": "Get-RelativePath()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L75",
+      "id": "helm_sync_local_get_relativepath",
+      "community": 5,
+      "norm_label": "get-relativepath()"
+    },
+    {
+      "label": "ConvertTo-ProjectPayload()",
+      "file_type": "code",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L90",
+      "id": "helm_sync_local_convertto_projectpayload",
+      "community": 5,
+      "norm_label": "convertto-projectpayload()"
     },
     {
       "label": "overlord-push.ps1",
@@ -3981,6 +4053,162 @@
       "_tgt": "encryption_keyfromenv",
       "source": "encryption_keyfromenv",
       "target": "encryption_decryptsecret",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "_tgt": "helm_sync_local_get_taskstatus",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "target": "helm_sync_local_get_taskstatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "_tgt": "helm_sync_local_get_tasktitle",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "target": "helm_sync_local_get_tasktitle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "_tgt": "helm_sync_local_get_blockedreason",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "target": "helm_sync_local_get_blockedreason",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "_tgt": "helm_sync_local_get_latestsprintfile",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "target": "helm_sync_local_get_latestsprintfile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "_tgt": "helm_sync_local_get_stabletaskref",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "target": "helm_sync_local_get_stabletaskref",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L75",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "_tgt": "helm_sync_local_get_relativepath",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "target": "helm_sync_local_get_relativepath",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L90",
+      "weight": 1.0,
+      "_src": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "_tgt": "helm_sync_local_convertto_projectpayload",
+      "source": "c_users_orishavit_documents_github_helm_dashboard_worktrees_state_aggregator_scripts_helm_sync_local_ps1",
+      "target": "helm_sync_local_convertto_projectpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L114",
+      "weight": 1.0,
+      "_src": "helm_sync_local_convertto_projectpayload",
+      "_tgt": "helm_sync_local_get_taskstatus",
+      "source": "helm_sync_local_get_taskstatus",
+      "target": "helm_sync_local_convertto_projectpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L109",
+      "weight": 1.0,
+      "_src": "helm_sync_local_convertto_projectpayload",
+      "_tgt": "helm_sync_local_get_tasktitle",
+      "source": "helm_sync_local_get_tasktitle",
+      "target": "helm_sync_local_convertto_projectpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L125",
+      "weight": 1.0,
+      "_src": "helm_sync_local_convertto_projectpayload",
+      "_tgt": "helm_sync_local_get_blockedreason",
+      "source": "helm_sync_local_get_blockedreason",
+      "target": "helm_sync_local_convertto_projectpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L94",
+      "weight": 1.0,
+      "_src": "helm_sync_local_convertto_projectpayload",
+      "_tgt": "helm_sync_local_get_latestsprintfile",
+      "source": "helm_sync_local_get_latestsprintfile",
+      "target": "helm_sync_local_convertto_projectpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L115",
+      "weight": 1.0,
+      "_src": "helm_sync_local_convertto_projectpayload",
+      "_tgt": "helm_sync_local_get_stabletaskref",
+      "source": "helm_sync_local_get_stabletaskref",
+      "target": "helm_sync_local_convertto_projectpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "C:\\Users\\OriShavit\\Documents\\GitHub\\Helm-Dashboard\\.worktrees\\state-aggregator\\scripts\\helm-sync-local.ps1",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_src": "helm_sync_local_convertto_projectpayload",
+      "_tgt": "helm_sync_local_get_relativepath",
+      "source": "helm_sync_local_get_relativepath",
+      "target": "helm_sync_local_convertto_projectpayload",
       "confidence_score": 1.0
     }
   ],

@@ -1,12 +1,12 @@
 # Graph Report - C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator  (2026-05-19)
 
 ## Corpus Check
-- 79 files · ~45,936 words
+- 80 files · ~46,946 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 174 nodes · 201 edges · 61 communities detected
-- Extraction: 59% EXTRACTED · 41% INFERRED · 0% AMBIGUOUS · INFERRED: 82 edges (avg confidence: 0.8)
+- 182 nodes · 214 edges · 61 communities detected
+- Extraction: 62% EXTRACTED · 38% INFERRED · 0% AMBIGUOUS · INFERRED: 82 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -79,10 +79,10 @@
 4. `assertProjectOwner()` - 13 edges
 5. `getOperationsState()` - 9 edges
 6. `refreshProjectSnapshots()` - 7 edges
-7. `computeProductProgress()` - 6 edges
-8. `DashboardPage()` - 5 edges
-9. `POST()` - 5 edges
-10. `connectVercelToken()` - 5 edges
+7. `ConvertTo-ProjectPayload()` - 7 edges
+8. `computeProductProgress()` - 6 edges
+9. `DashboardPage()` - 5 edges
+10. `POST()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `ProtectedLayout()` --calls--> `requireUser()`  [INFERRED]
@@ -91,10 +91,10 @@
   C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\api\vercel\projects\route.ts → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\integrations\vercel.ts
 - `DashboardPage()` --calls--> `requireUser()`  [INFERRED]
   C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
-- `DashboardPage()` --calls--> `getOperationsState()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\data\operations.ts
 - `SettingsPage()` --calls--> `requireUser()`  [INFERRED]
   C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\settings\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
+- `GET()` --calls--> `requireUser()`  [INFERRED]
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\api\vercel\projects\route.ts → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
 
 ## Communities
 
@@ -103,36 +103,36 @@ Cohesion: 0.17
 Nodes (20): getDb(), connectVercelToken(), linkProjectRepo(), linkVercelProject(), refreshGithub(), refreshProjectSnapshots(), refreshVercel(), assertProjectOwner() (+12 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.15
-Nodes (6): assigneeName(), getOperationsState(), getResponsibilityBucket(), terminalAssignee(), getOverlordState(), GET()
+Cohesion: 0.2
+Nodes (8): assigneeName(), getOperationsState(), getResponsibilityBucket(), terminalAssignee(), DashboardPage(), SettingsPage(), getProjectSummaries(), getGlobalTodos()
 
 ### Community 2 - "Community 2"
-Cohesion: 0.24
-Nodes (7): DashboardPage(), SettingsPage(), deploymentField(), getProjectDetail(), getProjectSummaries(), toSummary(), getGlobalTodos()
+Cohesion: 0.16
+Nodes (5): decryptSecret(), encryptSecret(), keyFromEnv(), getOverlordState(), GET()
 
 ### Community 3 - "Community 3"
+Cohesion: 0.33
+Nodes (8): computeProductProgress(), maturityFromSignals(), providerLabel(), scoreProvider(), stageFromPercent(), deploymentField(), getProjectDetail(), toSummary()
+
+### Community 4 - "Community 4"
 Cohesion: 0.36
 Nodes (6): getOpenPullRequests(), githubForInstallation(), githubInstallUrl(), listInstallationRepos(), privateKey(), safeGithubUrl()
 
-### Community 4 - "Community 4"
-Cohesion: 0.6
-Nodes (5): computeProductProgress(), maturityFromSignals(), providerLabel(), scoreProvider(), stageFromPercent()
-
 ### Community 5 - "Community 5"
+Cohesion: 0.46
+Nodes (7): ConvertTo-ProjectPayload(), Get-BlockedReason(), Get-LatestSprintFile(), Get-RelativePath(), Get-StableTaskRef(), Get-TaskStatus(), Get-TaskTitle()
+
+### Community 6 - "Community 6"
 Cohesion: 0.4
 Nodes (3): parseEnv(), parseOverlordPushEnv(), POST()
 
-### Community 6 - "Community 6"
+### Community 7 - "Community 7"
 Cohesion: 0.5
 Nodes (4): apiBase(), latestVercelDeployment(), listVercelProjects(), vercelFetch()
 
-### Community 7 - "Community 7"
+### Community 8 - "Community 8"
 Cohesion: 0.5
 Nodes (0):
-
-### Community 8 - "Community 8"
-Cohesion: 0.83
-Nodes (3): decryptSecret(), encryptSecret(), keyFromEnv()
 
 ### Community 9 - "Community 9"
 Cohesion: 1.0
@@ -439,12 +439,12 @@ Nodes (0):
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `getDb()` connect `Community 0` to `Community 1`, `Community 2`, `Community 5`?**
-  _High betweenness centrality (0.123) - this node is a cross-community bridge._
-- **Why does `GET()` connect `Community 1` to `Community 0`, `Community 3`, `Community 5`, `Community 6`, `Community 8`?**
-  _High betweenness centrality (0.095) - this node is a cross-community bridge._
+- **Why does `getDb()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 6`?**
+  _High betweenness centrality (0.112) - this node is a cross-community bridge._
+- **Why does `GET()` connect `Community 2` to `Community 0`, `Community 1`, `Community 4`, `Community 6`, `Community 7`?**
+  _High betweenness centrality (0.087) - this node is a cross-community bridge._
 - **Why does `requireUser()` connect `Community 0` to `Community 1`, `Community 34`, `Community 2`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+  _High betweenness centrality (0.038) - this node is a cross-community bridge._
 - **Are the 26 inferred relationships involving `getDb()` (e.g. with `GET()` and `POST()`) actually correct?**
   _`getDb()` has 26 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 14 inferred relationships involving `GET()` (e.g. with `requireUser()` and `getDb()`) actually correct?**
