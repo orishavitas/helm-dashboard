@@ -27,3 +27,4 @@ dist/
 .codex/state/MONDAY_UPDATE.md
 .env.local
 .vercel
+.worktrees/
