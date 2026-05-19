@@ -1,7 +1,7 @@
 # Graph Report - C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator  (2026-05-19)
 
 ## Corpus Check
-- 81 files · ~48,385 words
+- 81 files · ~48,591 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
