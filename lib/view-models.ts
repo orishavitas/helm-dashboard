@@ -44,6 +44,13 @@ export type TaskItem = {
   notes: string | null;
   status: "todo" | "in-progress" | "done" | "blocked";
   priority: "low" | "medium" | "high" | "critical";
+  assignee: string | null;
+  agentRole: string | null;
+  source: string;
+  sourceRef: string | null;
+  sourceUrl: string | null;
+  blockedReason: string | null;
+  finishedAt: Date | null;
 };
 
 export type TodoItem = {

@@ -125,6 +125,13 @@ export async function getProjectDetail(projectId: string, userId: string): Promi
     notes: task.notes,
     status: task.status,
     priority: task.priority,
+    assignee: task.assignee,
+    agentRole: task.agentRole,
+    source: task.source,
+    sourceRef: task.sourceRef,
+    sourceUrl: task.sourceUrl,
+    blockedReason: task.blockedReason,
+    finishedAt: task.finishedAt,
   });
 
   return {
