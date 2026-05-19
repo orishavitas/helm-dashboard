@@ -9,6 +9,7 @@ import {
   todos,
   vercelDeploymentSnapshots,
 } from "@/lib/db/schema";
+import { computeProductProgress } from "@/lib/product-progress";
 import type { ProjectDetail, ProjectSummary, TaskItem, TodoItem } from "@/lib/view-models";
 
 type ProjectRow = typeof projects.$inferSelect;
@@ -30,6 +31,23 @@ async function toSummary(project: ProjectRow): Promise<ProjectSummary> {
     : [];
   const [github] = await db.select().from(githubRepoSnapshots).where(eq(githubRepoSnapshots.projectId, project.id)).limit(1);
   const [vercel] = await db.select().from(vercelDeploymentSnapshots).where(eq(vercelDeploymentSnapshots.projectId, project.id)).limit(1);
+  const sprintDone = sprintTasks.filter((task) => task.status === "done").length;
+  const sprintInProgress = sprintTasks.filter((task) => task.status === "in-progress").length;
+  const sprintBlocked = sprintTasks.filter((task) => task.status === "blocked").length;
+  const sprintTodo = sprintTasks.filter((task) => task.status === "todo").length;
+  const githubState = {
+    status: github?.status ?? "missing",
+    fetchedAt: github?.fetchedAt ?? null,
+    error: github?.error ?? null,
+  };
+  const vercelState = {
+    status: vercel?.status ?? "missing",
+    fetchedAt: vercel?.fetchedAt ?? null,
+    error: vercel?.error ?? null,
+    deploymentUrl: deploymentField(vercel?.deployment, "url"),
+    environment: deploymentField(vercel?.deployment, "environment"),
+    deploymentStatus: deploymentField(vercel?.deployment, "status"),
+  };
 
   return {
     id: project.id,
@@ -37,22 +55,24 @@ async function toSummary(project: ProjectRow): Promise<ProjectSummary> {
     description: project.description,
     status: project.status,
     sprintName: openSprint?.name ?? null,
-    sprintDone: sprintTasks.filter((task) => task.status === "done").length,
+    sprintDone,
     sprintTotal: sprintTasks.length,
+    sprintInProgress,
+    sprintBlocked,
+    sprintTodo,
     openPrCount: github?.openPrCount ?? null,
-    github: {
-      status: github?.status ?? "missing",
-      fetchedAt: github?.fetchedAt ?? null,
-      error: github?.error ?? null,
-    },
-    vercel: {
-      status: vercel?.status ?? "missing",
-      fetchedAt: vercel?.fetchedAt ?? null,
-      error: vercel?.error ?? null,
-      deploymentUrl: deploymentField(vercel?.deployment, "url"),
-      environment: deploymentField(vercel?.deployment, "environment"),
-      deploymentStatus: deploymentField(vercel?.deployment, "status"),
-    },
+    github: githubState,
+    vercel: vercelState,
+    productProgress: computeProductProgress({
+      projectStatus: project.status,
+      sprintDone,
+      sprintTotal: sprintTasks.length,
+      sprintInProgress,
+      sprintBlocked,
+      sprintTodo,
+      github: githubState,
+      vercel: vercelState,
+    }),
   };
 }
 

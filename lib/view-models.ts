@@ -1,3 +1,5 @@
+import type { ProductProgress } from "@/lib/product-progress";
+
 export type ProviderState = {
   status: "fresh" | "stale" | "error" | "missing";
   fetchedAt: Date | null;
@@ -12,6 +14,9 @@ export type ProjectSummary = {
   sprintName: string | null;
   sprintDone: number;
   sprintTotal: number;
+  sprintInProgress: number;
+  sprintBlocked: number;
+  sprintTodo: number;
   openPrCount: number | null;
   github: ProviderState;
   vercel: ProviderState & {
@@ -19,6 +24,7 @@ export type ProjectSummary = {
     environment: string | null;
     deploymentStatus: string | null;
   };
+  productProgress: ProductProgress;
 };
 
 export type ProjectDetail = ProjectSummary & {

@@ -4,7 +4,7 @@ import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { eq } from "drizzle-orm";
 
 import { getDb, hasDatabaseUrl } from "@/lib/db";
-import { users } from "@/lib/db/schema";
+import { accounts, sessions, users, verificationTokens } from "@/lib/db/schema";
 
 const hasGoogle = Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET);
 
@@ -12,7 +12,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   secret:
     process.env.AUTH_SECRET ??
     (process.env.NODE_ENV === "production" ? undefined : "helm-local-development-secret"),
-  adapter: hasDatabaseUrl() ? DrizzleAdapter(getDb()) : undefined,
+  adapter: hasDatabaseUrl()
+    ? DrizzleAdapter(getDb(), {
+        usersTable: users,
+        accountsTable: accounts,
+        sessionsTable: sessions,
+        verificationTokensTable: verificationTokens,
+      })
+    : undefined,
   session: {
     strategy: hasDatabaseUrl() ? "database" : "jwt",
   },

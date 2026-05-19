@@ -43,7 +43,7 @@ async function fetchOverlordState(): Promise<OverlordState> {
   return deserializeState((await response.json()) as SerializedState);
 }
 
-export function OverlordPanel() {
+export function OverlordPanel({ showHeader = true }: { showHeader?: boolean }) {
   const { data, isError, isLoading } = useQuery({
     queryKey: ["overlord-state"],
     queryFn: fetchOverlordState,
@@ -53,17 +53,19 @@ export function OverlordPanel() {
 
   return (
     <section className="grid gap-4">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-sm font-semibold text-zinc-300">
-          <Monitor className="h-4 w-4 text-indigo-300" />
-          Overlord Monitor
+      {showHeader && (
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-sm font-semibold text-zinc-300">
+            <Monitor className="h-4 w-4 text-indigo-300" />
+            Overlord Monitor
+          </div>
+          <div className="flex items-center gap-2 text-xs text-zinc-600">
+            <RefreshCw className="h-3.5 w-3.5" />
+            2 min polling
+            {data && <span>Last {formatRelativeTime(data.fetchedAt)}</span>}
+          </div>
         </div>
-        <div className="flex items-center gap-2 text-xs text-zinc-600">
-          <RefreshCw className="h-3.5 w-3.5" />
-          2 min polling
-          {data && <span>Last {formatRelativeTime(data.fetchedAt)}</span>}
-        </div>
-      </div>
+      )}
 
       {isLoading && (
         <div className="rounded-lg border border-dashed border-zinc-800 p-6 text-sm text-zinc-500">

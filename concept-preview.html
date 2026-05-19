@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Helm Dashboard - Concept Preview</title>
+  <style>
+    :root {
+      --bg: #0f0f12;
+      --bg-2: #141417;
+      --surface: #18181b;
+      --surface-2: #1f1f23;
+      --surface-3: #24242a;
+      --border: #2d2d33;
+      --border-soft: #242429;
+      --text: #fafafa;
+      --muted: #a1a1aa;
+      --faint: #62626d;
+      --dim: #3f3f46;
+      --indigo: #6366f1;
+      --indigo-soft: rgba(99, 102, 241, .16);
+      --emerald: #10b981;
+      --emerald-soft: rgba(16, 185, 129, .14);
+      --amber: #f59e0b;
+      --amber-soft: rgba(245, 158, 11, .14);
+      --red: #ef4444;
+      --red-soft: rgba(239, 68, 68, .14);
+      --blue: #3b82f6;
+      --blue-soft: rgba(59, 130, 246, .14);
+      --radius: 8px;
+      --mono: "Cascadia Code", "Fira Code", Consolas, monospace;
+      --sans: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.5;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .018) 1px, transparent 1px),
+        var(--bg);
+      background-size: 24px 24px;
+      font-size: 14px;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 236px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-right: 1px solid var(--border-soft);
+      background: rgba(15, 15, 18, .96);
+      padding: 18px 14px;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 2px 4px 12px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid rgba(99, 102, 241, .55);
+      border-radius: 7px;
+      background: var(--indigo-soft);
+      color: #c7d2fe;
+      font-weight: 700;
+    }
+
+    .brand-name {
+      display: grid;
+      gap: 1px;
+    }
+
+    .brand-name strong {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .brand-name span {
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .nav-section {
+      display: grid;
+      gap: 6px;
+    }
+
+    .nav-title {
+      padding: 0 10px;
+      color: var(--faint);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-height: 34px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav-item.active {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--dim);
+    }
+
+    .nav-dot.hot {
+      background: var(--indigo);
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, .12);
+    }
+
+    .nav-dot.good {
+      background: var(--emerald);
+    }
+
+    .nav-dot.warn {
+      background: var(--amber);
+    }
+
+    .nav-foot {
+      display: grid;
+      gap: 10px;
+      border-top: 1px solid var(--border-soft);
+      padding-top: 14px;
+      color: var(--faint);
+      font-size: 12px;
+    }
+
+    .user {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: var(--mono);
+    }
+
+    .main {
+      min-width: 0;
+      padding: 18px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 44px;
+      margin-bottom: 18px;
+    }
+
+    .title-group {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      margin-top: 2px;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .btn.primary {
+      border-color: rgba(99, 102, 241, .55);
+      background: #5558df;
+    }
+
+    .btn.icon {
+      width: 34px;
+      padding: 0;
+    }
+
+    .icon-lines {
+      width: 15px;
+      height: 13px;
+      display: grid;
+      gap: 3px;
+    }
+
+    .icon-lines i {
+      display: block;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) 380px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .column {
+      display: grid;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(24, 24, 27, .95);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      min-height: 48px;
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .panel-header h2 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .meta {
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .monitor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .terminal {
+      min-height: 154px;
+      padding: 14px;
+      border-right: 1px solid var(--border-soft);
+      display: grid;
+      align-content: space-between;
+      gap: 14px;
+    }
+
+    .terminal:last-child {
+      border-right: 0;
+    }
+
+    .terminal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .terminal-title {
+      min-width: 0;
+    }
+
+    .terminal-title h3 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .terminal-title p {
+      overflow: hidden;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 22px;
+      padding: 2px 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .badge.green {
+      border-color: rgba(16, 185, 129, .28);
+      background: var(--emerald-soft);
+      color: #6ee7b7;
+    }
+
+    .badge.amber {
+      border-color: rgba(245, 158, 11, .28);
+      background: var(--amber-soft);
+      color: #fcd34d;
+    }
+
+    .badge.blue {
+      border-color: rgba(59, 130, 246, .28);
+      background: var(--blue-soft);
+      color: #93c5fd;
+    }
+
+    .badge.red {
+      border-color: rgba(239, 68, 68, .28);
+      background: var(--red-soft);
+      color: #fca5a5;
+    }
+
+    .badge.zinc {
+      border-color: var(--border);
+      background: rgba(113, 113, 122, .12);
+      color: #d4d4d8;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .terminal-task {
+      min-height: 42px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .terminal-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .terminal-stats strong {
+      display: block;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 112px repeat(12, minmax(14px, 1fr));
+      gap: 5px;
+      padding: 14px;
+      align-items: center;
+    }
+
+    .timeline-label {
+      color: var(--faint);
+      font-size: 11px;
+    }
+
+    .tick {
+      height: 18px;
+      border-radius: 3px;
+      background: var(--surface-3);
+    }
+
+    .tick.green {
+      background: rgba(16, 185, 129, .7);
+    }
+
+    .tick.amber {
+      background: rgba(245, 158, 11, .75);
+    }
+
+    .tick.blue {
+      background: rgba(59, 130, 246, .65);
+    }
+
+    .tick.red {
+      background: rgba(239, 68, 68, .75);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .project-card {
+      display: grid;
+      gap: 13px;
+      min-height: 194px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .project-card:hover {
+      border-color: #3f3f46;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .project-name {
+      min-width: 0;
+    }
+
+    .project-name h3 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .project-name p {
+      margin-top: 3px;
+      color: var(--faint);
+      font-size: 12px;
+    }
+
+    .progress-row {
+      display: grid;
+      gap: 7px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .bar {
+      height: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #292930;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--indigo);
+    }
+
+    .project-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--border-soft);
+      padding-top: 12px;
+      gap: 10px;
+    }
+
+    .metric {
+      min-width: 0;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--faint);
+      font-size: 11px;
+    }
+
+    .metric strong {
+      overflow: hidden;
+      display: block;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .ops-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    .ops-table th,
+    .ops-table td {
+      border-bottom: 1px solid var(--border-soft);
+      padding: 10px 14px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .ops-table th {
+      color: var(--faint);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .ops-table td {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .ops-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .mono {
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    .task-stack {
+      display: grid;
+    }
+
+    .task-row {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 46px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .task-row:last-child {
+      border-bottom: 0;
+    }
+
+    .check {
+      width: 16px;
+      height: 16px;
+      border: 1px solid var(--dim);
+      border-radius: 4px;
+    }
+
+    .check.done {
+      border-color: rgba(16, 185, 129, .55);
+      background: var(--emerald);
+      box-shadow: inset 0 0 0 3px var(--surface);
+    }
+
+    .task-main {
+      min-width: 0;
+    }
+
+    .task-main strong {
+      overflow: hidden;
+      display: block;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 500;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .task-main span {
+      display: block;
+      overflow: hidden;
+      color: var(--faint);
+      font-size: 11px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .input-row input {
+      min-width: 0;
+      flex: 1;
+      height: 34px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #131316;
+      color: var(--text);
+      padding: 0 10px;
+      outline: 0;
+    }
+
+    .input-row input:focus {
+      border-color: var(--indigo);
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, .15);
+    }
+
+    .health-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--border-soft);
+    }
+
+    .health-cell {
+      min-height: 102px;
+      background: var(--surface);
+      padding: 13px;
+      display: grid;
+      align-content: space-between;
+      gap: 10px;
+    }
+
+    .health-cell span {
+      color: var(--faint);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .health-cell strong {
+      display: block;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .health-cell p {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .command-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      padding: 12px;
+    }
+
+    .command {
+      min-height: 68px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: #151519;
+      padding: 10px;
+      text-align: left;
+      color: var(--muted);
+    }
+
+    .command strong {
+      display: block;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .command span {
+      display: block;
+      margin-top: 3px;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .footer-note {
+      margin-top: 16px;
+      color: var(--faint);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-align: right;
+    }
+
+    @media (max-width: 1180px) {
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--border-soft);
+      }
+
+      .nav-section:nth-of-type(2),
+      .nav-foot {
+        display: none;
+      }
+
+      .main {
+        padding: 14px;
+      }
+
+      .topbar {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+
+      .monitor-grid,
+      .health-grid,
+      .command-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal {
+        border-right: 0;
+        border-bottom: 1px solid var(--border-soft);
+      }
+
+      .terminal:last-child {
+        border-bottom: 0;
+      }
+
+      .timeline {
+        grid-template-columns: 1fr repeat(6, minmax(18px, 1fr));
+      }
+
+      .timeline .tick:nth-last-child(-n+6) {
+        display: none;
+      }
+
+      .ops-table th:nth-child(3),
+      .ops-table td:nth-child(3) {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">H</div>
+        <div class="brand-name">
+          <strong>Helm</strong>
+          <span>solo command center</span>
+        </div>
+      </div>
+
+      <nav class="nav-section" aria-label="Primary">
+        <div class="nav-title">Workspace</div>
+        <a class="nav-item active" href="#"><span class="nav-dot hot"></span>Attention</a>
+        <a class="nav-item" href="#"><span class="nav-dot good"></span>Projects</a>
+        <a class="nav-item" href="#"><span class="nav-dot warn"></span>Overlord</a>
+        <a class="nav-item" href="#"><span class="nav-dot"></span>Settings</a>
+      </nav>
+
+      <nav class="nav-section" aria-label="Projects">
+        <div class="nav-title">Pinned</div>
+        <a class="nav-item" href="#"><span class="nav-dot good"></span>Helm Dashboard</a>
+        <a class="nav-item" href="#"><span class="nav-dot warn"></span>Project Nexus</a>
+        <a class="nav-item" href="#"><span class="nav-dot good"></span>Legion Swarm</a>
+        <a class="nav-item" href="#"><span class="nav-dot"></span>MRD Producer</a>
+      </nav>
+
+      <div></div>
+
+      <div class="nav-foot">
+        <div class="user">ori@local</div>
+        <button class="btn">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="title-group">
+          <div class="eyebrow">Local visibility / GitHub / Vercel / terminal heartbeats</div>
+          <h1>Attention</h1>
+        </div>
+        <div class="actions">
+          <button class="btn icon" aria-label="Refresh">
+            <span class="icon-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+          </button>
+          <button class="btn">New project</button>
+          <button class="btn primary">Push heartbeat</button>
+        </div>
+      </header>
+
+      <section class="dashboard">
+        <div class="column">
+          <section class="panel" aria-labelledby="overlord-title">
+            <div class="panel-header">
+              <div>
+                <h2 id="overlord-title">Overlord Monitor</h2>
+                <div class="meta">polling every 2m / last sync 38s ago</div>
+              </div>
+              <span class="badge green"><span class="status-dot"></span>3 reporting</span>
+            </div>
+
+            <div class="monitor-grid">
+              <article class="terminal">
+                <div class="terminal-head">
+                  <div class="terminal-title">
+                    <h3>Codex Main</h3>
+                    <p>terminal://helm-dashboard</p>
+                  </div>
+                  <span class="badge green"><span class="status-dot"></span>active</span>
+                </div>
+                <p class="terminal-task">Generating preview artifact and keeping graphify state current.</p>
+                <div class="terminal-stats">
+                  <span>Repo<strong>Helm</strong></span>
+                  <span>Role<strong>builder</strong></span>
+                  <span>Context<strong>42%</strong></span>
+                </div>
+              </article>
+
+              <article class="terminal">
+                <div class="terminal-head">
+                  <div class="terminal-title">
+                    <h3>Claude Review</h3>
+                    <p>terminal://legion-swarm</p>
+                  </div>
+                  <span class="badge amber"><span class="status-dot"></span>blocked</span>
+                </div>
+                <p class="terminal-task">Waiting for Neon credentials before DB migration and live heartbeat proof.</p>
+                <div class="terminal-stats">
+                  <span>Repo<strong>Helm</strong></span>
+                  <span>Role<strong>review</strong></span>
+                  <span>Context<strong>81%</strong></span>
+                </div>
+              </article>
+
+              <article class="terminal">
+                <div class="terminal-head">
+                  <div class="terminal-title">
+                    <h3>Nexus Runner</h3>
+                    <p>terminal://project-nexus</p>
+                  </div>
+                  <span class="badge blue"><span class="status-dot"></span>idle</span>
+                </div>
+                <p class="terminal-task">No inbox packet in this repo. Monitor is ready for next local scan.</p>
+                <div class="terminal-stats">
+                  <span>Repo<strong>Nexus</strong></span>
+                  <span>Role<strong>harness</strong></span>
+                  <span>Context<strong>19%</strong></span>
+                </div>
+              </article>
+            </div>
+
+            <div class="timeline" aria-label="Recent terminal status">
+              <span class="timeline-label">last 24 min</span>
+              <span class="tick green"></span><span class="tick green"></span><span class="tick blue"></span>
+              <span class="tick green"></span><span class="tick amber"></span><span class="tick amber"></span>
+              <span class="tick green"></span><span class="tick green"></span><span class="tick green"></span>
+              <span class="tick blue"></span><span class="tick red"></span><span class="tick green"></span>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="projects-title">
+            <div class="panel-header">
+              <div>
+                <h2 id="projects-title">Projects</h2>
+                <div class="meta">active and paused work surfaces</div>
+              </div>
+              <span class="badge zinc">4 linked</span>
+            </div>
+
+            <div class="project-grid">
+              <article class="project-card">
+                <div class="card-top">
+                  <div class="project-name">
+                    <h3>Helm Dashboard</h3>
+                    <p>Developer command center</p>
+                  </div>
+                  <span class="badge green">active</span>
+                </div>
+                <div class="progress-row">
+                  <div class="progress-meta"><span>Overlord Monitor</span><span>10/11</span></div>
+                  <div class="bar"><span style="width: 91%"></span></div>
+                </div>
+                <div class="project-metrics">
+                  <div class="metric"><span>PRs</span><strong>2 open</strong></div>
+                  <div class="metric"><span>Deploy</span><strong>ready</strong></div>
+                  <div class="metric"><span>Freshness</span><strong>38s</strong></div>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="card-top">
+                  <div class="project-name">
+                    <h3>Project Nexus</h3>
+                    <p>Packet execution harness</p>
+                  </div>
+                  <span class="badge amber">paused</span>
+                </div>
+                <div class="progress-row">
+                  <div class="progress-meta"><span>Phase 6 hardening</span><span>7/9</span></div>
+                  <div class="bar"><span style="width: 78%; background: var(--amber)"></span></div>
+                </div>
+                <div class="project-metrics">
+                  <div class="metric"><span>PRs</span><strong>1 open</strong></div>
+                  <div class="metric"><span>Monitor</span><strong>clean</strong></div>
+                  <div class="metric"><span>Freshness</span><strong>12m</strong></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="sync-title">
+            <div class="panel-header">
+              <div>
+                <h2 id="sync-title">Integration Health</h2>
+                <div class="meta">server-side GitHub and Vercel state</div>
+              </div>
+              <span class="badge green">encrypted</span>
+            </div>
+
+            <table class="ops-table">
+              <thead>
+                <tr>
+                  <th>Project</th>
+                  <th>GitHub</th>
+                  <th>Vercel</th>
+                  <th class="right">Next check</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Helm Dashboard</td>
+                  <td><span class="badge green">installed</span></td>
+                  <td><span class="badge amber">env blocked</span></td>
+                  <td class="right mono">00:52</td>
+                </tr>
+                <tr>
+                  <td>Legion Swarm</td>
+                  <td><span class="badge green">synced</span></td>
+                  <td><span class="badge zinc">not linked</span></td>
+                  <td class="right mono">03:11</td>
+                </tr>
+                <tr>
+                  <td>MRD Producer</td>
+                  <td><span class="badge blue">watching</span></td>
+                  <td><span class="badge green">ready</span></td>
+                  <td class="right mono">04:20</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+        <aside class="column">
+          <section class="panel" aria-labelledby="command-title">
+            <div class="panel-header">
+              <div>
+                <h2 id="command-title">Command Deck</h2>
+                <div class="meta">common local actions</div>
+              </div>
+            </div>
+            <div class="command-strip">
+              <button class="command">
+                <strong>Typecheck</strong>
+                <span>pnpm typecheck</span>
+              </button>
+              <button class="command">
+                <strong>Lint</strong>
+                <span>pnpm lint</span>
+              </button>
+              <button class="command">
+                <strong>Build</strong>
+                <span>pnpm build</span>
+              </button>
+              <button class="command">
+                <strong>Graph</strong>
+                <span>graphify update .</span>
+              </button>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="tasks-title">
+            <div class="panel-header">
+              <div>
+                <h2 id="tasks-title">Global Todos</h2>
+                <div class="meta">session-close anchors</div>
+              </div>
+              <span class="badge amber">2 open</span>
+            </div>
+            <div class="task-stack">
+              <div class="task-row">
+                <span class="check done"></span>
+                <div class="task-main">
+                  <strong>Update Graphify after code edits</strong>
+                  <span>repo-local contract</span>
+                </div>
+                <span class="badge green">done</span>
+              </div>
+              <div class="task-row">
+                <span class="check"></span>
+                <div class="task-main">
+                  <strong>Apply Overlord migration</strong>
+                  <span>blocked by DATABASE_URL env</span>
+                </div>
+                <span class="badge amber">blocked</span>
+              </div>
+              <div class="task-row">
+                <span class="check"></span>
+                <div class="task-main">
+                  <strong>Run live heartbeat push</strong>
+                  <span>needs base URL and push secret</span>
+                </div>
+                <span class="badge zinc">queued</span>
+              </div>
+            </div>
+            <div class="input-row">
+              <input aria-label="Add todo" placeholder="Add todo">
+              <button class="btn">Add</button>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="health-title">
+            <div class="panel-header">
+              <div>
+                <h2 id="health-title">Run Snapshot</h2>
+                <div class="meta">current local proof</div>
+              </div>
+            </div>
+            <div class="health-grid">
+              <div class="health-cell">
+                <span>Typecheck</span>
+                <strong>Pass</strong>
+                <p>tsc --noEmit</p>
+              </div>
+              <div class="health-cell">
+                <span>Build</span>
+                <strong>Pass</strong>
+                <p>next build</p>
+              </div>
+              <div class="health-cell">
+                <span>DB migrate</span>
+                <strong>Blocked</strong>
+                <p>env missing</p>
+              </div>
+              <div class="health-cell">
+                <span>Graph</span>
+                <strong>136</strong>
+                <p>nodes indexed</p>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </section>
+
+      <div class="footer-note">Standalone conceptual preview generated from repo docs and current implementation.</div>
+    </main>
+  </div>
+
+  <script>
+    const refreshButton = document.querySelector('[aria-label="Refresh"]');
+    const syncMeta = document.querySelector('#overlord-title + .meta');
+
+    refreshButton.addEventListener('click', () => {
+      const now = new Date();
+      syncMeta.textContent = 'polling every 2m / refreshed ' + now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    });
+  </script>
+</body>
+</html>

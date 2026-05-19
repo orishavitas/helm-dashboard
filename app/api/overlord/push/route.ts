@@ -3,7 +3,7 @@ import { z } from "zod";
 
 import { getDb } from "@/lib/db";
 import { terminalSnapshots } from "@/lib/db/schema";
-import { parseEnv } from "@/lib/env";
+import { parseOverlordPushEnv } from "@/lib/env";
 
 const pushSchema = z.object({
   terminalId: z.string().min(1).max(64),
@@ -17,7 +17,7 @@ const pushSchema = z.object({
 });
 
 export async function POST(req: NextRequest) {
-  const env = parseEnv();
+  const env = parseOverlordPushEnv();
   const auth = req.headers.get("authorization") ?? "";
   if (auth !== `Bearer ${env.OVERLORD_PUSH_SECRET}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

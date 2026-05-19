@@ -6,6 +6,7 @@ const styles = {
   red: "border-red-800 bg-red-950 text-red-200",
   zinc: "border-zinc-700 bg-zinc-900 text-zinc-300",
   indigo: "border-indigo-800 bg-indigo-950 text-indigo-200",
+  blue: "border-blue-800 bg-blue-950 text-blue-200",
 };
 
 export function Badge({

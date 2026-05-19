@@ -17,8 +17,17 @@ const envSchema = z.object({
   OVERLORD_PUSH_SECRET: z.string().min(16),
 });
 
+const overlordPushEnvSchema = z.object({
+  DATABASE_URL: z.string().url(),
+  OVERLORD_PUSH_SECRET: z.string().min(16),
+});
+
 export function parseEnv() {
   return envSchema.parse(process.env);
+}
+
+export function parseOverlordPushEnv() {
+  return overlordPushEnvSchema.parse(process.env);
 }
 
 export function optionalEnv() {

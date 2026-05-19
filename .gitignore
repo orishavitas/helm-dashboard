@@ -26,3 +26,4 @@ dist/
 .codex/state/HANDOFF_*.md
 .codex/state/MONDAY_UPDATE.md
 .env.local
+.vercel
