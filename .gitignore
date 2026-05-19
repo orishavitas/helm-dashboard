@@ -28,3 +28,4 @@ dist/
 .env.local
 .vercel
 .worktrees/
+.pnpm-store/
