@@ -1,5 +1,13 @@
 # TODO — Helm Dashboard
 
+## State Aggregator
+
+- [ ] Review `DOCS/superpowers/plans/2026-05-19-helm-state-aggregator.md`
+- [ ] Implement ownership/source fields for tasks
+- [ ] Implement global operations state query and API
+- [ ] Add operations widgets for projects, terminals, tasks, blockers, and responsibility
+- [ ] Add local sync/import path for configured repos and sprint files
+
 ## Sprint 01: Overlord Monitor
 
 ### Runtime verified

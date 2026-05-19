@@ -2,6 +2,9 @@
 
 ## 2026-05-19
 
+### Planned
+- Added `DOCS/superpowers/plans/2026-05-19-helm-state-aggregator.md`, a phased implementation plan for populating Helm with all project states, live terminals, working/finished/pending/blocked tasks, and responsibility.
+
 ### Fixed
 - Google OAuth callback failure after Google token exchange. Vercel runtime log showed Neon returning 400 during `/api/auth/callback/google`; root cause was `DrizzleAdapter(getDb())` using default Auth.js table names (`user`, `account`, `session`, `verificationToken`) while Helm's schema uses `users`, `accounts`, `sessions`, and `verification_tokens`.
 - Updated `lib/auth.ts` to pass Helm's Drizzle auth tables explicitly into `DrizzleAdapter`.
