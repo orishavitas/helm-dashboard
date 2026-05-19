@@ -1,11 +1,11 @@
-# Graph Report - C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator  (2026-05-19)
+# Graph Report - C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard  (2026-05-19)
 
 ## Corpus Check
-- 81 files · ~48,591 words
+- 81 files · ~48,671 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 190 nodes · 236 edges · 61 communities detected
+- 191 nodes · 237 edges · 62 communities detected
 - Extraction: 63% EXTRACTED · 37% INFERRED · 0% AMBIGUOUS · INFERRED: 87 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -71,6 +71,7 @@
 - [[_COMMUNITY_Community 58|Community 58]]
 - [[_COMMUNITY_Community 59|Community 59]]
 - [[_COMMUNITY_Community 60|Community 60]]
+- [[_COMMUNITY_Community 61|Community 61]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `getDb()` - 31 edges
@@ -86,15 +87,15 @@
 
 ## Surprising Connections (you probably didn't know these)
 - `GET()` --calls--> `listVercelProjects()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\api\vercel\projects\route.ts → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\integrations\vercel.ts
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\api\vercel\projects\route.ts → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\integrations\vercel.ts
 - `ProtectedLayout()` --calls--> `requireUser()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\layout.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\(app)\layout.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\session.ts
 - `DashboardPage()` --calls--> `requireUser()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\(app)\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\session.ts
 - `DashboardPage()` --calls--> `getOperationsState()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\data\operations.ts
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\(app)\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\data\operations.ts
 - `SettingsPage()` --calls--> `requireUser()`  [INFERRED]
-  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\app\(app)\settings\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\.worktrees\state-aggregator\lib\session.ts
+  C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\app\(app)\settings\page.tsx → C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard\lib\session.ts
 
 ## Communities
 
@@ -103,8 +104,8 @@ Cohesion: 0.17
 Nodes (21): getDb(), connectVercelToken(), linkProjectRepo(), linkVercelProject(), refreshGithub(), refreshProjectSnapshots(), refreshVercel(), ProtectedLayout() (+13 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.13
-Nodes (9): decryptSecret(), encryptSecret(), keyFromEnv(), assigneeName(), getOperationsState(), getResponsibilityBucket(), terminalAssignee(), getOverlordState() (+1 more)
+Cohesion: 0.15
+Nodes (6): assigneeName(), getOperationsState(), getResponsibilityBucket(), terminalAssignee(), getOverlordState(), GET()
 
 ### Community 2 - "Community 2"
 Cohesion: 0.26
@@ -135,12 +136,12 @@ Cohesion: 0.5
 Nodes (0):
 
 ### Community 9 - "Community 9"
-Cohesion: 1.0
-Nodes (2): deserializeState(), fetchOverlordState()
+Cohesion: 0.83
+Nodes (3): decryptSecret(), encryptSecret(), keyFromEnv()
 
 ### Community 10 - "Community 10"
-Cohesion: 0.67
-Nodes (0):
+Cohesion: 1.0
+Nodes (2): deserializeState(), fetchOverlordState()
 
 ### Community 11 - "Community 11"
 Cohesion: 0.67
@@ -159,7 +160,7 @@ Cohesion: 0.67
 Nodes (0):
 
 ### Community 15 - "Community 15"
-Cohesion: 1.0
+Cohesion: 0.67
 Nodes (0):
 
 ### Community 16 - "Community 16"
@@ -342,107 +343,111 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0):
 
+### Community 61 - "Community 61"
+Cohesion: 1.0
+Nodes (0):
+
 ## Knowledge Gaps
-- **Thin community `Community 15`** (2 nodes): `layout.tsx`, `RootLayout()`
+- **Thin community `Community 16`** (2 nodes): `layout.tsx`, `RootLayout()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 16`** (2 nodes): `page.tsx`, `LoginPage()`
+- **Thin community `Community 17`** (2 nodes): `page.tsx`, `LoginPage()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 17`** (2 nodes): `AppShell()`, `app-shell.tsx`
+- **Thin community `Community 18`** (2 nodes): `AppShell()`, `app-shell.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 18`** (2 nodes): `query-provider.tsx`, `QueryProvider()`
+- **Thin community `Community 19`** (2 nodes): `product-progress.tsx`, `cn()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 19`** (2 nodes): `dashboard-widget.tsx`, `DashboardWidget()`
+- **Thin community `Community 20`** (2 nodes): `query-provider.tsx`, `QueryProvider()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 20`** (2 nodes): `project-form.tsx`, `ProjectForm()`
+- **Thin community `Community 21`** (2 nodes): `dashboard-widget.tsx`, `DashboardWidget()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 21`** (2 nodes): `sprint-form.tsx`, `SprintForm()`
+- **Thin community `Community 22`** (2 nodes): `project-form.tsx`, `ProjectForm()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 22`** (2 nodes): `todo-form.tsx`, `TodoForm()`
+- **Thin community `Community 23`** (2 nodes): `sprint-form.tsx`, `SprintForm()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 23`** (2 nodes): `operations-dashboard.tsx`, `OperationsDashboard()`
+- **Thin community `Community 24`** (2 nodes): `todo-form.tsx`, `TodoForm()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 24`** (2 nodes): `project-state-widget.tsx`, `Count()`
+- **Thin community `Community 25`** (2 nodes): `operations-dashboard.tsx`, `OperationsDashboard()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 25`** (2 nodes): `responsibility-widget.tsx`, `Total()`
+- **Thin community `Community 26`** (2 nodes): `project-state-widget.tsx`, `Count()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 26`** (2 nodes): `terminal-presence-widget.tsx`, `metaString()`
+- **Thin community `Community 27`** (2 nodes): `responsibility-widget.tsx`, `Total()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 27`** (2 nodes): `Badge()`, `badge.tsx`
+- **Thin community `Community 28`** (2 nodes): `terminal-presence-widget.tsx`, `metaString()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 28`** (2 nodes): `Button()`, `button.tsx`
+- **Thin community `Community 29`** (2 nodes): `Badge()`, `badge.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 29`** (2 nodes): `card.tsx`, `Card()`
+- **Thin community `Community 30`** (2 nodes): `Button()`, `button.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 30`** (2 nodes): `chip.tsx`, `Chip()`
+- **Thin community `Community 31`** (2 nodes): `card.tsx`, `Card()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 31`** (2 nodes): `input.tsx`, `Input()`
+- **Thin community `Community 32`** (2 nodes): `chip.tsx`, `Chip()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 32`** (2 nodes): `select-field.tsx`, `SelectField()`
+- **Thin community `Community 33`** (2 nodes): `input.tsx`, `Input()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 33`** (2 nodes): `text-field.tsx`, `TextField()`
+- **Thin community `Community 34`** (2 nodes): `select-field.tsx`, `SelectField()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 34`** (2 nodes): `index.ts`, `hasDatabaseUrl()`
+- **Thin community `Community 35`** (2 nodes): `text-field.tsx`, `TextField()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 35`** (1 nodes): `drizzle.config.ts`
+- **Thin community `Community 36`** (2 nodes): `index.ts`, `hasDatabaseUrl()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 36`** (1 nodes): `eslint.config.mjs`
+- **Thin community `Community 37`** (1 nodes): `drizzle.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 37`** (1 nodes): `middleware.ts`
+- **Thin community `Community 38`** (1 nodes): `eslint.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 38`** (1 nodes): `next-env.d.ts`
+- **Thin community `Community 39`** (1 nodes): `middleware.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 39`** (1 nodes): `next.config.ts`
+- **Thin community `Community 40`** (1 nodes): `next-env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 40`** (1 nodes): `postcss.config.mjs`
+- **Thin community `Community 41`** (1 nodes): `next.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 41`** (1 nodes): `tailwind.config.ts`
+- **Thin community `Community 42`** (1 nodes): `postcss.config.mjs`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 42`** (1 nodes): `page.tsx`
+- **Thin community `Community 43`** (1 nodes): `tailwind.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 43`** (1 nodes): `route.ts`
+- **Thin community `Community 44`** (1 nodes): `page.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 44`** (1 nodes): `product-progress.tsx`
+- **Thin community `Community 45`** (1 nodes): `route.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 45`** (1 nodes): `todo-list.tsx`
+- **Thin community `Community 46`** (1 nodes): `todo-list.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 46`** (1 nodes): `task-form.tsx`
+- **Thin community `Community 47`** (1 nodes): `task-form.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 47`** (1 nodes): `task-queue-widget.tsx`
+- **Thin community `Community 48`** (1 nodes): `task-queue-widget.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 48`** (1 nodes): `auth.ts`
+- **Thin community `Community 49`** (1 nodes): `auth.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 49`** (1 nodes): `view-models.ts`
+- **Thin community `Community 50`** (1 nodes): `view-models.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 50`** (1 nodes): `auth-schema.ts`
+- **Thin community `Community 51`** (1 nodes): `auth-schema.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 51`** (1 nodes): `enums.ts`
+- **Thin community `Community 52`** (1 nodes): `enums.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 52`** (1 nodes): `integration-schema.ts`
+- **Thin community `Community 53`** (1 nodes): `integration-schema.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 53`** (1 nodes): `overlord-schema.ts`
+- **Thin community `Community 54`** (1 nodes): `overlord-schema.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 54`** (1 nodes): `product-schema.ts`
+- **Thin community `Community 55`** (1 nodes): `product-schema.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 55`** (1 nodes): `schema.ts`
+- **Thin community `Community 56`** (1 nodes): `schema.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 56`** (1 nodes): `codex-dialogue-check.ps1`
+- **Thin community `Community 57`** (1 nodes): `codex-dialogue-check.ps1`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 57`** (1 nodes): `codex-handoff.ps1`
+- **Thin community `Community 58`** (1 nodes): `codex-handoff.ps1`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 58`** (1 nodes): `codex-watchdog-check.ps1`
+- **Thin community `Community 59`** (1 nodes): `codex-watchdog-check.ps1`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (1 nodes): `overlord-push.ps1`
+- **Thin community `Community 60`** (1 nodes): `overlord-push.ps1`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 60`** (1 nodes): `next-auth.d.ts`
+- **Thin community `Community 61`** (1 nodes): `next-auth.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `getDb()` connect `Community 0` to `Community 3`, `Community 1`, `Community 34`, `Community 2`?**
-  _High betweenness centrality (0.133) - this node is a cross-community bridge._
-- **Why does `GET()` connect `Community 1` to `Community 0`, `Community 2`, `Community 4`, `Community 7`?**
-  _High betweenness centrality (0.089) - this node is a cross-community bridge._
+- **Why does `getDb()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 36`?**
+  _High betweenness centrality (0.132) - this node is a cross-community bridge._
+- **Why does `GET()` connect `Community 1` to `Community 0`, `Community 2`, `Community 4`, `Community 7`, `Community 9`?**
+  _High betweenness centrality (0.088) - this node is a cross-community bridge._
 - **Why does `requireUser()` connect `Community 0` to `Community 1`, `Community 3`?**
   _High betweenness centrality (0.036) - this node is a cross-community bridge._
 - **Are the 30 inferred relationships involving `getDb()` (e.g. with `GET()` and `resolveOwner()`) actually correct?**
