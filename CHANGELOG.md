@@ -45,14 +45,25 @@
 - `corepack pnpm typecheck`, `corepack pnpm lint`, and `corepack pnpm build` passed.
 - Graphify refreshed: 231 nodes, 300 edges, 63 communities.
 
-### Action required (Shepard-Commander)
-1. `corepack pnpm install` — installs `@anthropic-ai/sdk`, `react-force-graph-2d`, `react-markdown`, `remark-gfm`.
-2. `corepack pnpm db:migrate` — applies `drizzle/0005_agent_sessions.sql` to Neon.
-3. `corepack pnpm dev:helm` — start local server, then visit:
-   - `/terminal` → PowerShell session (smoke test Sprint 03)
-   - `/agents` → submit a prompt, watch SSE stream (smoke test Sprint 04)
-   - `/vault` → browse legion-vault notes (smoke test Sprint 05)
-   - `/graph` → see force graph of vault links (smoke test Sprint 05)
+### Build fixes
+- Fixed `components/vault/note-viewer.tsx`: destructured `node: _node` in `a` + `code` react-markdown component renderers to prevent hast prop spreading onto HTML elements (TypeScript `TS2322` type errors). Wikilink `<button>` no longer spreads anchor `...props` (incompatible types).
+- Fixed `app/(app)/terminal/page.tsx` + added `components/terminal/terminal-loader.tsx`: Turbopack (Next.js 15 production build) rejects `dynamic(..., { ssr: false })` inside Server Components. Extracted dynamic import into new `"use client"` wrapper `TerminalLoader`; Server Component page now imports `TerminalLoader` instead.
+
+### Verified (Sprint 03-05 — session 2)
+- `corepack pnpm install` — installed all new packages (`@anthropic-ai/sdk 0.51.0`, `react-force-graph-2d 1.29.1`, `react-markdown 9.1.0`, `remark-gfm 4.0.1`).
+- `corepack pnpm typecheck` — passed (0 errors).
+- `corepack pnpm lint` — passed (0 warnings, 0 errors).
+- `corepack pnpm build` — passed. 18 routes compiled cleanly with Turbopack.
+- `corepack pnpm db:migrate` — `drizzle/0005_agent_sessions.sql` applied to Neon successfully.
+- Committed: `0eb0483` — 116 files, 7952 insertions.
+- Graphify refreshed: 301 nodes, 398 edges, 75 communities.
+
+### Remaining (Shepard-Commander smoke test)
+- `corepack pnpm dev:helm` — start local server, then visit:
+  - `/terminal` → PowerShell session (smoke test Sprint 03)
+  - `/agents` → submit a prompt, watch SSE stream (smoke test Sprint 04)
+  - `/vault` → browse legion-vault notes (smoke test Sprint 05)
+  - `/graph` → see force graph of vault links (smoke test Sprint 05)
 
 ## 2026-05-20
 
