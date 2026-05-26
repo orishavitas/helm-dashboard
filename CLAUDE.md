@@ -117,3 +117,41 @@ All code is written, type-checked, linted, and built successfully. The only rema
 - [ ] Run `corepack pnpm db:migrate`
 - [ ] Run `scripts/overlord-push.ps1` and verify terminal card appears in dashboard
 - [ ] Mark sprint done in DOCS/
+---
+
+## Nexus Harness
+
+This repo is wired into the Nexus agentic development system.
+
+**Dispatch source:** `.agent-harness/inbox/` — task packets land here. Agents do not read monday.com for dispatch.
+**Writeback:** `.agent-harness/outbox/{task-id}.result.md` — every task ends with a populated result file.
+**Evidence:** `.agent-harness/artifacts/{task-id}/` — test output, verification logs.
+**Monitor:** Run `python C:/Users/OriShavit/Documents/GitHub/project_nexus/monitor/monitor.py` to countersign completed results.
+**Schema:** `.agent-harness/config/manifest/schema.yaml` — 9 task types, evidence requirements.
+
+### Session Start Protocol
+
+1. Read `MEMORY.md` — current state, key decisions, blockers
+2. Read `TODO.md` — what's next and current phase
+3. Check `.agent-harness/inbox/` for any active task packet
+4. Read `legion-vault/projects/Helm-Dashboard/index.md` for sprint state
+
+### Vault Ingest (Automatic)
+
+Every session triggers vault ingest at Stop via `session_stop.py` → `vault_ingest_agent.py`.
+
+**Verify:** `tail -5 .agent-harness/logs/vault-ingest.ndjson` — look for `vault_ingest_complete`
+
+**Manual re-run:**
+```bash
+python C:\Users\OriShavit\Documents\GitHub\project_nexus\scripts\vault_ingest_agent.py --runtime claude --session-id manual --repo-path C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard
+```
+
+**Constraint:** Never write directly to `system/`, `projects/`, or `raw/repos/` in the vault. Only `vault_ingest_agent.py` writes there.
+
+### Completion Anchors
+
+Every completed task must update before claiming done:
+- `TODO.md` — mark completed work, set next actionable item
+- `MEMORY.md` — refresh current state, latest verified task, blockers
+- `CHANGELOG.md` — add dated entry for what changed
