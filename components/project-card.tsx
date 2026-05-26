@@ -1,4 +1,4 @@
-import { AlertTriangle, GitPullRequest, Rocket } from "lucide-react";
+import { AlertTriangle, GitCommit, GitPullRequest, Rocket } from "lucide-react";
 import Link from "next/link";
 
 import { ProductProgressSummary } from "@/components/product-progress";
@@ -8,6 +8,10 @@ import type { ProjectSummary } from "@/lib/view-models";
 
 function statusTone(status: ProjectSummary["status"]) {
   return status === "active" ? "green" : status === "paused" ? "amber" : "zinc";
+}
+
+function providerTone(status: ProjectSummary["github"]["status"]) {
+  return status === "fresh" ? "green" : status === "error" ? "red" : status === "stale" ? "amber" : "zinc";
 }
 
 export function ProjectCard({ project }: { project: ProjectSummary }) {
@@ -39,6 +43,15 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
         </div>
         <div className="flex items-center justify-between gap-3">
           <span className="flex min-w-0 items-center gap-2">
+            <GitCommit className="h-4 w-4 shrink-0 text-blue-300" />
+            <span className="truncate">Recent commits</span>
+          </span>
+          <span className="shrink-0">
+            {project.github.status === "missing" ? "not cached" : project.recentCommitCount}
+          </span>
+        </div>
+        <div className="flex items-center justify-between gap-3">
+          <span className="flex min-w-0 items-center gap-2">
             <Rocket className="h-4 w-4 shrink-0 text-emerald-300" />
             <span className="truncate">Deploy</span>
           </span>
@@ -49,7 +62,13 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
         {(project.github.status === "error" || project.vercel.status === "error") && (
           <span className="flex items-center gap-2 text-xs text-red-300">
             <AlertTriangle className="h-3.5 w-3.5" />
-            Integration attention needed
+            {project.github.error ?? project.vercel.error ?? "Integration attention needed"}
+          </span>
+        )}
+        {project.github.status !== "error" && (
+          <span className="text-xs text-zinc-600">
+            GitHub <Badge tone={providerTone(project.github.status)}>{project.github.status}</Badge>
+            {project.latestCommitAt ? ` latest ${formatRelativeTime(project.latestCommitAt)}` : " no commits cached"}
           </span>
         )}
       </div>

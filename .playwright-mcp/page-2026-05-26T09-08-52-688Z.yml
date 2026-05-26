@@ -1,0 +1,8 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - img [ref=e5]
+      - text: Helm
+    - heading "Developer command center" [level=1] [ref=e7]
+    - paragraph [ref=e8]: Sign in to see project work, open pull requests, deploy state, and todos in one compact workspace.
+    - button "Continue with Google" [ref=e10] [cursor=pointer]

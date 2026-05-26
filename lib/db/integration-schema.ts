@@ -28,6 +28,7 @@ export const githubRepoSnapshots = pgTable(
     projectId: uuid("project_id").notNull().references(() => projects.id, { onDelete: "cascade" }),
     openPrCount: integer("open_pr_count").default(0).notNull(),
     openPrs: jsonb("open_prs").$type<Array<Record<string, unknown>>>().default([]).notNull(),
+    recentCommits: jsonb("recent_commits").$type<Array<Record<string, unknown>>>().default([]).notNull(),
     status: snapshotStatus("status").default("missing").notNull(),
     error: text("error"),
     fetchedAt: timestamp("fetched_at", { mode: "date" }),

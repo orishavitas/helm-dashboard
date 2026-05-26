@@ -10,6 +10,11 @@ import {
   vercelDeploymentSnapshots,
 } from "@/lib/db/schema";
 import { computeProductProgress } from "@/lib/product-progress";
+import {
+  coerceGithubCommits,
+  coerceGithubPullRequests,
+  deriveGithubSnapshotState,
+} from "@/lib/github-snapshot";
 import type { ProjectDetail, ProjectSummary, TaskItem, TodoItem } from "@/lib/view-models";
 
 type ProjectRow = typeof projects.$inferSelect;
@@ -35,11 +40,12 @@ async function toSummary(project: ProjectRow): Promise<ProjectSummary> {
   const sprintInProgress = sprintTasks.filter((task) => task.status === "in-progress").length;
   const sprintBlocked = sprintTasks.filter((task) => task.status === "blocked").length;
   const sprintTodo = sprintTasks.filter((task) => task.status === "todo").length;
-  const githubState = {
+  const recentCommits = coerceGithubCommits(github?.recentCommits);
+  const githubState = deriveGithubSnapshotState({
     status: github?.status ?? "missing",
     fetchedAt: github?.fetchedAt ?? null,
     error: github?.error ?? null,
-  };
+  });
   const vercelState = {
     status: vercel?.status ?? "missing",
     fetchedAt: vercel?.fetchedAt ?? null,
@@ -61,6 +67,8 @@ async function toSummary(project: ProjectRow): Promise<ProjectSummary> {
     sprintBlocked,
     sprintTodo,
     openPrCount: github?.openPrCount ?? null,
+    recentCommitCount: recentCommits.length,
+    latestCommitAt: recentCommits[0]?.committedAt ?? null,
     github: githubState,
     vercel: vercelState,
     productProgress: computeProductProgress({
@@ -141,6 +149,20 @@ export async function getProjectDetail(projectId: string, userId: string): Promi
     vercelProjectId: project.vercelProjectId,
     vercelProjectName: project.vercelProjectName,
     openSprintId: openSprint?.id ?? null,
+    openPullRequests: coerceGithubPullRequests(
+      (await getDb()
+        .select({ openPrs: githubRepoSnapshots.openPrs })
+        .from(githubRepoSnapshots)
+        .where(eq(githubRepoSnapshots.projectId, project.id))
+        .limit(1))[0]?.openPrs,
+    ),
+    recentCommits: coerceGithubCommits(
+      (await getDb()
+        .select({ recentCommits: githubRepoSnapshots.recentCommits })
+        .from(githubRepoSnapshots)
+        .where(eq(githubRepoSnapshots.projectId, project.id))
+        .limit(1))[0]?.recentCommits,
+    ),
     backlogTasks: taskRows.filter((task) => !task.sprintId).map(mapTask),
     sprintTasks: taskRows.filter((task) => task.sprintId === openSprint?.id).map(mapTask),
     todos: todoRows.map((todo): TodoItem => ({ id: todo.id, title: todo.title, done: todo.done })),

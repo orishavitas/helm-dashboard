@@ -6,7 +6,7 @@ import { z } from "zod";
 
 import { getDb } from "@/lib/db";
 import { projects, userIntegrations } from "@/lib/db/schema";
-import { getOpenPullRequests } from "@/lib/integrations/github";
+import { getOpenPullRequests, getRecentCommits } from "@/lib/integrations/github";
 import { latestVercelDeployment } from "@/lib/integrations/vercel";
 import { assertProjectOwner } from "@/lib/ownership";
 import { encryptSecret, decryptSecret } from "@/lib/security/encryption";
@@ -82,26 +82,39 @@ export async function refreshProjectSnapshots(projectId: string) {
 async function refreshGithub(projectId: string, installationId: string, owner: string, repo: string) {
   const { githubRepoSnapshots } = await import("@/lib/db/schema");
   try {
-    const prs = await getOpenPullRequests(installationId, owner, repo);
+    const [prs, commits] = await Promise.all([
+      getOpenPullRequests(installationId, owner, repo),
+      getRecentCommits(installationId, owner, repo),
+    ]);
+    const fetchedAt = new Date();
     await getDb().insert(githubRepoSnapshots).values({
       projectId,
       openPrCount: prs.length,
       openPrs: prs,
+      recentCommits: commits,
       status: "fresh",
-      fetchedAt: new Date(),
+      fetchedAt,
     }).onConflictDoUpdate({
       target: githubRepoSnapshots.projectId,
-      set: { openPrCount: prs.length, openPrs: prs, status: "fresh", error: null, fetchedAt: new Date() },
+      set: {
+        openPrCount: prs.length,
+        openPrs: prs,
+        recentCommits: commits,
+        status: "fresh",
+        error: null,
+        fetchedAt,
+      },
     });
   } catch (error) {
+    const fetchedAt = new Date();
     await getDb().insert(githubRepoSnapshots).values({
       projectId,
       status: "error",
       error: error instanceof Error ? error.message : "GitHub refresh failed.",
-      fetchedAt: new Date(),
+      fetchedAt,
     }).onConflictDoUpdate({
       target: githubRepoSnapshots.projectId,
-      set: { status: "error", error: error instanceof Error ? error.message : "GitHub refresh failed.", fetchedAt: new Date() },
+      set: { status: "error", error: error instanceof Error ? error.message : "GitHub refresh failed.", fetchedAt },
     });
   }
 }

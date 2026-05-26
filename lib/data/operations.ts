@@ -4,6 +4,7 @@ import { getDb } from "@/lib/db";
 import { projects, sprints, tasks } from "@/lib/db/schema";
 import { getOverlordState } from "@/lib/data/overlord";
 import { getProjectSummaries } from "@/lib/data/projects";
+import { groupTerminalPresence, repoLabel, terminalAssignee } from "@/lib/terminal-presence";
 import type {
   OperationsProjectState,
   OperationsState,
@@ -19,20 +20,14 @@ function assigneeName(value: string | null | undefined) {
   return trimmed ? trimmed : UNASSIGNED;
 }
 
-function terminalAssignee(terminal: OverlordState["terminals"][number]) {
-  const metaAssignee = terminal.current.meta.assignee;
-  return assigneeName(typeof metaAssignee === "string" ? metaAssignee : terminal.current.agentRole);
-}
-
 function terminalMatchesProject(terminal: OverlordState["terminals"][number], projectName: string) {
-  const repo = terminal.current.repo?.trim().toLowerCase();
+  const repo = repoLabel(terminal.current.repo).trim().toLowerCase();
   const normalizedProjectName = projectName.trim().toLowerCase();
-  if (!repo || !normalizedProjectName) {
+  if (repo === "no repo" || !normalizedProjectName) {
     return false;
   }
 
-  const repoName = repo.replace(/\\/g, "/").split("/").filter(Boolean).at(-1);
-  return repo === normalizedProjectName || repoName === normalizedProjectName;
+  return repo === normalizedProjectName;
 }
 
 function getResponsibilityBucket(buckets: Map<string, ResponsibilityBucket>, assignee: string) {
@@ -186,6 +181,7 @@ export async function getOperationsState(userId: string): Promise<OperationsStat
     fetchedAt: new Date(),
     projects: projectsWithState,
     terminals: overlordState.terminals,
+    terminalGroups: groupTerminalPresence(overlordState.terminals),
     tasks: {
       working: operationsTasks.filter((task) => task.status === "in-progress"),
       pending: operationsTasks.filter((task) => task.status === "todo"),

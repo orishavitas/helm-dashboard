@@ -1,9 +1,34 @@
 # Last Run - helm-dashboard
 
 **Written by:** Codex
-**Updated:** 2026-05-19T21:45:00+03:00
-**Task:** implement Helm State Aggregator
-**Result:** local implementation complete and verified; Neon migrations applied; production deployment pending Git push/Vercel verification.
+**Updated:** 2026-05-26T10:00:52+03:00
+**Task:** implement Sprint 03 Codex-owned local terminal backend/package slice
+**Result:** Codex-owned slice complete and verified; live `dev:helm` remains blocked on Claude-owned `server.mjs`.
+
+## Sprint 03 - 2026-05-26
+
+- Installed `node-pty`, `ws`, `react-xtermjs`, `@xterm/xterm`, `@xterm/addon-attach`, and `@xterm/addon-fit`; aligned `@xterm/xterm` to `5.5.0` for `react-xtermjs`.
+- Added `@types/ws` for websocket handler type coverage.
+- Added `lib/terminal/pty-pool.ts` with max-4 PTY session management, five-minute idle reaping, write/resize forwarding, close handling, and injectable spawn/clock for tests.
+- Added `lib/terminal/ws-handler.ts` with `/ws/terminal/:sessionId` parsing, websocket upgrade handling, input/resize decoding, PTY output relay, and close cleanup.
+- Added focused tests for PTY session reuse, max-session enforcement, idle reaping, websocket URL parsing, and client message decoding.
+- Added Windows-safe `pnpm dev:helm` and `pnpm start:helm` through `scripts/run-helm-server.mjs`.
+- Verification passed: `corepack pnpm exec tsc -p tsconfig.test.json`, `node --test .tmp\test-dist\tests\*.test.js` (10/10), `node-pty` import smoke, `corepack pnpm typecheck`, `corepack pnpm lint`, and `corepack pnpm build`.
+- Graphify refresh passed through `C:\Users\OriShavit\documents\github\scripts\ensure-graphify.ps1 -RepoPath . -SkipHooks`: 231 nodes, 300 edges, 63 communities.
+- Remaining blocker: `corepack pnpm dev:helm` fails with `ERR_MODULE_NOT_FOUND` for `server.mjs`, which is still Claude-owned per `.codex/state/TASK_STATE.md`.
+
+## Sprint 02 - 2026-05-20
+
+- Added cached GitHub drill-down endpoints for open PRs and recent commits under `app/api/github/repos/[projectId]/`.
+- Added `recent_commits` to `github_repo_snapshots` and updated GitHub refresh to snapshot PRs and commits together.
+- Updated project cards and project detail to render GitHub status, errors, empty states, PRs, and commit history from the same cached snapshot.
+- Added terminal presence derivation/grouping helpers. Latest heartbeats older than 10 minutes now read as `offline`, with the reported status preserved in `meta.reportedStatus`.
+- Updated operations state and terminal presence UI to group terminals by repo and assignee with current task, role/status, and history.
+- Extended `scripts/helm-sync-local.ps1` to import branch/commit/dirty repo state and task source-line notes while preserving delete-free stable source-ref upserts.
+- Switched the package build script to `next build --turbopack` because standard `next build` hangs before compilation in this environment while Turbopack completes.
+- Verification passed: focused Node tests (5/5), `corepack pnpm typecheck`, `corepack pnpm lint`, `corepack pnpm build`, `corepack pnpm db:migrate`, protected endpoint smoke redirects, import auth rejection, and one example local import smoke.
+- Graphify refresh passed for the graph itself: 214 nodes, 281 edges, 61 communities. Follow-on hook write still hit the known `.codex/hooks.json` permission warning.
+- Remaining: authenticated browser visual verification for `/` and `/projects/[id]`.
 
 ## State Aggregator - 2026-05-19
 
@@ -16,10 +41,11 @@
 - Verification passed: `corepack pnpm typecheck`, `corepack pnpm lint`, `git diff --check`, `corepack pnpm build`, `corepack pnpm db:migrate`, and invalid import auth returning `401`.
 - Production heartbeat push via Node fetch returned `200 {"ok":true}` for `codex-helm-state-aggregator`; PowerShell/curl hit Windows TLS client errors before reaching Vercel.
 - Graphify was refreshed after each implementation slice and committed.
-- GitHub push completed: `master` now points to `fdb8b8c`.
+- GitHub push completed: `master` now points to `56e8b1a`.
 - Production alias smoke passed for `/login` (200), `/api/auth/providers` (200), and protected `/api/operations/state` redirecting to `/login` (307).
-- Production `POST /api/operations/import` returns 500 because `OPERATIONS_IMPORT_SECRET` is not configured in Vercel Production. Vercel CLI auth is invalid in this shell, so Codex could not add it.
-- Next safe step: add `OPERATIONS_IMPORT_SECRET` to Vercel Production env, trigger redeploy if needed, then verify import invalid auth returns `401`.
+- Production `POST /api/operations/import` now returns `401 {"error":"Unauthorized"}` after the Vercel Production import secret was configured.
+- Browser login was verified by the user, so the Overlord sprint is complete.
+- Next safe step: define the next sprint or backlog item.
 
 ## Google OAuth Callback Fix - 2026-05-19
 

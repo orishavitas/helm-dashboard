@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noEmit": false,
+    "outDir": ".tmp/test-dist",
+    "rootDir": ".",
+    "incremental": false,
+    "jsx": "react-jsx",
+    "types": ["node"]
+  },
+  "include": [
+    "tests/**/*.ts",
+    "lib/env.ts",
+    "lib/github-snapshot.ts",
+    "lib/terminal-presence.ts",
+    "lib/terminal/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".next"]
+}

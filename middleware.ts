@@ -9,6 +9,7 @@ export default auth((request) => {
     pathname.startsWith("/api/auth") ||
     pathname.startsWith("/api/overlord/push") ||
     pathname === "/api/operations/import" ||
+    pathname.startsWith("/ws/terminal") ||
     pathname.startsWith("/_next") ||
     pathname === "/favicon.ico";
 

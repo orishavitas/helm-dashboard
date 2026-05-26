@@ -14,7 +14,7 @@ export function OperationsDashboard({ state }: Props) {
       <ProjectStateWidget projects={state.projects} />
       <TaskQueueWidget tasks={state.tasks} size="wide" />
       <ResponsibilityWidget responsibility={state.responsibility} size="side" />
-      <TerminalPresenceWidget terminals={state.terminals} />
+      <TerminalPresenceWidget groups={state.terminalGroups} />
     </section>
   );
 }

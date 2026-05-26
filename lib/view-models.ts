@@ -1,4 +1,5 @@
 import type { ProductProgress } from "@/lib/product-progress";
+import type { GithubCommit, GithubPullRequest } from "@/lib/github-snapshot";
 
 export type ProviderState = {
   status: "fresh" | "stale" | "error" | "missing";
@@ -18,6 +19,8 @@ export type ProjectSummary = {
   sprintBlocked: number;
   sprintTodo: number;
   openPrCount: number | null;
+  recentCommitCount: number;
+  latestCommitAt: string | null;
   github: ProviderState;
   vercel: ProviderState & {
     deploymentUrl: string | null;
@@ -33,6 +36,8 @@ export type ProjectDetail = ProjectSummary & {
   vercelProjectId: string | null;
   vercelProjectName: string | null;
   openSprintId: string | null;
+  openPullRequests: GithubPullRequest[];
+  recentCommits: GithubCommit[];
   backlogTasks: TaskItem[];
   sprintTasks: TaskItem[];
   todos: TodoItem[];
@@ -109,6 +114,7 @@ export type OperationsState = {
   fetchedAt: Date;
   projects: OperationsProjectState[];
   terminals: OverlordState["terminals"];
+  terminalGroups: import("@/lib/terminal-presence").TerminalRepoGroup[];
   tasks: {
     working: OperationsTask[];
     pending: OperationsTask[];

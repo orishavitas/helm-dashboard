@@ -27,6 +27,23 @@ const operationsImportEnvSchema = z.object({
   OPERATIONS_IMPORT_SECRET: z.string().min(16),
 });
 
+const optionalNonEmptyString = z.preprocess((value) => (value === "" ? undefined : value), z.string().min(1).optional());
+
+const localProfileEnvSchema = z.object({
+  HELM_PROFILE: z.enum(["cloud", "local"]).default("cloud"),
+  HELM_LOCAL_PORT: z.coerce.number().int().min(1).max(65_535).default(3001),
+  TERMINAL_SHELL: optionalNonEmptyString,
+  TERMINAL_CWD: optionalNonEmptyString,
+  OBSIDIAN_REST_API_URL: z.preprocess((value) => (value === "" ? undefined : value), z.string().url().optional()),
+  OBSIDIAN_REST_API_KEY: optionalNonEmptyString,
+  OBSIDIAN_VAULT_PATH: optionalNonEmptyString,
+  ANTHROPIC_API_KEY: optionalNonEmptyString,
+});
+
+export type LocalProfileEnv = z.infer<typeof localProfileEnvSchema> & {
+  isLocal: boolean;
+};
+
 export function parseEnv() {
   return envSchema.parse(process.env);
 }
@@ -37,6 +54,14 @@ export function parseOverlordPushEnv() {
 
 export function parseOperationsImportEnv() {
   return operationsImportEnvSchema.parse(process.env);
+}
+
+export function parseLocalProfileEnv(env: Record<string, string | undefined> = process.env): LocalProfileEnv {
+  const parsed = localProfileEnvSchema.parse(env);
+  return {
+    ...parsed,
+    isLocal: parsed.HELM_PROFILE === "local",
+  };
 }
 
 export function optionalEnv() {

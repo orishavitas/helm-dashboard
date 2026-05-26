@@ -2,6 +2,7 @@ import { desc, eq, inArray, sql } from "drizzle-orm";
 
 import { getDb } from "@/lib/db";
 import { terminalSnapshots } from "@/lib/db/schema";
+import { deriveTerminalPresence } from "@/lib/terminal-presence";
 import type { OverlordState, TerminalSnapshot } from "@/lib/view-models";
 
 const HISTORY_DEPTH = 5;
@@ -53,5 +54,6 @@ export async function getOverlordState(): Promise<OverlordState> {
     }),
   );
 
-  return { terminals, fetchedAt: new Date() };
+  const fetchedAt = new Date();
+  return { terminals: deriveTerminalPresence(terminals, fetchedAt), fetchedAt };
 }

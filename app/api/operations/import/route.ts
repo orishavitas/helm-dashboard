@@ -12,6 +12,7 @@ export const revalidate = 0;
 const taskImportSchema = z
   .object({
     title: z.string().trim().min(1).max(240),
+    notes: z.string().trim().max(1000).nullish(),
     status: z.enum(["todo", "in-progress", "done", "blocked"]).default("todo"),
     priority: z.enum(["low", "medium", "high", "critical"]).default("medium"),
     assignee: z.string().trim().max(120).nullish(),
@@ -175,6 +176,7 @@ async function upsertTask(projectId: string, sprintId: string | null, input: z.i
     projectId,
     sprintId,
     title: input.title,
+    notes: emptyToNull(input.notes),
     status: input.status,
     priority: input.priority,
     assignee: emptyToNull(input.assignee),

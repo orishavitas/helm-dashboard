@@ -2,9 +2,9 @@
 **Repo:** helm-dashboard
 **Sprint goal:** Build a self-contained Overlord Monitor widget: DB-backed terminal heartbeat store, push/state API endpoints, React Query polling panel, embeddable in any dashboard page, deployed to Vercel.
 **Started:** 2026-05-06
-**Closed:** BLOCKED on Neon env apply
+**Closed:** DONE
 
-**Codex execution status (2026-05-06T21:25:54+03:00):** Tasks 1 and 3-11 are implemented locally. Task 2 migration SQL exists, but `corepack pnpm db:migrate` is blocked because this shell has no `DATABASE_URL_UNPOOLED` or `DATABASE_URL`. Live heartbeat push testing is blocked until DB env, `OVERLORD_BASE_URL`, and `OVERLORD_PUSH_SECRET` are available.
+**Codex execution status (2026-05-19T22:10:00+03:00):** Tasks 1-11 are complete. Neon migrations were applied, production login was verified by the user, and the sprint is closed. Remaining work, if any, belongs to a new sprint.
 
 ---
 

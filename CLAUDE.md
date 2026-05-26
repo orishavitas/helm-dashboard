@@ -7,25 +7,33 @@
 - **Repo:** `C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard`
 - **Stack:** Next.js 14 (App Router), TypeScript, Drizzle ORM, Neon Postgres, Auth.js (Google), React Query, Tailwind, pnpm
 - **Package manager:** always `corepack pnpm` — never bare `pnpm` or `npm`
-- **Sprint:** `DOCS/sprints/2026-05-06-helm-dashboard-sprint-01-overlord-monitor.md`
+- **Sprint:** Sprints 03–06 (v2 MVP — AI Cockpit)
+- **v2 Spec:** `DOCS/superpowers/specs/2026-05-25-helm-v2-mvp-design.md`
+- **Status:** Sprint 03 in progress; Codex-owned terminal backend/package slice complete, Claude-owned server/profile/UI slice pending
 
 ---
 
 ## Phase Status
 
+### v1 — Complete ✅
 | Phase | Status | Notes |
 |-------|--------|-------|
 | DB schema + Drizzle foundation | ✅ Done | `lib/db/`, `drizzle/0000_*.sql` |
 | Auth (Google via Auth.js) | ✅ Done | `lib/session.ts`, `requireUser()` |
-| Overlord DB schema | ✅ Done | `lib/db/overlord-schema.ts`, `drizzle/0001_overlord.sql` |
-| Overlord API routes | ✅ Done | `app/api/overlord/push/` + `state/` |
-| Overlord UI + polling | ✅ Done | `components/overlord-panel.tsx`, `overlord-terminal-card.tsx` |
-| Dashboard widget architecture | ✅ Done | `components/dashboard/dashboard-layout.tsx`, `dashboard-widget.tsx` |
-| Product progress model | ✅ Done | `lib/product-progress.ts`, `components/product-progress.tsx` |
-| Concept preview | ✅ Done | `concept-preview.html` |
-| DB migration applied to Neon | ❌ Blocked | Missing `DATABASE_URL` / `DATABASE_URL_UNPOOLED` in env |
-| Live Overlord push test | ❌ Blocked | Missing `OVERLORD_BASE_URL` + `OVERLORD_PUSH_SECRET` + migrated DB |
-| Auth login flow (browser) | ❌ Blocked | Missing `AUTH_SECRET` + Google OAuth env vars |
+| Overlord Monitor (Sprint 01) | ✅ Done | Push endpoint, polling UI, deployed to Vercel |
+| State Aggregator | ✅ Done | Operations state API, import endpoint, widgets |
+| GitHub Tracking (Sprint 02) | ✅ Done | PR/commit drill-down, terminal presence grouped by repo |
+| DB migrations (Neon) | ✅ Done | 0001–0004 applied |
+| Production deploy | ✅ Done | https://helm-dashboard-ten.vercel.app |
+
+### v2 — AI Cockpit (Active)
+| Phase | Status | Notes |
+|-------|--------|-------|
+| v2 Design & Research | ✅ Done | `DOCS/superpowers/specs/2026-05-25-helm-v2-mvp-design.md` |
+| Sprint 03: Local Runtime + Terminal | In progress | Codex backend/package slice complete; Claude server/profile/UI slice pending |
+| Sprint 04: Claude Code Agent Runner | ⏳ Pending S03 | Agent SDK, SSE streaming, session persistence |
+| Sprint 05: Vault + Knowledge Graph | ⏳ Pending S03 | Obsidian REST, wikilinks, react-force-graph-2d |
+| Sprint 06: Snapshots + Polish | ⏳ Pending S04+S05 | Cloud snapshots, cost tracking, watch mode |
 
 ---
 
@@ -56,7 +64,10 @@
 | `app/globals.css` | Helm design tokens (CSS vars) |
 | `drizzle/0001_overlord.sql` | Scoped Overlord migration (NOT yet applied to Neon) |
 | `scripts/overlord-push.ps1` | PowerShell heartbeat push script |
-| `graphify-out/` | Knowledge graph (156 nodes, 178 edges, 56 communities) |
+| `lib/terminal/pty-pool.ts` | Sprint 03 PTY pool for max-4 terminal sessions and idle cleanup |
+| `lib/terminal/ws-handler.ts` | Sprint 03 websocket upgrade/input/resize handler for terminal sessions |
+| `scripts/run-helm-server.mjs` | Windows-safe launcher for `dev:helm` and `start:helm` |
+| `graphify-out/` | Knowledge graph (231 nodes, 300 edges, 63 communities) |
 | `.codex/state/` | Codex-owned task/run state |
 | `AGENTS.md` | Graphify guidance for Codex |
 
@@ -102,21 +113,24 @@ Next.js/Webpack reports case-only path differences between `Documents` and `docu
 
 ---
 
-## Current Status (2026-05-18)
+## Current Status (2026-05-26)
 
-All code is written, type-checked, linted, and built successfully. The only remaining work is **operational** (env + DB):
+Sprint 03 is in progress. Codex completed the backend/package slice:
 
-1. Create `.env.local` with Neon, Auth.js, Google OAuth, GitHub App, Overlord secrets
-2. Run `corepack pnpm db:migrate` to apply `drizzle/0001_overlord.sql` to Neon
-3. Run `scripts/overlord-push.ps1` with real `OVERLORD_BASE_URL` + `OVERLORD_PUSH_SECRET`
-4. Verify dashboard renders a terminal card for the push
+1. Terminal dependencies installed and `node-pty` Windows ConPTY import verified.
+2. `lib/terminal/pty-pool.ts` and `lib/terminal/ws-handler.ts` implemented with focused tests.
+3. `pnpm dev:helm` and `pnpm start:helm` added through `scripts/run-helm-server.mjs`.
+4. Verification passed: focused tests 10/10, typecheck, lint, build, and Graphify refresh.
+
+Remaining Sprint 03 blocker: `corepack pnpm dev:helm` fails with `ERR_MODULE_NOT_FOUND` for `server.mjs`. That file is Claude-owned in `.codex/state/TASK_STATE.md`.
 
 ## Next Steps
 
-- [ ] Shepard-Commander: provide `.env.local` values (Neon DB, Auth.js, Google OAuth, OVERLORD_PUSH_SECRET)
-- [ ] Run `corepack pnpm db:migrate`
-- [ ] Run `scripts/overlord-push.ps1` and verify terminal card appears in dashboard
-- [ ] Mark sprint done in DOCS/
+- [ ] Claude: add `server.mjs` and wire `handleTerminalUpgrade()` on `/ws/terminal/:sessionId`
+- [ ] Claude: add `parseLocalProfileEnv()` and local-only nav gating
+- [ ] Claude: add `components/terminal/xterm-pane.tsx`, `/terminal`, and `DOCS/local-runtime.md`
+- [ ] Rerun `corepack pnpm dev:helm` and the live terminal acceptance checks
+
 ---
 
 ## Nexus Harness

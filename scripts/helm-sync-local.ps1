@@ -87,10 +87,32 @@ function Get-RelativePath {
   return $targetFull
 }
 
+function Get-GitState {
+  param([string]$ProjectPath)
+
+  try {
+    $branch = (& git -c core.excludesfile= -C $ProjectPath branch --show-current 2>$null)
+    $commit = (& git -c core.excludesfile= -C $ProjectPath rev-parse --short HEAD 2>$null)
+    $statusLines = @(& git -c core.excludesfile= -C $ProjectPath status --porcelain 2>$null)
+    return [ordered]@{
+      branch = if ($branch) { $branch.Trim() } else { $null }
+      commit = if ($commit) { $commit.Trim() } else { $null }
+      dirty = $statusLines.Count -gt 0
+    }
+  } catch {
+    return [ordered]@{
+      branch = $null
+      commit = $null
+      dirty = $null
+    }
+  }
+}
+
 function ConvertTo-ProjectPayload {
   param([pscustomobject]$Project)
 
   $projectPath = [System.IO.Path]::GetFullPath($Project.path)
+  $gitState = Get-GitState -ProjectPath $projectPath
   $sprintFile = Get-LatestSprintFile -ProjectPath $projectPath
   $tasks = @()
   $sprintName = $null
@@ -115,6 +137,7 @@ function ConvertTo-ProjectPayload {
       $sourceRef = Get-StableTaskRef -ProjectName $Project.name -SprintPath $relativeSprintPath -Title $title
       $tasks += [ordered]@{
         title = $title
+        notes = "Imported from $relativeSprintPath line $lineNumber"
         status = $status
         priority = "medium"
         assignee = $Project.owner
@@ -128,9 +151,19 @@ function ConvertTo-ProjectPayload {
     }
   }
 
+  $repoState = @()
+  if ($gitState["branch"]) { $repoState += "branch $($gitState["branch"])" }
+  if ($gitState["commit"]) { $repoState += "commit $($gitState["commit"])" }
+  if ($null -ne $gitState["dirty"]) { $repoState += "working tree $(if ($gitState["dirty"]) { 'dirty' } else { 'clean' })" }
+  $fallbackDescription = "Imported from local repo $projectPath"
+  if ($repoState.Count -gt 0) {
+    $fallbackDescription = "$fallbackDescription ($($repoState -join ', '))"
+  }
+  $description = if ($Project.description) { $Project.description } else { $fallbackDescription }
+
   return [ordered]@{
     name = $Project.name
-    description = if ($Project.description) { $Project.description } else { "Imported from local repo $projectPath" }
+    description = $description
     status = "active"
     path = $projectPath
     repo = $Project.repo

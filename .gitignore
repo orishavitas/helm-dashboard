@@ -21,6 +21,7 @@ node_modules/
 .next/
 out/
 dist/
+.tmp/
 *.tsbuildinfo
 .codex/state/*.log
 .codex/state/HANDOFF_*.md

@@ -1,5 +1,82 @@
 # Changelog — Helm Dashboard
 
+## 2026-05-26 (session 2 — Sprint 03 fixes + Sprint 04 + Sprint 05)
+
+### Fixed (Sprint 03 gaps)
+- Fixed `lib/terminal/server-runtime.mjs` lines 24+29: `WebSocket.OPEN` (browser global) → `1` (the constant value). Node.js `ws` library exposes the constant directly on the socket; the undefined global caused a crash on first PTY connection.
+- Fixed `app/(app)/terminal/page.tsx`: replaced static `import { XtermPane }` with `next/dynamic(() => ..., { ssr: false })`. xterm.js accesses `document` at module load, which crashes Next.js SSR.
+- Fixed `components/terminal/xterm-pane.tsx`: added `socket.binaryType = "arraybuffer"` after WebSocket construction. `@xterm/addon-attach`'s AttachAddon expects binary frames.
+
+### Added (Sprint 04 — Claude Code Agent Runner)
+- Added `lib/db/agent-schema.ts`: `agent_sessions` + `agent_events` tables with enums (`agent_session_status`, `agent_event_type`).
+- Added `drizzle/0005_agent_sessions.sql` migration + journal entry.
+- Added `lib/data/agents.ts`: `createAgentSession`, `getAgentSession`, `listAgentSessions`, `updateAgentSession`, `appendAgentEvent`, `getAgentEvents`.
+- Added `lib/agents/claude-runner.ts`: streaming async generator wrapping `@anthropic-ai/sdk` Messages API. Yields `text`, `tool_use`, `tool_result`, `usage`, `error`, `done` events.
+- Added `lib/agents/session-controllers.ts`: singleton map of `sessionId → AbortController` shared between stream and stop routes.
+- Added `app/api/agents/sessions/route.ts`: GET (list) + POST (create, requires `HELM_PROFILE=local` + `ANTHROPIC_API_KEY`).
+- Added `app/api/agents/stream/[id]/route.ts`: SSE streaming endpoint; consumes runner generator, forwards as `text/event-stream`, persists events to DB.
+- Added `app/api/agents/stop/[id]/route.ts`: POST to abort in-flight session via shared AbortController.
+- Added `components/agents/agent-event-stream.tsx`: EventSource consumer; renders text, tool_use, error events with auto-scroll.
+- Added `components/agents/agent-runner.tsx`: prompt textarea + model picker (Haiku/Sonnet/Opus) + run/stop buttons.
+- Added `app/(app)/agents/page.tsx`: local-profile-gated runner page with API key status badge + recent sessions list.
+- Added `@anthropic-ai/sdk ^0.51.0` to `package.json` (run `corepack pnpm install`).
+
+### Added (Sprint 05 — Vault Browser & Knowledge Graph)
+- Added `lib/vault/obsidian-rest.ts`: typed `ObsidianRestClient` class + `getObsidianClient()` singleton for `obsidian-local-rest-api`.
+- Added `lib/vault/vault-fs.ts`: direct filesystem fallback (`readVaultTree`, `readVaultNote`, `searchVaultNotes`). Path traversal guard included.
+- Added `lib/vault/graph-builder.ts`: `buildGraph()` — parses `[[wikilinks]]` + `#tags` from vault notes, returns `{ nodes, edges }` with `inDegree`/`outDegree`.
+- Added `app/api/vault/tree/route.ts`: returns file tree (REST API → fs fallback).
+- Added `app/api/vault/note/[...path]/route.ts`: returns raw markdown content (REST API → fs fallback).
+- Added `app/api/vault/search/route.ts`: full-text search proxy (REST API → fs grep fallback).
+- Added `app/api/vault/graph/route.ts`: walks vault, builds graph, returns JSON for react-force-graph-2d.
+- Added `components/vault/vault-tree.tsx`: collapsible tree with directory expand/collapse, file selection highlight.
+- Added `components/vault/note-viewer.tsx`: `react-markdown` + `remark-gfm` renderer with `[[wikilink]]` pre-processing → clickable wikilink buttons.
+- Added `components/graph/knowledge-graph.tsx`: `react-force-graph-2d` canvas with node coloring by tag category (project/session/agent/default), label rendering at zoom > 1.8.
+- Added `app/(app)/vault/page.tsx`: 3-pane layout (tree/search results | note viewer | header search bar). `?note=` query param supported for graph node-click navigation. Wrapped in `Suspense` for `useSearchParams`.
+- Added `app/(app)/graph/page.tsx`: full-viewport force graph with `ResizeObserver`-driven canvas dimensions. Node click → `router.push(/vault?note=...)`.
+- Extended `components/app-shell.tsx` sidebar + mobile header: added Agent (Bot icon), Vault (BookOpen icon), Graph (Share2 icon) nav links — visible in local profile only.
+- Added `react-force-graph-2d ^1.26.3`, `react-markdown ^9.0.1`, `remark-gfm ^4.0.0` to `package.json`.
+- Added `transpilePackages` in `next.config.ts` for `react-force-graph-2d` and its CJS dependencies.
+
+### Verified (Sprint 03 terminal backend — Codex, session 1)
+- `node-pty` installed with the Windows ConPTY prebuild and imported successfully.
+- `corepack pnpm exec tsc -p tsconfig.test.json` passed.
+- `node --test .tmp\test-dist\tests\*.test.js` passed: 10/10.
+- `corepack pnpm typecheck`, `corepack pnpm lint`, and `corepack pnpm build` passed.
+- Graphify refreshed: 231 nodes, 300 edges, 63 communities.
+
+### Action required (Shepard-Commander)
+1. `corepack pnpm install` — installs `@anthropic-ai/sdk`, `react-force-graph-2d`, `react-markdown`, `remark-gfm`.
+2. `corepack pnpm db:migrate` — applies `drizzle/0005_agent_sessions.sql` to Neon.
+3. `corepack pnpm dev:helm` — start local server, then visit:
+   - `/terminal` → PowerShell session (smoke test Sprint 03)
+   - `/agents` → submit a prompt, watch SSE stream (smoke test Sprint 04)
+   - `/vault` → browse legion-vault notes (smoke test Sprint 05)
+   - `/graph` → see force graph of vault links (smoke test Sprint 05)
+
+## 2026-05-20
+
+### Added
+- Added Sprint 02 GitHub drill-downs for cached open pull requests and recent commits.
+- Added `recent_commits` to `github_repo_snapshots` with migration `drizzle/0004_github_recent_commits.sql`.
+- Added terminal presence helpers and focused tests for 60-second GitHub snapshot staleness plus 10-minute heartbeat offline derivation.
+
+### Changed
+- Project cards and project detail now render GitHub status, error, empty, PR, and commit states from the same cached snapshot.
+- Operations terminal presence is grouped by repo and assignee with current task, role/status, and recent heartbeat history.
+- `scripts/helm-sync-local.ps1` now includes branch/commit/dirty repo state in imported project descriptions and source-line notes on imported tasks.
+- `corepack pnpm build` now uses `next build --turbopack`; the standard webpack build path hangs before compilation in this environment, while Turbopack completed cleanly.
+
+### Verified
+- Focused Node tests passed: 5/5.
+- `corepack pnpm typecheck`, `corepack pnpm lint`, and `corepack pnpm build` passed.
+- `corepack pnpm db:migrate` applied the recent-commits migration successfully.
+- Turbopack dev smoke confirmed protected GitHub/operations/overlord endpoints redirect unauthenticated, invalid import bearer returns 401, and the example local import returns 200.
+- Graphify refreshed: 214 nodes, 281 edges, 61 communities. Known `.codex/hooks.json` permission warning remains after graph rebuild.
+
+### Remaining
+- Authenticated browser visual verification for `/` and `/projects/[id]` still needs a signed-in session.
+
 ## 2026-05-19
 
 ### Added

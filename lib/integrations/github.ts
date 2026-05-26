@@ -3,6 +3,8 @@ import "server-only";
 import { createAppAuth } from "@octokit/auth-app";
 import { Octokit } from "@octokit/rest";
 
+import { normalizeCommit, normalizePullRequest } from "@/lib/github-snapshot";
+
 export function githubInstallUrl() {
   const slug = process.env.GITHUB_APP_SLUG;
   if (!slug) {
@@ -50,11 +52,16 @@ export async function getOpenPullRequests(installationId: string, owner: string,
     per_page: 50,
   });
 
-  return prs.map((pr) => ({
-    number: pr.number,
-    title: pr.title,
-    url: pr.html_url,
-    updatedAt: pr.updated_at,
-    draft: pr.draft,
-  }));
+  return prs.map(normalizePullRequest);
+}
+
+export async function getRecentCommits(installationId: string, owner: string, repo: string) {
+  const octokit = await githubForInstallation(installationId);
+  const commits = await octokit.paginate(octokit.repos.listCommits, {
+    owner,
+    repo,
+    per_page: 10,
+  });
+
+  return commits.map(normalizeCommit).slice(0, 10);
 }
