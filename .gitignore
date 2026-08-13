@@ -31,3 +31,8 @@ dist/
 .worktrees/
 .pnpm-store/
 config/helm-projects.local.json
+.agent-harness/logs/*.ndjson
+graphify-out/cache/
+helm-dev.out.log
+helm-dev.err.log
+.playwright-mcp/

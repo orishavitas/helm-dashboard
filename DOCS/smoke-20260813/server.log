@@ -1,0 +1,19 @@
+
+> helm-dashboard@0.1.0 dev:helm C:\Users\OriShavit\Documents\GitHub\Helm-Dashboard
+> node scripts/run-helm-server.mjs development
+
+◇ injected env (25) from .env.local // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+◇ injected env (0) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Helm local runtime ready: http://127.0.0.1:3001
+ ○ Compiling /middleware ...
+ ✓ Compiled /middleware in 720ms (465 modules)
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1913ms (1011 modules)
+ GET /login 200 in 2806ms
+ ○ Compiling /api/auth/[...nextauth] ...
+ ✓ Compiled /api/auth/[...nextauth] in 795ms (1016 modules)
+ GET /api/auth/session 200 in 2302ms
+ GET /login 200 in 219ms
+ ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ELIFECYCLE  Command failed with exit code 1.
