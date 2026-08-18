@@ -1,0 +1,842 @@
+{
+  ".codex/hooks.json": {
+    "mtime": 1779778807.113454,
+    "ast_hash": "e28e7b973efdc136328968518313f1f1",
+    "semantic_hash": ""
+  },
+  "app/(app)/agents/page.tsx": {
+    "mtime": 1779797008.0427058,
+    "ast_hash": "f38173c14c0e28171f2d587e8eecbe52",
+    "semantic_hash": ""
+  },
+  "app/(app)/graph/page.tsx": {
+    "mtime": 1779797219.4972968,
+    "ast_hash": "8b7e6f4b489e7e1f5f3eacc8a102c0b3",
+    "semantic_hash": ""
+  },
+  "app/(app)/layout.tsx": {
+    "mtime": 1779785125.542979,
+    "ast_hash": "9361a270d94a73bdc58d72460ef04ad5",
+    "semantic_hash": ""
+  },
+  "app/(app)/page.tsx": {
+    "mtime": 1779216941.0213275,
+    "ast_hash": "e43c424e3de3dd191b2461a8c758d21e",
+    "semantic_hash": ""
+  },
+  "app/(app)/projects/[id]/page.tsx": {
+    "mtime": 1779279841.7109482,
+    "ast_hash": "0da20a79d2f5b346450a202777f66343",
+    "semantic_hash": ""
+  },
+  "app/(app)/settings/page.tsx": {
+    "mtime": 1777975980.9276369,
+    "ast_hash": "1cc2d228f72e5635c56c0e4ea5bebee1",
+    "semantic_hash": ""
+  },
+  "app/(app)/terminal/page.tsx": {
+    "mtime": 1779800344.3302195,
+    "ast_hash": "d6c5ee34529faba12d0ca5ea3a0c9bc1",
+    "semantic_hash": ""
+  },
+  "app/(app)/vault/page.tsx": {
+    "mtime": 1779798133.539458,
+    "ast_hash": "37222e47a1245e599106aef09c0def24",
+    "semantic_hash": ""
+  },
+  "app/(auth)/login/page.tsx": {
+    "mtime": 1777975845.1859894,
+    "ast_hash": "a722da1a2b02df46c817352edf05bc62",
+    "semantic_hash": ""
+  },
+  "app/api/agents/sessions/route.ts": {
+    "mtime": 1779796932.437707,
+    "ast_hash": "6b41908ecff09548b19008cc1ac42612",
+    "semantic_hash": ""
+  },
+  "app/api/agents/stop/[id]/route.ts": {
+    "mtime": 1779797287.941739,
+    "ast_hash": "faaf624b26ef2bbca351728f2b74f046",
+    "semantic_hash": ""
+  },
+  "app/api/agents/stream/[id]/route.ts": {
+    "mtime": 1779797993.2278652,
+    "ast_hash": "5075424e4e04d771c755f1310ae9a6e2",
+    "semantic_hash": ""
+  },
+  "app/api/auth/[...nextauth]/route.ts": {
+    "mtime": 1777975980.99895,
+    "ast_hash": "9f8c0bd10a4bc6be80ab25e09f6f4bd7",
+    "semantic_hash": ""
+  },
+  "app/api/github/callback/route.ts": {
+    "mtime": 1777977266.3873777,
+    "ast_hash": "47d6070b643c318ebe6f24455cce8003",
+    "semantic_hash": ""
+  },
+  "app/api/github/install/route.ts": {
+    "mtime": 1777975981.0702698,
+    "ast_hash": "2842acf251fca8ad202fd1e64b2d8da0",
+    "semantic_hash": ""
+  },
+  "app/api/github/repos/[projectId]/commits/route.ts": {
+    "mtime": 1779279797.1391406,
+    "ast_hash": "910c1358fdaadf60e09de49ac5aad7e9",
+    "semantic_hash": ""
+  },
+  "app/api/github/repos/[projectId]/pull-requests/route.ts": {
+    "mtime": 1779279794.2992983,
+    "ast_hash": "6de09e73d90bbe7eaef47bb6b3549b39",
+    "semantic_hash": ""
+  },
+  "app/api/github/repos/route.ts": {
+    "mtime": 1777975994.857767,
+    "ast_hash": "a4d0aa2a30163b975ae69deafcebf049",
+    "semantic_hash": ""
+  },
+  "app/api/operations/import/route.ts": {
+    "mtime": 1779279923.6258886,
+    "ast_hash": "119a6c6a8a9cfa7fc40e32d6bb66998c",
+    "semantic_hash": ""
+  },
+  "app/api/operations/state/route.ts": {
+    "mtime": 1779216941.0246599,
+    "ast_hash": "fce9571ddfc316378df9d73746585b0f",
+    "semantic_hash": ""
+  },
+  "app/api/overlord/push/route.ts": {
+    "mtime": 1779110596.5792642,
+    "ast_hash": "a4cf3ec8d06635bde860d648a2f5e086",
+    "semantic_hash": ""
+  },
+  "app/api/overlord/state/route.ts": {
+    "mtime": 1778065851.1452923,
+    "ast_hash": "8ffdef17e73ba897d0d363e578522b60",
+    "semantic_hash": ""
+  },
+  "app/api/vault/graph/route.ts": {
+    "mtime": 1779798068.500034,
+    "ast_hash": "a72c6183e6e6e72c371382cb96c5bd2f",
+    "semantic_hash": ""
+  },
+  "app/api/vault/note/[...path]/route.ts": {
+    "mtime": 1779798050.8586483,
+    "ast_hash": "47d21adc9fe8bfda98c303ce0113dcf3",
+    "semantic_hash": ""
+  },
+  "app/api/vault/search/route.ts": {
+    "mtime": 1779798057.1163259,
+    "ast_hash": "d52efb93ac0e7f6ebd9c907c5dd336d2",
+    "semantic_hash": ""
+  },
+  "app/api/vault/tree/route.ts": {
+    "mtime": 1779798045.733034,
+    "ast_hash": "c6bd007f6c091f169ce0e774f6400008",
+    "semantic_hash": ""
+  },
+  "app/api/vercel/projects/route.ts": {
+    "mtime": 1777975981.2722418,
+    "ast_hash": "9ccab70d1ba9afbe777f4e3cbf35563f",
+    "semantic_hash": ""
+  },
+  "app/layout.tsx": {
+    "mtime": 1777975820.609988,
+    "ast_hash": "edc7c407a3c04e90780851b540b36e73",
+    "semantic_hash": ""
+  },
+  "components.json": {
+    "mtime": 1777975582.527959,
+    "ast_hash": "9eddfc104b4f9a12b44447e29d313f1e",
+    "semantic_hash": ""
+  },
+  "components/agents/agent-event-stream.tsx": {
+    "mtime": 1779796968.6417916,
+    "ast_hash": "8f15cb0fd13228dcb15db34d68d6b6fe",
+    "semantic_hash": ""
+  },
+  "components/agents/agent-runner.tsx": {
+    "mtime": 1779798098.3066454,
+    "ast_hash": "e2e66f611f6d3e8a592566387777b980",
+    "semantic_hash": ""
+  },
+  "components/app-shell.tsx": {
+    "mtime": 1779797235.292379,
+    "ast_hash": "bddbc2334942d6ec479ee3b95072dbbd",
+    "semantic_hash": ""
+  },
+  "components/dashboard/dashboard-layout.tsx": {
+    "mtime": 1779104685.9500916,
+    "ast_hash": "d8fb0162950ba460c8e8a040009000a3",
+    "semantic_hash": ""
+  },
+  "components/dashboard/dashboard-widget.tsx": {
+    "mtime": 1779192538.3550248,
+    "ast_hash": "4632238f9f4f954fb3ed3efc7ba37a6b",
+    "semantic_hash": ""
+  },
+  "components/forms/integration-forms.tsx": {
+    "mtime": 1777975912.495567,
+    "ast_hash": "aedd491d0a582e8501cbc48a0fc4ef22",
+    "semantic_hash": ""
+  },
+  "components/forms/project-form.tsx": {
+    "mtime": 1777975877.459295,
+    "ast_hash": "4fcab297fad920f9890fdc0eb17f58df",
+    "semantic_hash": ""
+  },
+  "components/forms/sprint-form.tsx": {
+    "mtime": 1777975912.4710214,
+    "ast_hash": "5751272f18e149abdd582778c4788b03",
+    "semantic_hash": ""
+  },
+  "components/forms/task-form.tsx": {
+    "mtime": 1777975877.4814262,
+    "ast_hash": "f52238f35ce78b7fc5c9cd2bf446ce0b",
+    "semantic_hash": ""
+  },
+  "components/forms/todo-form.tsx": {
+    "mtime": 1777975877.505189,
+    "ast_hash": "bf27a0e9db4aec8cfb8f4d1defd079e3",
+    "semantic_hash": ""
+  },
+  "components/graph/knowledge-graph.tsx": {
+    "mtime": 1779798079.202492,
+    "ast_hash": "dff7b1b125718018b7b420a0cbcc89d8",
+    "semantic_hash": ""
+  },
+  "components/operations/operations-dashboard.tsx": {
+    "mtime": 1779279897.2439706,
+    "ast_hash": "276ea8d721b7c09799b949285a8f674d",
+    "semantic_hash": ""
+  },
+  "components/operations/project-state-widget.tsx": {
+    "mtime": 1779216941.0246599,
+    "ast_hash": "b680b811d8f8e7874ddf9a6854df482e",
+    "semantic_hash": ""
+  },
+  "components/operations/responsibility-widget.tsx": {
+    "mtime": 1779216941.0246599,
+    "ast_hash": "08b58c1c714bc7f1146e0bc6ee2504b7",
+    "semantic_hash": ""
+  },
+  "components/operations/task-queue-widget.tsx": {
+    "mtime": 1779216941.0246599,
+    "ast_hash": "168e8562233105893ad798a64bd427b5",
+    "semantic_hash": ""
+  },
+  "components/operations/terminal-presence-widget.tsx": {
+    "mtime": 1779279899.0547562,
+    "ast_hash": "c6d9c1850fc04c677e4d2dc9ba5326c8",
+    "semantic_hash": ""
+  },
+  "components/overlord-panel.tsx": {
+    "mtime": 1779104664.1809597,
+    "ast_hash": "5653b51bb3b7b2c8023b4bcce6d91ae5",
+    "semantic_hash": ""
+  },
+  "components/overlord-terminal-card.tsx": {
+    "mtime": 1778070764.5014837,
+    "ast_hash": "078c446f4e1b3ee2d817992e5796b28d",
+    "semantic_hash": ""
+  },
+  "components/product-progress.tsx": {
+    "mtime": 1779192540.0914273,
+    "ast_hash": "5ba844f98b710d2e3f47c066cd73d174",
+    "semantic_hash": ""
+  },
+  "components/project-card.tsx": {
+    "mtime": 1779279839.94592,
+    "ast_hash": "6f4b97e1f5742f5f261bbf80e9acd306",
+    "semantic_hash": ""
+  },
+  "components/query-provider.tsx": {
+    "mtime": 1777975820.6774213,
+    "ast_hash": "8f89ad8f27906a072dece5f9769105eb",
+    "semantic_hash": ""
+  },
+  "components/task-list.tsx": {
+    "mtime": 1777975912.422797,
+    "ast_hash": "e01c19273d68e0fe439a212827c6c872",
+    "semantic_hash": ""
+  },
+  "components/terminal/terminal-loader.tsx": {
+    "mtime": 1779800336.6149578,
+    "ast_hash": "481bfcea45fcbea3a00134b53217e324",
+    "semantic_hash": ""
+  },
+  "components/terminal/xterm-pane.tsx": {
+    "mtime": 1779796818.2148914,
+    "ast_hash": "cc1ab5277669cf410174be3c21ad8cbf",
+    "semantic_hash": ""
+  },
+  "components/todo-list.tsx": {
+    "mtime": 1777975912.443781,
+    "ast_hash": "65c2ef0f1a98ecbc65dfb4bf68369b42",
+    "semantic_hash": ""
+  },
+  "components/ui/badge.tsx": {
+    "mtime": 1779104481.2584727,
+    "ast_hash": "f20859e6a52935fe79489dffa685cde6",
+    "semantic_hash": ""
+  },
+  "components/ui/button.tsx": {
+    "mtime": 1779104481.3397346,
+    "ast_hash": "14fb7fd104c83dfc22c1f07684aea7fd",
+    "semantic_hash": ""
+  },
+  "components/ui/card.tsx": {
+    "mtime": 1779192541.758754,
+    "ast_hash": "c9deff77c6ba782deef14910e7a60cab",
+    "semantic_hash": ""
+  },
+  "components/ui/chip.tsx": {
+    "mtime": 1779192543.5625243,
+    "ast_hash": "252eebda666ec60686b64a9f446778c0",
+    "semantic_hash": ""
+  },
+  "components/ui/input.tsx": {
+    "mtime": 1779192545.3362834,
+    "ast_hash": "fc87ba37ee8d1d7601c208f62ded68ce",
+    "semantic_hash": ""
+  },
+  "components/ui/select-field.tsx": {
+    "mtime": 1777975820.8081064,
+    "ast_hash": "dc1f65116275bbacc51bd6c665f4031d",
+    "semantic_hash": ""
+  },
+  "components/ui/text-field.tsx": {
+    "mtime": 1779104481.429412,
+    "ast_hash": "5bcc42b169ef1f6e8165e0c607b8b9a9",
+    "semantic_hash": ""
+  },
+  "components/vault/note-viewer.tsx": {
+    "mtime": 1779800245.5430315,
+    "ast_hash": "8087c519189717ff968dd6c5fbca570e",
+    "semantic_hash": ""
+  },
+  "components/vault/vault-tree.tsx": {
+    "mtime": 1779797145.2850173,
+    "ast_hash": "156b76a4f1f38672710360b965c15d64",
+    "semantic_hash": ""
+  },
+  "config/helm-projects.example.json": {
+    "mtime": 1779216941.0330324,
+    "ast_hash": "a659e411e49406d38ff559ae4a67007f",
+    "semantic_hash": ""
+  },
+  "drizzle.config.ts": {
+    "mtime": 1779133330.275041,
+    "ast_hash": "d3d7326c3bdb4bfb18dda69b683c2646",
+    "semantic_hash": ""
+  },
+  "drizzle/0000_helm_foundation.sql": {
+    "mtime": 1777976025.4085243,
+    "ast_hash": "13ae0a6a16e305a0ff29b0a8195dc832",
+    "semantic_hash": ""
+  },
+  "drizzle/0001_overlord.sql": {
+    "mtime": 1778084884.4901476,
+    "ast_hash": "6aa20db459a414b09ba91b6764bc919c",
+    "semantic_hash": ""
+  },
+  "drizzle/0002_state_aggregator.sql": {
+    "mtime": 1779216941.0330324,
+    "ast_hash": "24179755d2f503629eef726dc7e35fe8",
+    "semantic_hash": ""
+  },
+  "drizzle/0003_operations_import_indexes.sql": {
+    "mtime": 1779216941.0330324,
+    "ast_hash": "a8ed42ef81f52c1fe7c74d1ba82cbdd0",
+    "semantic_hash": ""
+  },
+  "drizzle/0004_github_recent_commits.sql": {
+    "mtime": 1779279742.8581123,
+    "ast_hash": "80c368352aa350a607a5ce6465668ea9",
+    "semantic_hash": ""
+  },
+  "drizzle/0005_agent_sessions.sql": {
+    "mtime": 1779796859.909974,
+    "ast_hash": "103c57da2a26da54dd9eb8a2afaad651",
+    "semantic_hash": ""
+  },
+  "drizzle/meta/_journal.json": {
+    "mtime": 1779796868.1304793,
+    "ast_hash": "3128310b81ebcd53f737fb758195e7e7",
+    "semantic_hash": ""
+  },
+  "eslint.config.mjs": {
+    "mtime": 1777977246.1719477,
+    "ast_hash": "0d4f2ce9e26c7215264c2e96cea4a0e5",
+    "semantic_hash": ""
+  },
+  "lib/actions/integrations.ts": {
+    "mtime": 1779279747.5747468,
+    "ast_hash": "ada8f4dc3d38a25c5a812de176c6f185",
+    "semantic_hash": ""
+  },
+  "lib/actions/projects.ts": {
+    "mtime": 1777975744.8381517,
+    "ast_hash": "ee374c3effba17863999aee61ff75ecb",
+    "semantic_hash": ""
+  },
+  "lib/actions/sprints.ts": {
+    "mtime": 1777975744.8601508,
+    "ast_hash": "ab11970665e12a241025cd993ff34a20",
+    "semantic_hash": ""
+  },
+  "lib/actions/tasks.ts": {
+    "mtime": 1777975744.8831244,
+    "ast_hash": "f697a600d7a2db3ca949f704f42e107b",
+    "semantic_hash": ""
+  },
+  "lib/actions/todos.ts": {
+    "mtime": 1777975744.9066343,
+    "ast_hash": "54a0033b2fdaae073641dd5e456fd290",
+    "semantic_hash": ""
+  },
+  "lib/agents/claude-runner.ts": {
+    "mtime": 1779797971.9539795,
+    "ast_hash": "31145e9d7916353a27955e22aba37a51",
+    "semantic_hash": ""
+  },
+  "lib/agents/session-controllers.ts": {
+    "mtime": 1779797982.449192,
+    "ast_hash": "a6ddf43b176a303e2261cfe264b7bd16",
+    "semantic_hash": ""
+  },
+  "lib/auth.ts": {
+    "mtime": 1779191072.118884,
+    "ast_hash": "8212f73036a9511b7196ec94d192363f",
+    "semantic_hash": ""
+  },
+  "lib/data/agents.ts": {
+    "mtime": 1779796878.8952913,
+    "ast_hash": "a34731119554a55b0571b98ee490768f",
+    "semantic_hash": ""
+  },
+  "lib/data/operations.ts": {
+    "mtime": 1779279859.6458893,
+    "ast_hash": "fb6638b92c89a5e57f2ab5c608ba4144",
+    "semantic_hash": ""
+  },
+  "lib/data/overlord.ts": {
+    "mtime": 1779279857.7992563,
+    "ast_hash": "9a78890f7d08516b27dca039611e7c7b",
+    "semantic_hash": ""
+  },
+  "lib/data/projects.ts": {
+    "mtime": 1779279975.2420075,
+    "ast_hash": "1f152f712699d02003ac27182a13ecee",
+    "semantic_hash": ""
+  },
+  "lib/data/todos.ts": {
+    "mtime": 1777975702.1926036,
+    "ast_hash": "451283fa8f04f71d813ebf7044b236cf",
+    "semantic_hash": ""
+  },
+  "lib/db/agent-schema.ts": {
+    "mtime": 1779796846.9785364,
+    "ast_hash": "31ab3d830a3b4e45a3f7c89767f090b1",
+    "semantic_hash": ""
+  },
+  "lib/db/auth-schema.ts": {
+    "mtime": 1777976083.5871167,
+    "ast_hash": "77b521a289f480121a5d1caaea77b60b",
+    "semantic_hash": ""
+  },
+  "lib/db/enums.ts": {
+    "mtime": 1778065850.57938,
+    "ast_hash": "865ad8af1bc27cfbdded98362b702c45",
+    "semantic_hash": ""
+  },
+  "lib/db/index.ts": {
+    "mtime": 1777975638.9258654,
+    "ast_hash": "f7abe6dc1b9dd57bdef83249b317131f",
+    "semantic_hash": ""
+  },
+  "lib/db/integration-schema.ts": {
+    "mtime": 1779279741.2066412,
+    "ast_hash": "a3683c0b3ac735ee623dc5f73609766d",
+    "semantic_hash": ""
+  },
+  "lib/db/overlord-schema.ts": {
+    "mtime": 1778065850.6205027,
+    "ast_hash": "b379650c0be35b33c9aaf93b6e5e76ac",
+    "semantic_hash": ""
+  },
+  "lib/db/product-schema.ts": {
+    "mtime": 1779216941.1820433,
+    "ast_hash": "f6d5fd27b392fd19ee8ceca79d9a5cba",
+    "semantic_hash": ""
+  },
+  "lib/db/schema.ts": {
+    "mtime": 1779796853.208817,
+    "ast_hash": "dcfe48ea48e70be5902b9584d89c7da3",
+    "semantic_hash": ""
+  },
+  "lib/env.ts": {
+    "mtime": 1779785481.0171292,
+    "ast_hash": "cfea0eb3f598671313a5056e28aa58ba",
+    "semantic_hash": ""
+  },
+  "lib/github-snapshot.ts": {
+    "mtime": 1779279691.7074513,
+    "ast_hash": "82197e2794925ea9ff58e92d197dce97",
+    "semantic_hash": ""
+  },
+  "lib/integrations/github.ts": {
+    "mtime": 1779279745.9179118,
+    "ast_hash": "6b1d3708a824441b489834ebc0de5b51",
+    "semantic_hash": ""
+  },
+  "lib/integrations/vercel.ts": {
+    "mtime": 1777975791.052008,
+    "ast_hash": "99799c93cf8f1066d56abe08fb6c5dc7",
+    "semantic_hash": ""
+  },
+  "lib/ownership.ts": {
+    "mtime": 1777975671.893993,
+    "ast_hash": "563fa3d4a6d5aa383826a6476861913c",
+    "semantic_hash": ""
+  },
+  "lib/product-progress.ts": {
+    "mtime": 1779192547.0222824,
+    "ast_hash": "249b01905b24be2552d1afa744da22ca",
+    "semantic_hash": ""
+  },
+  "lib/security/encryption.ts": {
+    "mtime": 1777975639.0165184,
+    "ast_hash": "cd3606dd56d3208165dedff45fa06e13",
+    "semantic_hash": ""
+  },
+  "lib/session.ts": {
+    "mtime": 1777975671.8632991,
+    "ast_hash": "83ed8822ffbfe5a73d50a7aba84ba764",
+    "semantic_hash": ""
+  },
+  "lib/terminal-presence.ts": {
+    "mtime": 1779279693.416106,
+    "ast_hash": "678fac3fbe3bedb0482e6abe259713b0",
+    "semantic_hash": ""
+  },
+  "lib/terminal/pty-pool.ts": {
+    "mtime": 1779778357.2715342,
+    "ast_hash": "0770975d4c819938deff6833c792d8ed",
+    "semantic_hash": ""
+  },
+  "lib/terminal/server-runtime.mjs": {
+    "mtime": 1779797961.1140766,
+    "ast_hash": "f4d8d39187934b01afa601fffe2b66db",
+    "semantic_hash": ""
+  },
+  "lib/terminal/ws-handler.ts": {
+    "mtime": 1779785631.2230954,
+    "ast_hash": "18562a1d4d4a9d4456286f2ad4d59e20",
+    "semantic_hash": ""
+  },
+  "lib/utils.ts": {
+    "mtime": 1777975671.815928,
+    "ast_hash": "49fac2db6df06b978de52c7b73cc5a4e",
+    "semantic_hash": ""
+  },
+  "lib/vault/graph-builder.ts": {
+    "mtime": 1779798090.3548956,
+    "ast_hash": "d512363e7291ee73dbf5fd4861f00617",
+    "semantic_hash": ""
+  },
+  "lib/vault/obsidian-rest.ts": {
+    "mtime": 1779797047.1556273,
+    "ast_hash": "19b6026a9ec88573ec068026187d9ef8",
+    "semantic_hash": ""
+  },
+  "lib/vault/vault-fs.ts": {
+    "mtime": 1779798004.2547028,
+    "ast_hash": "9f44d78257b53f6b62689a60615970c5",
+    "semantic_hash": ""
+  },
+  "lib/view-models.ts": {
+    "mtime": 1779279768.4214587,
+    "ast_hash": "cb028ba0e989fb02797a7457cbf8aa54",
+    "semantic_hash": ""
+  },
+  "middleware.ts": {
+    "mtime": 1779786136.5758843,
+    "ast_hash": "c9a9a0c11425824736f094b9efaf8a95",
+    "semantic_hash": ""
+  },
+  "next-env.d.ts": {
+    "mtime": 1777977212.7569065,
+    "ast_hash": "ba64ff7d54714a8f64db89b1003207d8",
+    "semantic_hash": ""
+  },
+  "next.config.ts": {
+    "mtime": 1779797257.2098608,
+    "ast_hash": "c0a79b780e9dd35199c51e9c04b8207a",
+    "semantic_hash": ""
+  },
+  "package.json": {
+    "mtime": 1779797153.5820124,
+    "ast_hash": "6a2d7a9369b338458ce0c0941becebdc",
+    "semantic_hash": ""
+  },
+  "postcss.config.mjs": {
+    "mtime": 1777975582.454448,
+    "ast_hash": "d3fd1d29b05a09ff76b595a70e1e7d50",
+    "semantic_hash": ""
+  },
+  "scripts/codex-dialogue-check.ps1": {
+    "mtime": 1778051742.4352074,
+    "ast_hash": "7f1892904b5033299ec46b4e9a46c2e2",
+    "semantic_hash": ""
+  },
+  "scripts/codex-handoff.ps1": {
+    "mtime": 1778051741.0235028,
+    "ast_hash": "e9692e43915fa511529b01d8498f0baf",
+    "semantic_hash": ""
+  },
+  "scripts/codex-watchdog-check.ps1": {
+    "mtime": 1778051752.7139032,
+    "ast_hash": "97b379bf0215c0dbc778c35f7afee417",
+    "semantic_hash": ""
+  },
+  "scripts/helm-sync-local.ps1": {
+    "mtime": 1779280401.0106418,
+    "ast_hash": "5233deb456f84a7b78f6bc951a4fd3f7",
+    "semantic_hash": ""
+  },
+  "scripts/overlord-push.ps1": {
+    "mtime": 1779216941.1830335,
+    "ast_hash": "b366ffd9315fd40f5e4b2cbc913b497b",
+    "semantic_hash": ""
+  },
+  "scripts/run-helm-server.mjs": {
+    "mtime": 1779778439.1063354,
+    "ast_hash": "66a2bcb37525951967823659cf3a9a74",
+    "semantic_hash": ""
+  },
+  "server.mjs": {
+    "mtime": 1779797956.0663612,
+    "ast_hash": "4980d2999bed0561b506e360ceff71e5",
+    "semantic_hash": ""
+  },
+  "tailwind.config.ts": {
+    "mtime": 1777975582.4800403,
+    "ast_hash": "a5dbd120c8e1bd2ad3be0577f8fc95bc",
+    "semantic_hash": ""
+  },
+  "tests/github-snapshot.test.ts": {
+    "mtime": 1779279611.9856246,
+    "ast_hash": "057474d2997dd649693c6cd4a36a7031",
+    "semantic_hash": ""
+  },
+  "tests/local-profile-env.test.ts": {
+    "mtime": 1779785048.887291,
+    "ast_hash": "b5978959140bc307013c780ef912ed62",
+    "semantic_hash": ""
+  },
+  "tests/terminal-presence.test.ts": {
+    "mtime": 1779279701.0863361,
+    "ast_hash": "ee3d8ca8c53d2506cbdbaa2ad8fd14b4",
+    "semantic_hash": ""
+  },
+  "tests/terminal-pty-pool.test.ts": {
+    "mtime": 1779778308.566751,
+    "ast_hash": "549971378bbd7e74a9d77d64a1a64288",
+    "semantic_hash": ""
+  },
+  "tests/terminal-ws-handler.test.ts": {
+    "mtime": 1779778161.124943,
+    "ast_hash": "90da1039aa1574165067b04d97940573",
+    "semantic_hash": ""
+  },
+  "tsconfig.json": {
+    "mtime": 1777975582.4126,
+    "ast_hash": "0deb38cc62d377af5cab7e127c929df7",
+    "semantic_hash": ""
+  },
+  "tsconfig.test.json": {
+    "mtime": 1779785049.0150192,
+    "ast_hash": "f88ac44391002e53424b3351129eb7db",
+    "semantic_hash": ""
+  },
+  "types/next-auth.d.ts": {
+    "mtime": 1777975702.09892,
+    "ast_hash": "3ee6a1109911f6bab68a521484634a58",
+    "semantic_hash": ""
+  },
+  ".agent-harness/config/manifest/schema.yaml": {
+    "mtime": 1779710075.798217,
+    "ast_hash": "cf05250676e93c3623e68fb189bec49e",
+    "semantic_hash": ""
+  },
+  ".agent-harness/config/result.md": {
+    "mtime": 1777298797.658346,
+    "ast_hash": "a8c8f08f203692774a5ccc08342d772f",
+    "semantic_hash": ""
+  },
+  ".agent-harness/config/review.md": {
+    "mtime": 1777298808.1722195,
+    "ast_hash": "910d6e825bf11f6515d012e9eaf338e0",
+    "semantic_hash": ""
+  },
+  ".agent-harness/config/task_packet.md": {
+    "mtime": 1777298784.1069953,
+    "ast_hash": "1445049ed485043c11753868ce2fdc45",
+    "semantic_hash": ""
+  },
+  ".codex/sprints/SPRINT_001.md": {
+    "mtime": 1777981522.0814655,
+    "ast_hash": "33cc90d6130353069abb85e24bf0138b",
+    "semantic_hash": ""
+  },
+  ".codex/state/DECISIONS.md": {
+    "mtime": 1778097753.079953,
+    "ast_hash": "b9fcb359c6dcb06d1718cb5cc0ec9dfc",
+    "semantic_hash": ""
+  },
+  ".codex/state/HANDOFF.md": {
+    "mtime": 1779192855.5585387,
+    "ast_hash": "fd07aece4b8085658f09903c6750498c",
+    "semantic_hash": ""
+  },
+  ".codex/state/LAST_RUN.md": {
+    "mtime": 1779779052.1191049,
+    "ast_hash": "186c2f2af05e0c42cdc30eb0e49576c2",
+    "semantic_hash": ""
+  },
+  ".codex/state/OVERLORD_MONITOR_TRACKING.md": {
+    "mtime": 1778097753.25473,
+    "ast_hash": "9fc31e86ad14f6fde902bd4a7becf5fe",
+    "semantic_hash": ""
+  },
+  ".codex/state/TASK_STATE.md": {
+    "mtime": 1779779051.849647,
+    "ast_hash": "7a91c0906ee250793791c3707fabc2c8",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1779779118.3985572,
+    "ast_hash": "35f6d5e4e70520d66ee1e66b098f9e9b",
+    "semantic_hash": ""
+  },
+  "CHANGELOG.md": {
+    "mtime": 1779800444.3310816,
+    "ast_hash": "71d61fc7331dfe3820d014392a014637",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1779779078.9270256,
+    "ast_hash": "4f82b33d434b1eb8eb5cf07efeb6fefc",
+    "semantic_hash": ""
+  },
+  "DOCS/2026-08-13-smoke-test-report.md": {
+    "mtime": 1786603761.919263,
+    "ast_hash": "eb70077a337bee427a6c5d02849eeaae",
+    "semantic_hash": ""
+  },
+  "DOCS/REF/01-product-brief.md": {
+    "mtime": 1777971267.953675,
+    "ast_hash": "9f55d02e1dc83b8bf094f252fc0e568c",
+    "semantic_hash": ""
+  },
+  "DOCS/REF/02-prd.md": {
+    "mtime": 1777971268.0108933,
+    "ast_hash": "c3d3ff870ff1a5d8a3cc643231ce47b8",
+    "semantic_hash": ""
+  },
+  "DOCS/REF/03-tech-specs.md": {
+    "mtime": 1777971268.055889,
+    "ast_hash": "5e50783ee0735fa1aa35fcda57227898",
+    "semantic_hash": ""
+  },
+  "DOCS/REF/04-design-guide.md": {
+    "mtime": 1777971268.0958953,
+    "ast_hash": "3539e7283349d2ec4f63075c5d7ea886",
+    "semantic_hash": ""
+  },
+  "DOCS/REF/05-system-architecture.md": {
+    "mtime": 1777971268.1384077,
+    "ast_hash": "d94e70c5d7f609eb00cfd8f35149daef",
+    "semantic_hash": ""
+  },
+  "DOCS/REF/06-agent-harness.md": {
+    "mtime": 1777971268.1774127,
+    "ast_hash": "2e493e56dea3057c53eb5a9952942424",
+    "semantic_hash": ""
+  },
+  "DOCS/archive/concept-preview.html": {
+    "mtime": 1778767404.3385139,
+    "ast_hash": "d11b6b102e4b28444eff389cfe290d24",
+    "semantic_hash": ""
+  },
+  "DOCS/helm-dashboard.md": {
+    "mtime": 1778085186.3993945,
+    "ast_hash": "eef8da8273e7960101021e5b6839c0f9",
+    "semantic_hash": ""
+  },
+  "DOCS/local-runtime.md": {
+    "mtime": 1779785249.9799511,
+    "ast_hash": "599ff7c51b9c141a126a4b71ca1ca188",
+    "semantic_hash": ""
+  },
+  "DOCS/sprints/2026-05-06-helm-dashboard-sprint-01-overlord-monitor.md": {
+    "mtime": 1779221792.5419202,
+    "ast_hash": "11e8c87195f9cac6f17f43e53ae2e915",
+    "semantic_hash": ""
+  },
+  "DOCS/sprints/2026-05-20-helm-dashboard-sprint-02-github-terminal-presence.md": {
+    "mtime": 1779282674.8245184,
+    "ast_hash": "50e6078c4f2fb4fe9189cedcd472856a",
+    "semantic_hash": ""
+  },
+  "DOCS/superpowers/plans/2026-05-06-overlord-monitor.md": {
+    "mtime": 1778051409.673495,
+    "ast_hash": "585ac57eba3cf078cfdef17998e7fa62",
+    "semantic_hash": ""
+  },
+  "DOCS/superpowers/plans/2026-05-19-helm-state-aggregator.md": {
+    "mtime": 1779194624.7974694,
+    "ast_hash": "452d0c5eb7b26d0522426179e502c1f9",
+    "semantic_hash": ""
+  },
+  "DOCS/superpowers/specs/2026-05-25-helm-v2-mvp-design.md": {
+    "mtime": 1779718829.7361119,
+    "ast_hash": "671dcdb307e5aa9e8ca71d61119a4889",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1777977408.4475927,
+    "ast_hash": "7671778a0c15cbc2b79bd2f394aa8a9e",
+    "semantic_hash": ""
+  },
+  "TODO.md": {
+    "mtime": 1779800507.7812705,
+    "ast_hash": "ebf72b6b11b62844db2132a9be21f33e",
+    "semantic_hash": ""
+  },
+  "memory/architecture.md": {
+    "mtime": 1779345525.1383486,
+    "ast_hash": "30e25cd0c01089050ead0fba4277acd5",
+    "semantic_hash": ""
+  },
+  "sessions/2026-05-21.md": {
+    "mtime": 1779345525.753108,
+    "ast_hash": "c732ab3aefeab6852f65610053b4ac15",
+    "semantic_hash": ""
+  },
+  "sessions/2026-05-22.md": {
+    "mtime": 1779450121.547197,
+    "ast_hash": "207a991f63efedc6c5535c78c954da60",
+    "semantic_hash": ""
+  },
+  "sessions/2026-05-26.md": {
+    "mtime": 1779779052.0291169,
+    "ast_hash": "f82b441663b8525bd274eb619509893c",
+    "semantic_hash": ""
+  },
+  "DOCS/smoke-20260813/login-page.png": {
+    "mtime": 1786603712.8993204,
+    "ast_hash": "38892513522cde7105df1fb0ce9ca045",
+    "semantic_hash": ""
+  }
+}
