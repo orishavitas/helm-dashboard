@@ -838,5 +838,10 @@
     "mtime": 1786603712.8993204,
     "ast_hash": "38892513522cde7105df1fb0ce9ca045",
     "semantic_hash": ""
+  },
+  "DOCS/2026-08-13-smoke-retest-report.md": {
+    "mtime": 1786623456.199228,
+    "ast_hash": "c6db0df3cc9f148f95e96efe2568f592",
+    "semantic_hash": ""
   }
 }

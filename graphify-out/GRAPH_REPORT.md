@@ -1,16 +1,16 @@
-# Graph Report - Helm-Dashboard  (2026-08-13)
+# Graph Report - Helm-Dashboard  (2026-08-18)
 
 ## Corpus Check
-- 165 files · ~61,205 words
+- 166 files · ~62,120 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1361 nodes · 2107 edges · 155 communities (144 shown, 11 thin omitted)
+- 1370 nodes · 2115 edges · 161 communities (149 shown, 12 thin omitted)
 - Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 151 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `41bd53bb`
+- Built from commit: `d461ae3d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -99,6 +99,12 @@
 - [[_COMMUNITY_Community 145|Community 145]]
 - [[_COMMUNITY_Community 146|Community 146]]
 - [[_COMMUNITY_Community 149|Community 149]]
+- [[_COMMUNITY_Community 155|Community 155]]
+- [[_COMMUNITY_Community 156|Community 156]]
+- [[_COMMUNITY_Community 157|Community 157]]
+- [[_COMMUNITY_Community 158|Community 158]]
+- [[_COMMUNITY_Community 159|Community 159]]
+- [[_COMMUNITY_Community 160|Community 160]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `requireUser()` - 62 edges
@@ -127,7 +133,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (155 total, 11 thin omitted)
+## Communities (161 total, 12 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.10
@@ -166,20 +172,20 @@ Cohesion: 0.42
 Nodes (8): ConvertTo-ProjectPayload(), Get-BlockedReason(), Get-GitState(), Get-LatestSprintFile(), Get-RelativePath(), Get-StableTaskRef(), Get-TaskStatus(), Get-TaskTitle()
 
 ### Community 9 - "Community 9"
-Cohesion: 0.06
-Nodes (77): connectVercelToken(), linkProjectRepo(), linkVercelProject(), refreshGithub(), refreshProjectSnapshots(), refreshVercel(), createProject(), projectSchema (+69 more)
+Cohesion: 0.23
+Nodes (20): createProject(), projectSchema, softDeleteProject(), updateProject(), closeSprint(), createSprint(), sprintSchema, createTask() (+12 more)
 
 ### Community 10 - "Community 10"
 Cohesion: 0.67
 Nodes (5): buildGraph(), extractTags(), extractWikilinks(), stemFromPath(), stripFrontmatter()
 
 ### Community 75 - "Community 75"
-Cohesion: 0.08
-Nodes (31): AgentEventStream(), AgentEventStreamProps, DisplayEvent, StreamState, AgentRunner(), AgentRunnerProps, AgentRunnerEvent, RunAgentOptions (+23 more)
+Cohesion: 0.14
+Nodes (15): AgentRunner(), AgentsPage(), AgentEventRow, AgentSessionRow, appendAgentEvent(), createAgentSession(), getAgentEvents(), listAgentSessions() (+7 more)
 
 ### Community 76 - "Community 76"
-Cohesion: 0.09
-Nodes (24): DashboardWidget(), DashboardWidgetSize, GithubCommit, GithubPullRequest, OperationsProjectState, OperationsState, OperationsTask, ProjectDetail (+16 more)
+Cohesion: 0.14
+Nodes (15): DashboardWidgetSize, GithubCommit, GithubPullRequest, OperationsState, OperationsTask, ProjectDetail, ProviderState, ResponsibilityBucket (+7 more)
 
 ### Community 77 - "Community 77"
 Cohesion: 0.06
@@ -202,8 +208,8 @@ Cohesion: 0.07
 Nodes (28): dependencies, @anthropic-ai/sdk, @auth/drizzle-adapter, class-variance-authority, clsx, dotenv, drizzle-orm, lucide-react (+20 more)
 
 ### Community 82 - "Community 82"
-Cohesion: 0.10
-Nodes (18): ProductProgressBlockers(), ProductProgressSummary(), ProjectCard(), providerTone(), statusTone(), averageProgress(), DashboardWidgetConfig, DashboardWidgetContext (+10 more)
+Cohesion: 0.14
+Nodes (11): TodoList(), averageProgress(), DashboardWidgetConfig, DashboardWidgetContext, DashboardWidgetDefinition, DashboardWidgetId, dashboardWidgetRegistry, IntegrationHealthWidget() (+3 more)
 
 ### Community 83 - "Community 83"
 Cohesion: 0.08
@@ -214,12 +220,12 @@ Cohesion: 0.11
 Nodes (18): adaptNodePty(), createTerminalPool(), spawnNodePty(), TerminalDisposable, TerminalPool, TerminalPoolOptions, TerminalProcess, TerminalProcessListeners (+10 more)
 
 ### Community 85 - "Community 85"
-Cohesion: 0.13
-Nodes (16): accounts, sessions, users, verificationTokens, projectStatus, provider, snapshotStatus, taskPriority (+8 more)
+Cohesion: 0.11
+Nodes (22): accounts, sessions, users, verificationTokens, projectStatus, provider, snapshotStatus, taskPriority (+14 more)
 
 ### Community 86 - "Community 86"
-Cohesion: 0.22
-Nodes (10): TaskForm(), cn(), Button(), ButtonProps, Card(), Input(), Props, SelectField() (+2 more)
+Cohesion: 0.14
+Nodes (13): ProjectIntegrationForms(), SprintForm(), TaskForm(), TodoForm(), GitHubActivity(), ConnectionState, statusClassName(), XtermPane() (+5 more)
 
 ### Community 87 - "Community 87"
 Cohesion: 0.14
@@ -278,8 +284,8 @@ Cohesion: 0.18
 Nodes (12): deserializeState(), fetchOverlordState(), OverlordPanel(), SerializedSnapshot, SerializedState, OverlordTerminalCard(), Props, STATUS_ICON (+4 more)
 
 ### Community 101 - "Community 101"
-Cohesion: 0.18
-Nodes (8): statuses, TaskList(), TodoList(), ProjectIntegrationForms(), SprintForm(), TodoForm(), Badge(), styles
+Cohesion: 0.21
+Nodes (9): ProjectCard(), providerTone(), statusTone(), statuses, TaskList(), ProjectSummary, TaskItem, Badge() (+1 more)
 
 ### Community 102 - "Community 102"
 Cohesion: 0.13
@@ -294,12 +300,12 @@ Cohesion: 0.18
 Nodes (9): NoteViewer(), NoteViewerProps, VaultFileEntry, NoteResponse, SearchResult, TreeResponse, TreeEntryProps, VaultTree() (+1 more)
 
 ### Community 105 - "Community 105"
-Cohesion: 0.23
-Nodes (11): terminalMatchesProject(), clean(), deriveTerminalPresence(), groupTerminalPresence(), repoLabel(), terminalAssignee(), TerminalAssigneeGroup, TerminalPresenceLike (+3 more)
+Cohesion: 0.13
+Nodes (20): GET(), GET(), DashboardPage(), DashboardWidgetGrid(), assigneeName(), getOperationsState(), getResponsibilityBucket(), terminalMatchesProject() (+12 more)
 
 ### Community 106 - "Community 106"
-Cohesion: 0.19
-Nodes (13): computeProductProgress(), maturityFromSignals(), ProductProgressInput, ProductProgressSignal, ProductStage, ProviderInput, providerLabel(), ProviderStatus (+5 more)
+Cohesion: 0.14
+Nodes (17): ProductProgressBlockers(), ProductProgressSummary(), computeProductProgress(), maturityFromSignals(), PRODUCT_STAGES, ProductProgress, ProductProgressInput, ProductProgressSignal (+9 more)
 
 ### Community 107 - "Community 107"
 Cohesion: 0.15
@@ -340,10 +346,6 @@ Nodes (10): any route from loading in a real browser, Artifacts, Bottom line, Co
 ### Community 116 - "Community 116"
 Cohesion: 0.20
 Nodes (9): Changed Files, Commands Run, Follow-ups, monday Update, Result: {TASK-ID}, Results, Risks, Summary (+1 more)
-
-### Community 117 - "Community 117"
-Cohesion: 0.27
-Nodes (3): apiBase(), vercelFetch(), ObsidianRestClient
 
 ### Community 118 - "Community 118"
 Cohesion: 0.22
@@ -418,23 +420,47 @@ Cohesion: 0.50
 Nodes (3): dialect, entries, version
 
 ### Community 137 - "Community 137"
-Cohesion: 0.67
-Nodes (3): ConnectionState, statusClassName(), XtermPane()
+Cohesion: 0.16
+Nodes (13): DashboardWidget(), TerminalRepoGroup, cn(), OperationsProjectState, ProjectStateWidget(), Props, Props, statusTone (+5 more)
+
+### Community 155 - "Community 155"
+Cohesion: 0.18
+Nodes (15): refreshGithub(), getProjectSummaries(), userIntegrations, VercelTokenForm(), ProjectForm(), GET(), getOpenPullRequests(), getRecentCommits() (+7 more)
+
+### Community 156 - "Community 156"
+Cohesion: 0.24
+Nodes (13): connectVercelToken(), linkProjectRepo(), linkVercelProject(), refreshProjectSnapshots(), refreshVercel(), apiBase(), latestVercelDeployment(), listVercelProjects() (+5 more)
+
+### Community 157 - "Community 157"
+Cohesion: 0.24
+Nodes (14): deploymentField(), getProjectDetail(), ProjectRow, toSummary(), asObject(), asString(), coerceGithubCommits(), coerceGithubPullRequests() (+6 more)
+
+### Community 158 - "Community 158"
+Cohesion: 0.36
+Nodes (9): abortSession(), g, hasController(), registerController(), unregisterController(), getAgentSession(), updateAgentSession(), GET() (+1 more)
+
+### Community 159 - "Community 159"
+Cohesion: 0.25
+Nodes (7): AgentEventStream(), AgentEventStreamProps, DisplayEvent, StreamState, AgentRunnerProps, AgentRunnerEvent, RunAgentOptions
+
+### Community 160 - "Community 160"
+Cohesion: 0.22
+Nodes (8): Dev server status, Helm-Dashboard Interactive Smoke Retest — 2026-08-13, Step 1 — `/login` renders cleanly, Steps 2–3 — Four protected routes, unauthenticated, Summary, TODO.md status, What changed since the failed Sprint 4 attempt, What this retest does NOT and cannot prove
 
 ## Knowledge Gaps
-- **537 isolated node(s):** `PreToolUse`, `KnowledgeGraph`, `NoteResponse`, `SearchResult`, `createSchema` (+532 more)
+- **544 isolated node(s):** `PreToolUse`, `KnowledgeGraph`, `NoteResponse`, `SearchResult`, `createSchema` (+539 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `GET()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 6`, `Community 7`, `Community 10`, `Community 114`, `Community 118`, `Community 124`, `Community 95`?**
-  _High betweenness centrality (0.099) - this node is a cross-community bridge._
+  _High betweenness centrality (0.094) - this node is a cross-community bridge._
 - **Why does `parseLocalProfileEnv()` connect `Community 7` to `Community 97`?**
-  _High betweenness centrality (0.095) - this node is a cross-community bridge._
-- **Why does `getSession()` connect `Community 7` to `Community 0`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
+  _High betweenness centrality (0.088) - this node is a cross-community bridge._
+- **Why does `closeSession()` connect `Community 7` to `Community 0`?**
+  _High betweenness centrality (0.043) - this node is a cross-community bridge._
 - **Are the 5 inferred relationships involving `requireUser()` (e.g. with `GET()` and `GET()`) actually correct?**
   _`requireUser()` has 5 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 37 inferred relationships involving `GET()` (e.g. with `getAgentSession()` and `listAgentSessions()`) actually correct?**
@@ -442,4 +468,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 36 inferred relationships involving `getDb()` (e.g. with `appendAgentEvent()` and `createAgentSession()`) actually correct?**
   _`getDb()` has 36 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `PreToolUse`, `KnowledgeGraph`, `NoteResponse` to the rest of the system?**
-  _537 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _544 weakly-connected nodes found - possible documentation gaps or missing edges._
