@@ -6,10 +6,10 @@
 > Status: Sprints 03–05 ✅ complete + verified (commit `0eb0483`, 2026-05-26). Sprint 06 is next.
 
 ### Smoke test required (Shepard-Commander)
-- [ ] `corepack pnpm dev:helm` → `/terminal` (Sprint 03 — PowerShell session)
-- [ ] `/agents` → submit prompt, watch SSE stream (Sprint 04)
-- [ ] `/vault` → browse notes from `C:\Users\OriShavit\Documents\legion-vault` (Sprint 05)
-- [ ] `/graph` → force-graph renders vault links (Sprint 05)
+- [ ] `corepack pnpm dev:helm` → `/terminal` (Sprint 03 — PowerShell session) (unauthenticated redirect confirmed 2026-08-13 — DOCS/2026-08-13-smoke-retest-report.md; authenticated content still pending Shepard-Commander live login)
+- [ ] `/agents` → submit prompt, watch SSE stream (Sprint 04) (blocked: drizzle 0005 not applied to Neon — confirmed via live query 2026-08-18, no agent_sessions table exists; gated, queued for Shepard to run corepack pnpm db:migrate)
+- [ ] `/vault` → browse notes from `C:\Users\OriShavit\Documents\legion-vault` (Sprint 05) (unauthenticated redirect confirmed 2026-08-13 — DOCS/2026-08-13-smoke-retest-report.md; authenticated content still pending Shepard-Commander live login)
+- [ ] `/graph` → force-graph renders vault links (Sprint 05) (unauthenticated redirect confirmed 2026-08-13 — DOCS/2026-08-13-smoke-retest-report.md; authenticated content still pending Shepard-Commander live login)
 
 ### Sprint 03 — Local Runtime & Terminal Embedding ✅ Verified (2026-05-26)
 - [x] `server.mjs` custom server (HTTP + WS upgrade, Next handler) — claude ✅
@@ -26,7 +26,7 @@
 - [ ] `DOCS/local-runtime.md` — claude (deferred to Sprint 06 polish)
 
 ### Sprint 04 — Claude Code Agent Runner ✅ Verified (2026-05-26)
-- [x] Drizzle migration `0005_agent_sessions.sql` + schema — claude ✅
+- [x] Drizzle migration `0005_agent_sessions.sql` + schema written (file exists, NOT yet applied to Neon — see below) — claude ✅
 - [x] `lib/agents/claude-runner.ts` (uses `@anthropic-ai/sdk` streaming) — claude ✅
 - [x] `lib/agents/session-controllers.ts` (globalThis singleton AbortController map) — claude ✅
 - [x] `app/api/agents/sessions/route.ts` (POST create, GET list) — claude ✅
@@ -35,7 +35,7 @@
 - [x] `components/agents/agent-runner.tsx` (prompt + model picker + stop) — claude ✅
 - [x] `components/agents/agent-event-stream.tsx` (SSE consumer) — claude ✅
 - [x] `app/(app)/agents/page.tsx` (session list + live stream) — claude ✅
-- [x] `drizzle/0005_agent_sessions.sql` applied to Neon — ✅ 2026-05-26
+- [ ] `drizzle/0005_agent_sessions.sql` applied to Neon — NOT applied; live query 2026-08-18 confirms no agent_sessions table and migration hash absent from drizzle.__drizzle_migrations. Gated for Shepard: corepack pnpm db:migrate.
 - [ ] Session resume button using stored `session_id` — deferred to Sprint 06
 - [ ] `lib/agents/permission-policy.ts` (UI mode → permissionMode) — deferred to Sprint 06
 
