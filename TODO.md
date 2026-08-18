@@ -6,10 +6,10 @@
 > Status: Sprints 03–05 ✅ complete + verified (commit `0eb0483`, 2026-05-26). Sprint 06 is next.
 
 ### Smoke test required (Shepard-Commander)
-- [ ] `corepack pnpm dev:helm` → `/terminal` (Sprint 03 — PowerShell session) (unauthenticated redirect confirmed 2026-08-13 — DOCS/2026-08-13-smoke-retest-report.md; authenticated content still pending Shepard-Commander live login)
+- [x] `corepack pnpm dev:helm` → `/terminal` (Sprint 03 — PowerShell session) (verified live by Shepard-Commander in session 2026-08-18 — see DOCS/2026-08-18-smoke-verification-addendum.md)
 - [ ] `/agents` → submit prompt, watch SSE stream (Sprint 04) (blocked: drizzle 0005 not applied to Neon — confirmed via live query 2026-08-18, no agent_sessions table exists; gated, queued for Shepard to run corepack pnpm db:migrate)
-- [ ] `/vault` → browse notes from `C:\Users\OriShavit\Documents\legion-vault` (Sprint 05) (unauthenticated redirect confirmed 2026-08-13 — DOCS/2026-08-13-smoke-retest-report.md; authenticated content still pending Shepard-Commander live login)
-- [ ] `/graph` → force-graph renders vault links (Sprint 05) (unauthenticated redirect confirmed 2026-08-13 — DOCS/2026-08-13-smoke-retest-report.md; authenticated content still pending Shepard-Commander live login)
+- [x] `/vault` → browse notes from `C:\Users\OriShavit\Documents\legion-vault` (Sprint 05) (verified live by Shepard-Commander in session 2026-08-18 — see DOCS/2026-08-18-smoke-verification-addendum.md)
+- [x] `/graph` → force-graph renders vault links (Sprint 05) (verified live by Shepard-Commander in session 2026-08-18 — see DOCS/2026-08-18-smoke-verification-addendum.md)
 
 ### Sprint 03 — Local Runtime & Terminal Embedding ✅ Verified (2026-05-26)
 - [x] `server.mjs` custom server (HTTP + WS upgrade, Next handler) — claude ✅
