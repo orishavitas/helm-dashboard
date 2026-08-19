@@ -62,7 +62,7 @@
 | `components/ui/input.tsx` | Helm input primitive |
 | `app/(app)/page.tsx` | Dashboard page — renders widget grid |
 | `app/globals.css` | Helm design tokens (CSS vars) |
-| `drizzle/0001_overlord.sql` | Scoped Overlord migration (NOT yet applied to Neon) |
+| `drizzle/0001_overlord.sql` | Scoped Overlord migration (applied to Neon — corrected 2026-08-19; `drizzle/0005_agent_sessions.sql` is the migration still pending, see TODO.md) |
 | `scripts/overlord-push.ps1` | PowerShell heartbeat push script |
 | `lib/terminal/pty-pool.ts` | Sprint 03 PTY pool for max-4 terminal sessions and idle cleanup |
 | `lib/terminal/ws-handler.ts` | Sprint 03 websocket upgrade/input/resize handler for terminal sessions |
