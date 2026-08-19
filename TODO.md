@@ -7,7 +7,7 @@
 
 ### Smoke test required (Shepard-Commander)
 - [x] `corepack pnpm dev:helm` → `/terminal` (Sprint 03 — PowerShell session) (verified live by Shepard-Commander in session 2026-08-18 — see DOCS/2026-08-18-smoke-verification-addendum.md)
-- [ ] `/agents` → submit prompt, watch SSE stream (Sprint 04) (blocked: drizzle 0005 not applied to Neon — confirmed via live query 2026-08-18, no agent_sessions table exists; gated, queued for Shepard to run corepack pnpm db:migrate)
+- [ ] `/agents` → submit prompt, watch SSE stream (Sprint 04) (DB blocker resolved 2026-08-19 — migration 0005 applied and live-verified; route pending one Shepard page-load to confirm it renders)
 - [x] `/vault` → browse notes from `C:\Users\OriShavit\Documents\legion-vault` (Sprint 05) (verified live by Shepard-Commander in session 2026-08-18 — see DOCS/2026-08-18-smoke-verification-addendum.md)
 - [x] `/graph` → force-graph renders vault links (Sprint 05) (verified live by Shepard-Commander in session 2026-08-18 — see DOCS/2026-08-18-smoke-verification-addendum.md)
 
@@ -35,7 +35,7 @@
 - [x] `components/agents/agent-runner.tsx` (prompt + model picker + stop) — claude ✅
 - [x] `components/agents/agent-event-stream.tsx` (SSE consumer) — claude ✅
 - [x] `app/(app)/agents/page.tsx` (session list + live stream) — claude ✅
-- [ ] `drizzle/0005_agent_sessions.sql` applied to Neon — NOT applied; live query 2026-08-18 confirms no agent_sessions table and migration hash absent from drizzle.__drizzle_migrations. Gated for Shepard: corepack pnpm db:migrate.
+- [x] `drizzle/0005_agent_sessions.sql` applied to Neon — applied 2026-08-19 by Shepard-Commander after root-cause fix (out-of-order journal timestamp made drizzle-kit silently skip it since May; commit 03e93a4). Live-verified: agent_sessions + agent_events tables and both enums exist, 6 migration rows.
 - [ ] Session resume button using stored `session_id` — deferred to Sprint 06
 - [ ] `lib/agents/permission-policy.ts` (UI mode → permissionMode) — deferred to Sprint 06
 
