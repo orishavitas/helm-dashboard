@@ -1,16 +1,16 @@
 # Graph Report - Helm-Dashboard  (2026-08-18)
 
 ## Corpus Check
-- 166 files · ~62,120 words
+- 167 files · ~62,554 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1370 nodes · 2115 edges · 161 communities (149 shown, 12 thin omitted)
+- 1376 nodes · 2120 edges · 149 communities (138 shown, 11 thin omitted)
 - Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 151 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d461ae3d`
+- Built from commit: `319b453c`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,7 +27,6 @@
 - [[_COMMUNITY_Community 9|Community 9]]
 - [[_COMMUNITY_Community 10|Community 10]]
 - [[_COMMUNITY_Community 75|Community 75]]
-- [[_COMMUNITY_Community 76|Community 76]]
 - [[_COMMUNITY_Community 77|Community 77]]
 - [[_COMMUNITY_Community 78|Community 78]]
 - [[_COMMUNITY_Community 79|Community 79]]
@@ -45,30 +44,24 @@
 - [[_COMMUNITY_Community 91|Community 91]]
 - [[_COMMUNITY_Community 92|Community 92]]
 - [[_COMMUNITY_Community 93|Community 93]]
-- [[_COMMUNITY_Community 94|Community 94]]
 - [[_COMMUNITY_Community 95|Community 95]]
 - [[_COMMUNITY_Community 96|Community 96]]
 - [[_COMMUNITY_Community 97|Community 97]]
 - [[_COMMUNITY_Community 98|Community 98]]
 - [[_COMMUNITY_Community 99|Community 99]]
 - [[_COMMUNITY_Community 100|Community 100]]
-- [[_COMMUNITY_Community 101|Community 101]]
 - [[_COMMUNITY_Community 102|Community 102]]
 - [[_COMMUNITY_Community 103|Community 103]]
-- [[_COMMUNITY_Community 104|Community 104]]
 - [[_COMMUNITY_Community 105|Community 105]]
 - [[_COMMUNITY_Community 106|Community 106]]
 - [[_COMMUNITY_Community 107|Community 107]]
 - [[_COMMUNITY_Community 108|Community 108]]
-- [[_COMMUNITY_Community 109|Community 109]]
 - [[_COMMUNITY_Community 110|Community 110]]
 - [[_COMMUNITY_Community 111|Community 111]]
 - [[_COMMUNITY_Community 112|Community 112]]
 - [[_COMMUNITY_Community 113|Community 113]]
-- [[_COMMUNITY_Community 114|Community 114]]
 - [[_COMMUNITY_Community 115|Community 115]]
 - [[_COMMUNITY_Community 116|Community 116]]
-- [[_COMMUNITY_Community 117|Community 117]]
 - [[_COMMUNITY_Community 118|Community 118]]
 - [[_COMMUNITY_Community 119|Community 119]]
 - [[_COMMUNITY_Community 120|Community 120]]
@@ -99,11 +92,6 @@
 - [[_COMMUNITY_Community 145|Community 145]]
 - [[_COMMUNITY_Community 146|Community 146]]
 - [[_COMMUNITY_Community 149|Community 149]]
-- [[_COMMUNITY_Community 155|Community 155]]
-- [[_COMMUNITY_Community 156|Community 156]]
-- [[_COMMUNITY_Community 157|Community 157]]
-- [[_COMMUNITY_Community 158|Community 158]]
-- [[_COMMUNITY_Community 159|Community 159]]
 - [[_COMMUNITY_Community 160|Community 160]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -125,35 +113,35 @@
   app/api/vercel/projects/route.ts → lib/vault/obsidian-rest.ts
 - `GET()` --calls--> `listVercelProjects()`  [INFERRED]
   app/api/vercel/projects/route.ts → lib/integrations/vercel.ts
-- `POST()` --calls--> `parseEnv()`  [INFERRED]
-  app/api/overlord/push/route.ts → lib/env.ts
-- `POST()` --calls--> `parseOperationsImportEnv()`  [INFERRED]
-  app/api/overlord/push/route.ts → lib/env.ts
+- `POST()` --calls--> `requireUser()`  [INFERRED]
+  app/api/agents/stop/[id]/route.ts → lib/session.ts
+- `GET()` --calls--> `requireUser()`  [INFERRED]
+  app/api/agents/stream/[id]/route.ts → lib/session.ts
 
 ## Import Cycles
 - None detected.
 
-## Communities (161 total, 12 thin omitted)
+## Communities (149 total, 11 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.10
 Nodes (8): collectNotes(), GET(), abortSession(), hasController(), registerController(), readVaultNote(), readVaultTree(), searchVaultNotes()
 
 ### Community 1 - "Community 1"
-Cohesion: 0.20
-Nodes (14): appendAgentEvent(), createAgentSession(), getAgentEvents(), getAgentSession(), listAgentSessions(), updateAgentSession(), getDb(), emptyToNull() (+6 more)
+Cohesion: 0.14
+Nodes (13): parseEnv(), parseLocalProfileEnv(), parseOperationsImportEnv(), parseOverlordPushEnv(), ProtectedLayout(), TerminalPage(), emptyToNull(), POST() (+5 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.17
 Nodes (10): assigneeName(), getOperationsState(), getResponsibilityBucket(), terminalMatchesProject(), getOverlordState(), clean(), deriveTerminalPresence(), groupTerminalPresence() (+2 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.19
-Nodes (13): assertProjectOwner(), createProject(), softDeleteProject(), updateProject(), requireUser(), closeSprint(), createSprint(), createTask() (+5 more)
+Cohesion: 0.13
+Nodes (24): appendAgentEvent(), createAgentSession(), getAgentEvents(), getAgentSession(), listAgentSessions(), updateAgentSession(), getDb(), linkProjectRepo() (+16 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.29
-Nodes (8): decryptSecret(), encryptSecret(), keyFromEnv(), connectVercelToken(), linkProjectRepo(), linkVercelProject(), refreshProjectSnapshots(), refreshVercel()
+Cohesion: 0.60
+Nodes (4): decryptSecret(), encryptSecret(), keyFromEnv(), connectVercelToken()
 
 ### Community 5 - "Community 5"
 Cohesion: 0.16
@@ -164,28 +152,24 @@ Cohesion: 0.17
 Nodes (16): asObject(), asString(), coerceGithubCommits(), coerceGithubPullRequests(), deriveGithubSnapshotState(), firstLine(), normalizeCommit(), normalizePullRequest() (+8 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.27
-Nodes (7): parseLocalProfileEnv(), closeSession(), defaultShell(), getSession(), handleTerminalUpgrade(), reapIdleTerminalSessions(), terminalSessionIdFromUrl()
+Cohesion: 0.33
+Nodes (5): Audit trail — orchestrator dissent, recorded, Shepard-Commander's live verification (in-session, 2026-08-18), Smoke Verification Addendum — 2026-08-18, Status after this addendum, Why this proves authenticated verification
 
 ### Community 8 - "Community 8"
 Cohesion: 0.42
 Nodes (8): ConvertTo-ProjectPayload(), Get-BlockedReason(), Get-GitState(), Get-LatestSprintFile(), Get-RelativePath(), Get-StableTaskRef(), Get-TaskStatus(), Get-TaskTitle()
 
 ### Community 9 - "Community 9"
-Cohesion: 0.23
-Nodes (20): createProject(), projectSchema, softDeleteProject(), updateProject(), closeSprint(), createSprint(), sprintSchema, createTask() (+12 more)
+Cohesion: 0.67
+Nodes (3): ConnectionState, statusClassName(), XtermPane()
 
 ### Community 10 - "Community 10"
 Cohesion: 0.67
 Nodes (5): buildGraph(), extractTags(), extractWikilinks(), stemFromPath(), stripFrontmatter()
 
 ### Community 75 - "Community 75"
-Cohesion: 0.14
-Nodes (15): AgentRunner(), AgentsPage(), AgentEventRow, AgentSessionRow, appendAgentEvent(), createAgentSession(), getAgentEvents(), listAgentSessions() (+7 more)
-
-### Community 76 - "Community 76"
-Cohesion: 0.14
-Nodes (15): DashboardWidgetSize, GithubCommit, GithubPullRequest, OperationsState, OperationsTask, ProjectDetail, ProviderState, ResponsibilityBucket (+7 more)
+Cohesion: 0.08
+Nodes (31): AgentEventStream(), AgentEventStreamProps, DisplayEvent, StreamState, AgentRunner(), AgentRunnerProps, AgentRunnerEvent, RunAgentOptions (+23 more)
 
 ### Community 77 - "Community 77"
 Cohesion: 0.06
@@ -208,8 +192,8 @@ Cohesion: 0.07
 Nodes (28): dependencies, @anthropic-ai/sdk, @auth/drizzle-adapter, class-variance-authority, clsx, dotenv, drizzle-orm, lucide-react (+20 more)
 
 ### Community 82 - "Community 82"
-Cohesion: 0.14
-Nodes (11): TodoList(), averageProgress(), DashboardWidgetConfig, DashboardWidgetContext, DashboardWidgetDefinition, DashboardWidgetId, dashboardWidgetRegistry, IntegrationHealthWidget() (+3 more)
+Cohesion: 0.11
+Nodes (17): ProjectCard(), providerTone(), statusTone(), TodoList(), averageProgress(), DashboardWidgetConfig, DashboardWidgetContext, DashboardWidgetDefinition (+9 more)
 
 ### Community 83 - "Community 83"
 Cohesion: 0.08
@@ -220,12 +204,12 @@ Cohesion: 0.11
 Nodes (18): adaptNodePty(), createTerminalPool(), spawnNodePty(), TerminalDisposable, TerminalPool, TerminalPoolOptions, TerminalProcess, TerminalProcessListeners (+10 more)
 
 ### Community 85 - "Community 85"
-Cohesion: 0.11
-Nodes (22): accounts, sessions, users, verificationTokens, projectStatus, provider, snapshotStatus, taskPriority (+14 more)
+Cohesion: 0.05
+Nodes (89): connectVercelToken(), linkProjectRepo(), linkVercelProject(), refreshGithub(), refreshProjectSnapshots(), refreshVercel(), createProject(), projectSchema (+81 more)
 
 ### Community 86 - "Community 86"
 Cohesion: 0.14
-Nodes (13): ProjectIntegrationForms(), SprintForm(), TaskForm(), TodoForm(), GitHubActivity(), ConnectionState, statusClassName(), XtermPane() (+5 more)
+Nodes (17): statuses, TaskList(), ProjectIntegrationForms(), SprintForm(), TaskForm(), TodoForm(), cn(), TaskItem (+9 more)
 
 ### Community 87 - "Community 87"
 Cohesion: 0.14
@@ -255,21 +239,17 @@ Nodes (19): Current Baseline, Data Model, Derived Status Rules, File Structure, 
 Cohesion: 0.10
 Nodes (19): Claude tasks — Sprint 03 (DO NOT duplicate), Claude tasks — Sprint 04 (DO NOT duplicate), Claude tasks — Sprint 05 (DO NOT duplicate), Claude tasks — Sprint 06 (DO NOT duplicate), Codex tasks — Sprint 03, Codex tasks — Sprint 04, Codex tasks — Sprint 05, Codex tasks — Sprint 06 (+11 more)
 
-### Community 94 - "Community 94"
-Cohesion: 0.13
-Nodes (12): ProtectedLayout(), AppShell(), envSchema, LocalProfileEnv, localProfileEnvSchema, operationsImportEnvSchema, optionalNonEmptyString, overlordPushEnvSchema (+4 more)
-
 ### Community 95 - "Community 95"
 Cohesion: 0.14
 Nodes (8): getObsidianClient(), ObsidianRestClient, deserializeState(), fetchOverlordState(), apiBase(), latestVercelDeployment(), listVercelProjects(), vercelFetch()
 
 ### Community 96 - "Community 96"
-Cohesion: 0.25
-Nodes (11): GET(), GET(), querySchema, GET(), getObsidianClient(), NoteContent, ObsidianRestClientOptions, SearchResult (+3 more)
+Cohesion: 0.06
+Nodes (30): ProtectedLayout(), AppShell(), envSchema, LocalProfileEnv, localProfileEnvSchema, operationsImportEnvSchema, optionalNonEmptyString, overlordPushEnvSchema (+22 more)
 
 ### Community 97 - "Community 97"
-Cohesion: 0.17
-Nodes (13): app, handle, profile, projectDir, server, closeSession(), defaultShell(), getSession() (+5 more)
+Cohesion: 0.07
+Nodes (32): emptyToNull(), importSchema, POST(), projectImportSchema, resolveOwner(), splitRepo(), taskImportSchema, upsertProject() (+24 more)
 
 ### Community 98 - "Community 98"
 Cohesion: 0.12
@@ -280,12 +260,8 @@ Cohesion: 0.13
 Nodes (14): aliases, components, lib, ui, utils, rsc, $schema, style (+6 more)
 
 ### Community 100 - "Community 100"
-Cohesion: 0.18
-Nodes (12): deserializeState(), fetchOverlordState(), OverlordPanel(), SerializedSnapshot, SerializedState, OverlordTerminalCard(), Props, STATUS_ICON (+4 more)
-
-### Community 101 - "Community 101"
-Cohesion: 0.21
-Nodes (9): ProjectCard(), providerTone(), statusTone(), statuses, TaskList(), ProjectSummary, TaskItem, Badge() (+1 more)
+Cohesion: 0.20
+Nodes (11): deserializeState(), fetchOverlordState(), OverlordPanel(), SerializedSnapshot, SerializedState, OverlordTerminalCard(), Props, STATUS_ICON (+3 more)
 
 ### Community 102 - "Community 102"
 Cohesion: 0.13
@@ -295,13 +271,9 @@ Nodes (14): File Structure, Overlord Monitor — Implementation Plan, Self-Revie
 Cohesion: 0.13
 Nodes (14): Code quality (non-blocking), Done ✅, Ready to do (env unblocked), Runtime verified, Smoke test required (Shepard-Commander), Sprint 01: Overlord Monitor, Sprint 02: GitHub Project Tracking and Live Terminal Presence, Sprint 03 — Local Runtime & Terminal Embedding ✅ Verified (2026-05-26) (+6 more)
 
-### Community 104 - "Community 104"
-Cohesion: 0.18
-Nodes (9): NoteViewer(), NoteViewerProps, VaultFileEntry, NoteResponse, SearchResult, TreeResponse, TreeEntryProps, VaultTree() (+1 more)
-
 ### Community 105 - "Community 105"
-Cohesion: 0.13
-Nodes (20): GET(), GET(), DashboardPage(), DashboardWidgetGrid(), assigneeName(), getOperationsState(), getResponsibilityBucket(), terminalMatchesProject() (+12 more)
+Cohesion: 0.12
+Nodes (22): GET(), GET(), DashboardPage(), DashboardWidgetGrid(), assigneeName(), getOperationsState(), getResponsibilityBucket(), terminalMatchesProject() (+14 more)
 
 ### Community 106 - "Community 106"
 Cohesion: 0.14
@@ -314,10 +286,6 @@ Nodes (12): compilerOptions, incremental, jsx, module, moduleResolution, noEmit,
 ### Community 108 - "Community 108"
 Cohesion: 0.17
 Nodes (11): Acceptance Criteria, Constraints, Context, Inputs, Notes, Objective, Out of Scope, Scope (+3 more)
-
-### Community 109 - "Community 109"
-Cohesion: 0.32
-Nodes (11): emptyToNull(), importSchema, POST(), projectImportSchema, resolveOwner(), splitRepo(), taskImportSchema, upsertProject() (+3 more)
 
 ### Community 110 - "Community 110"
 Cohesion: 0.17
@@ -334,10 +302,6 @@ Nodes (11): Task 10 â€” PowerShell push script, Task 11 â€” KB update,
 ### Community 113 - "Community 113"
 Cohesion: 0.17
 Nodes (11): 2026-05-19 Codex update, Bash tool note, Code fix applied, Current git state, Quartet created (all new — did not exist before), Remaining verification, Session Handoff — Helm Dashboard, State updated (+3 more)
-
-### Community 114 - "Community 114"
-Cohesion: 0.18
-Nodes (6): parseEnv(), parseLocalProfileEnv(), parseOperationsImportEnv(), parseOverlordPushEnv(), ProtectedLayout(), TerminalPage()
 
 ### Community 115 - "Community 115"
 Cohesion: 0.18
@@ -408,8 +372,8 @@ Cohesion: 0.33
 Nodes (5): Completion Log, Sprint 001 — helm-dashboard, Task 001 — Add snapshot refresh route handlers, Task 002 — Wire snapshot refresh into project detail page, Task 003 — Dashboard: trigger snapshot refresh per project on load
 
 ### Community 133 - "Community 133"
-Cohesion: 0.40
-Nodes (3): TerminalLoader(), TerminalLoaderProps, XtermPane
+Cohesion: 0.32
+Nodes (4): TerminalLoader(), TerminalLoaderProps, XtermPane, Card()
 
 ### Community 135 - "Community 135"
 Cohesion: 0.40
@@ -420,47 +384,25 @@ Cohesion: 0.50
 Nodes (3): dialect, entries, version
 
 ### Community 137 - "Community 137"
-Cohesion: 0.16
-Nodes (13): DashboardWidget(), TerminalRepoGroup, cn(), OperationsProjectState, ProjectStateWidget(), Props, Props, statusTone (+5 more)
-
-### Community 155 - "Community 155"
-Cohesion: 0.18
-Nodes (15): refreshGithub(), getProjectSummaries(), userIntegrations, VercelTokenForm(), ProjectForm(), GET(), getOpenPullRequests(), getRecentCommits() (+7 more)
-
-### Community 156 - "Community 156"
-Cohesion: 0.24
-Nodes (13): connectVercelToken(), linkProjectRepo(), linkVercelProject(), refreshProjectSnapshots(), refreshVercel(), apiBase(), latestVercelDeployment(), listVercelProjects() (+5 more)
-
-### Community 157 - "Community 157"
-Cohesion: 0.24
-Nodes (14): deploymentField(), getProjectDetail(), ProjectRow, toSummary(), asObject(), asString(), coerceGithubCommits(), coerceGithubPullRequests() (+6 more)
-
-### Community 158 - "Community 158"
-Cohesion: 0.36
-Nodes (9): abortSession(), g, hasController(), registerController(), unregisterController(), getAgentSession(), updateAgentSession(), GET() (+1 more)
-
-### Community 159 - "Community 159"
-Cohesion: 0.25
-Nodes (7): AgentEventStream(), AgentEventStreamProps, DisplayEvent, StreamState, AgentRunnerProps, AgentRunnerEvent, RunAgentOptions
+Cohesion: 0.11
+Nodes (19): DashboardWidget(), DashboardWidgetSize, TerminalRepoGroup, OperationsProjectState, OperationsState, OperationsTask, ResponsibilityBucket, Props (+11 more)
 
 ### Community 160 - "Community 160"
 Cohesion: 0.22
 Nodes (8): Dev server status, Helm-Dashboard Interactive Smoke Retest — 2026-08-13, Step 1 — `/login` renders cleanly, Steps 2–3 — Four protected routes, unauthenticated, Summary, TODO.md status, What changed since the failed Sprint 4 attempt, What this retest does NOT and cannot prove
 
 ## Knowledge Gaps
-- **544 isolated node(s):** `PreToolUse`, `KnowledgeGraph`, `NoteResponse`, `SearchResult`, `createSchema` (+539 more)
+- **548 isolated node(s):** `PreToolUse`, `KnowledgeGraph`, `NoteResponse`, `SearchResult`, `createSchema` (+543 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `GET()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 6`, `Community 7`, `Community 10`, `Community 114`, `Community 118`, `Community 124`, `Community 95`?**
-  _High betweenness centrality (0.094) - this node is a cross-community bridge._
-- **Why does `parseLocalProfileEnv()` connect `Community 7` to `Community 97`?**
-  _High betweenness centrality (0.088) - this node is a cross-community bridge._
-- **Why does `closeSession()` connect `Community 7` to `Community 0`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+- **Why does `GET()` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 97`, `Community 6`, `Community 10`, `Community 118`, `Community 124`, `Community 95`?**
+  _High betweenness centrality (0.097) - this node is a cross-community bridge._
+- **Why does `getSession()` connect `Community 97` to `Community 0`?**
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
 - **Are the 5 inferred relationships involving `requireUser()` (e.g. with `GET()` and `GET()`) actually correct?**
   _`requireUser()` has 5 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 37 inferred relationships involving `GET()` (e.g. with `getAgentSession()` and `listAgentSessions()`) actually correct?**
@@ -468,4 +410,6 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 36 inferred relationships involving `getDb()` (e.g. with `appendAgentEvent()` and `createAgentSession()`) actually correct?**
   _`getDb()` has 36 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `PreToolUse`, `KnowledgeGraph`, `NoteResponse` to the rest of the system?**
-  _544 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _548 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Community 0` be split into smaller, more focused modules?**
+  _Cohesion score 0.10144927536231885 - nodes in this community are weakly interconnected._
